@@ -1,0 +1,73 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "bad14374a0bb21b96718bd4489db30da",
+    "packages": [
+        {
+            "name": "mustangostang/spyc",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mustangostang/spyc.git",
+                "reference": "4e2a585391c46adb1ea060f8f26a2a60fd559d5b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mustangostang/spyc/zipball/4e2a585391c46adb1ea060f8f26a2a60fd559d5b",
+                "reference": "4e2a585391c46adb1ea060f8f26a2a60fd559d5b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "0.5.x-dev"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "Spyc.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mustangostang",
+                    "email": "vlad.andersen@gmail.com"
+                }
+            ],
+            "description": "A simple YAML loader/dumper class for PHP",
+            "homepage": "https://github.com/mustangostang/spyc/",
+            "keywords": [
+                "spyc",
+                "yaml",
+                "yml"
+            ],
+            "time": "2014-05-08 14:11:16"
+        }
+    ],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "mustangostang/spyc": 20
+    },
+    "platform": [
+
+    ],
+    "platform-dev": [
+
+    ]
+}

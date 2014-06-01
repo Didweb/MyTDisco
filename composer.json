@@ -1,0 +1,19 @@
+{
+	"name": "didweb/MyT",
+	"description": "Mini Framework",
+	"authors": [
+		{
+			"name": "Eduard Pinuaga",
+			"email": "info@did-web.com"
+		}
+	],
+	"require": {
+		"mustangostang/spyc": "0.5.*@dev"
+	
+	},
+	"autoload": {
+		"psr-0": {
+			
+		}
+	}
+}
