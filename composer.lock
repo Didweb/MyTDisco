@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "bad14374a0bb21b96718bd4489db30da",
+    "hash": "e298df089ab541aa50175c7fd86d1623",
     "packages": [
         {
             "name": "mustangostang/spyc",
