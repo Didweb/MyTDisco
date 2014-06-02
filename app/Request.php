@@ -28,7 +28,13 @@ class Request extends Lecturas
 
 	public function setDestino()
 	{
-		return $this->BuscaUrl($this->url);
+		$resultado = $this->BuscaUrl($this->url);
+		if($resultado === null)
+		{ return "ERROR 404 -> Esta ruta no existe.";}
+		else
+		{return 'El controlador es: '.$this->BuscaUrl($this->url);}
+		
+		
 	}
 }
 

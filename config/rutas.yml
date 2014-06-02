@@ -1,0 +1,7 @@
+ruta_uno:
+    url: pato/dos
+    controller: Index
+    
+ruta_dos:
+    url: POLKA 
+    controller: MusicaPolka   

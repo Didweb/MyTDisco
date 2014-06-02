@@ -1,5 +1,6 @@
 <?php
- require_once 'app/LecturasInterpretes.php';
+require_once 'app/LecturasInterpretes.php';
+
 
 class Lecturas extends LecturasInterpretes
 {
@@ -8,8 +9,10 @@ class Lecturas extends LecturasInterpretes
 	
 	public function BuscaUrl($RequestUrl)
 	{
-		
-	return $RequestUrl;	
+	
+	
+	 
+	return $this->LectorYamlRutas($RequestUrl);	
 		
 	}
 
