@@ -14,6 +14,16 @@
     'url' => 'POLKA',
     'controller' => 'MusicaPolka',
   ),
+  'ruta_tres' => 
+  array (
+    'url' => 'pluma',
+    'controller' => 'Pluma',
+  ),
+  'ruta_cuatro' => 
+  array (
+    'url' => 'pupa',
+    'conroller' => 'Pupa',
+  ),
 ); 
 
  public function getRutas()

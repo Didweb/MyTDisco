@@ -4,11 +4,21 @@ require_once 'app/Lecturas.php';
 class Request extends Lecturas
 {
 	private $url;
+	public $constantes;
 	
 	public function __construct()
 	{
-		$this->setUrl();
+		$this->setUrl();	
 	}
+	
+	public function getConstantes()
+	{
+		$data = Spyc::YAMLLoad('config/config.yml');
+		$constantes = var_export($data, TRUE);
+		
+		$this->constantes = $constantes;	
+	}
+	
 	
 	public function setUrl()
 	{
@@ -29,10 +39,11 @@ class Request extends Lecturas
 	public function setDestino()
 	{
 		$resultado = $this->BuscaUrl($this->url);
+		
 		if($resultado === null)
 		{ return "ERROR 404 -> Esta ruta no existe.";}
 		else
-		{return 'El controlador es: '.$this->BuscaUrl($this->url);}
+		{return 'El controlador es: '.$this->controlador;}
 		
 		
 	}

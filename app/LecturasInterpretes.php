@@ -2,14 +2,26 @@
 require_once('vendor/mustangostang/spyc/Spyc.php'); 
 class LecturasInterpretes
 {
-	private $controlador;
+	static $controlador;
+
 
 	public function LectorYamlRutas($RequestUrl)
 		{
-		$data = Spyc::YAMLLoad('config/rutas.yml');
-		$phpCode = '$data = ' . var_export($data, TRUE) . ';';
-		file_put_contents('app/tmp/rutas.php', "<?php\n\n class rutas \n { \n\n private " . $phpCode . " \n\n public function getRutas()\n{ \n return \$this->data; \n} \n\n} \n\n?>");  	
-		return $this->ComprobarRuta($RequestUrl);
+		echo "<br /> xxxxxxxxxxxxxxxxxxxxxxxxx".$this->constantes;
+		
+		$originalFile = 'config/rutas.yml';
+		$compiledFile = 'app/tmp/rutas.php';
+		
+		if(!$this->isCompiled($originalFile, $compiledFile)) {
+			$data = Spyc::YAMLLoad('config/rutas.yml');
+			$phpCode = '$data = ' . var_export($data, TRUE) . ';';
+			file_put_contents('app/tmp/rutas.php', "<?php\n\n class rutas \n { \n\n private " . $phpCode . " \n\n public function getRutas()\n{ \n return \$this->data; \n} \n\n} \n\n?>");  	
+			return $this->ComprobarRuta($RequestUrl);
+			}
+		else {
+			return $this->ComprobarRuta($RequestUrl);	
+			}
+		
 		}	
 
 
@@ -29,6 +41,23 @@ class LecturasInterpretes
 		return null;
 			
 		}
+
+
+	public function isCompiled($originalFile, $compiledFile) 
+	 { 
+	   if (file_exists($compiledFile)) 
+	   { 
+		
+		 
+		if (filemtime($originalFile) < filemtime($compiledFile)) { 
+		  return TRUE; 
+			} 
+	   } 
+	   
+	   return FALSE; 
+	 }
+	
+	
 	
 }
 

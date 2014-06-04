@@ -4,4 +4,12 @@ ruta_uno:
     
 ruta_dos:
     url: POLKA 
-    controller: MusicaPolka   
+    controller: MusicaPolka  
+
+ruta_tres:
+    url: pluma
+    controller: Pluma
+
+ruta_cuatro:
+    url: pupa
+    conroller: Pupa    

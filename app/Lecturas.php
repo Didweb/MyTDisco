@@ -6,6 +6,9 @@ class Lecturas extends LecturasInterpretes
 {
 	
 	private $RequestUrl;
+
+	
+	
 	
 	public function BuscaUrl($RequestUrl)
 	{
@@ -16,6 +19,7 @@ class Lecturas extends LecturasInterpretes
 		
 	}
 
+	
 	
 	
 }
