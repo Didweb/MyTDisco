@@ -8,7 +8,7 @@ abstract class Controller
 		$this->_view = new View(new Request);
 	}
 	
-	abstract public function index();
+	
 }
 
 ?>

@@ -4,7 +4,7 @@ require_once 'app/Lecturas.php';
 class Request extends Lecturas
 {
 	private $url;
-	public $constantes;
+	public $DestinoControlador;
 	
 	public function __construct()
 	{
@@ -36,15 +36,21 @@ class Request extends Lecturas
 	}
 
 
+
 	public function setDestino()
 	{
 		$resultado = $this->BuscaUrl($this->url);
 		
 		if($resultado === null)
-		{ return "ERROR 404 -> Esta ruta no existe.";}
-		else
-		{return 'El controlador es: '.$this->controlador;}
+		{ 
+			$this->controlador = 'Error';
+			$this->metodo = 'error404';
+			$this->redirect = 404;
 		
+		}
+		
+		
+		 
 		
 	}
 }

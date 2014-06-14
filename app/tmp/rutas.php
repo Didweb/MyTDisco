@@ -7,22 +7,22 @@
   'ruta_uno' => 
   array (
     'url' => 'pato/dos',
-    'controller' => 'Index',
+    'controller' => 'Index::index2',
   ),
   'ruta_dos' => 
   array (
-    'url' => 'POLKA',
-    'controller' => 'MusicaPolka',
+    'url' => 'POLKAXY',
+    'controller' => 'Index::indexpolka',
   ),
   'ruta_tres' => 
   array (
     'url' => 'pluma',
-    'controller' => 'Pluma',
+    'controller' => 'Pluma::po',
   ),
   'ruta_cuatro' => 
   array (
     'url' => 'pupa',
-    'conroller' => 'Pupa',
+    'conroller' => 'Pupa::pa',
   ),
 ); 
 

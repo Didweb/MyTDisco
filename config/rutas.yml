@@ -1,15 +1,16 @@
 ruta_uno:
     url: pato/dos
-    controller: Index
+    controller: Index::index2
+    
     
 ruta_dos:
-    url: POLKA 
-    controller: MusicaPolka  
+    url: POLKAXY
+    controller: Index::indexpolka  
 
 ruta_tres:
     url: pluma
-    controller: Pluma
+    controller: Pluma::po
 
 ruta_cuatro:
     url: pupa
-    conroller: Pupa    
+    conroller: Pupa::pa    

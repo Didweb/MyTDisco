@@ -1,10 +1,28 @@
 # Iniciamos el mod_rewrite
-RewriteEngine On
+#RewriteEngine On
 
-# Estas líneas hacen que primero se busque el archivo físico indicado
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-l
+#RewriteBase /MyT/
+
+#RewriteRule  ^/pato/dosx$  index.php?url=pato/dos [R=301]
+
+#RedirectMatch 301  ^pato/dosx$  index.php?url=pato/dos 
+#RewriteCond %{REQUEST_URI} !^/pato/dosx$ 
+#RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
 
 # En caso de no encontrarlo para a interpretar así la URL
-RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+# --- RewriteRule ^(.+)$ index.php?url=$1 [QSA,L]
+
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /MyT/
+    
+    RewriteCond %{REQUEST_URI} pato/dosx
+    RewriteRule ^pato/dosx$  pato/dos [R=301]
+    
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php?url=$1 [L]
+    
+    
+</IfModule>

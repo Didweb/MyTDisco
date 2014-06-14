@@ -7,19 +7,14 @@ class Lecturas extends LecturasInterpretes
 	
 	private $RequestUrl;
 
-	
-	
-	
+
+	 
 	public function BuscaUrl($RequestUrl)
 	{
-	
-	
-	 
-	return $this->LectorYamlRutas($RequestUrl);	
-		
+		return $this->LectorYamlRutas($RequestUrl); 
 	}
 
-	
+
 	
 	
 }
