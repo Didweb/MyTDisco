@@ -2,7 +2,6 @@
 require_once('vendor/autoload.php'); 
 require_once 'app/Request.php';
 require_once 'app/Kernel.php';
-//use APP\Kernel;
 
 class Bootstrap extends Kernel
 {
