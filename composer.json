@@ -8,7 +8,8 @@
 		}
 	],
 	"require": {
-		"mustangostang/spyc": "0.5.*@dev"
+		"mustangostang/spyc": "0.5.*@dev",
+		"twig/twig": "1.*"
 	
 	},
 	"autoload": {
