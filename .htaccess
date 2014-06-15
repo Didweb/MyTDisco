@@ -15,14 +15,12 @@
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
+
     RewriteBase /MyT/
-    
-    RewriteCond %{REQUEST_URI} pato/dosx
-    RewriteRule ^pato/dosx$  pato/dos [R=301]
-    
+    Redirect 301 pato/dosx  http://localhost/MyT/pato/dos
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ index.php?url=$1 [L]
-    
-    
+
 </IfModule>

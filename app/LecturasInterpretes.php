@@ -19,6 +19,8 @@ class LecturasInterpretes
 		if(!$this->isCompiled($originalFile, $compiledFile)) {
 			$data = Spyc::YAMLLoad('config/rutas.yml');
 			$phpCode = '$data = ' . var_export($data, TRUE) . ';';
+			// Lectura y escritura para el propietario, nada para los demás
+			//chmod("app/tmp/rutas.php", 0755);
 			file_put_contents('app/tmp/rutas.php', "<?php\n\n class rutas \n { \n\n private " . $phpCode . " \n\n public function getRutas()\n{ \n return \$this->data; \n} \n\n} \n\n?>");  	
 			return $this->ComprobarRuta($RequestUrl,'app/tmp/rutas.php','rutas');
 			}
@@ -59,6 +61,8 @@ class LecturasInterpretes
 					
 				}
 			} else {echo "NO ES ARRAY";}
+			// Lectura y escritura para el propietario, nada para los demás
+			//chmod("app/tmp/config.php", 0755);
 			file_put_contents('app/tmp/config.php', "<?php\n\n class config \n { \n\n " .$variables ." \n private " .$phpCode ." \n\n \t public function getConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
 			return $this->ComprobarRuta($RequestUrl,'app/tmp/config.php','config'); }
 		else {
