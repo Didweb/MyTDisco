@@ -14,8 +14,15 @@ class IndexController
 	
 	public function index2()
 	{
-		echo "<br /> <b>LA REDIRECCION: </b>".$this->redirect;
-		echo "<br />Dentro del controlador de <b>Index</b> es esto <<<-----";
+		
+		$loader = new Twig_Loader_Filesystem('templates/fijas');
+		$twig = new Twig_Environment($loader, array(
+			'cache' => __DIR__ . '/../../app/cache',
+		));
+		$redirect = $this->redirect;
+		echo $twig->render('pato-dos.html', array('redirect' => $redirect));
+		
+		
 	}
 	
 	public function indexpolka()

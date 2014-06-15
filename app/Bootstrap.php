@@ -1,6 +1,7 @@
 <?php
-require_once 'app/Request.php';
-require_once 'app/Kernel.php';
+require_once('vendor/autoload.php'); 
+//require_once 'app/Request.php';
+//require_once 'app/Kernel.php';
 
 class Bootstrap extends Kernel
 {
@@ -28,7 +29,7 @@ class Bootstrap extends Kernel
 		$nomControlador = $peticion->controlador.'Controller';
 		$nomMetodo 		= $peticion->metodo;
 		
-		echo "<br /><br />".'Controlador: '.$nomControlador.'   /  Metodo: '.$nomMetodo."<br /><br />";
+		//echo "<br /><br />".'Controlador: '.$nomControlador.'   /  Metodo: '.$nomMetodo."<br /><br />";
 		
 		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect);
 		

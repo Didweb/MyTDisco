@@ -1,5 +1,5 @@
 <?php
-require_once('vendor/mustangostang/spyc/Spyc.php'); 
+//require_once('vendor/mustangostang/spyc/Spyc.php'); 
 
 class LecturasInterpretes
 {
@@ -83,12 +83,10 @@ class LecturasInterpretes
 		{
 		require_once ($path);
 		$elGet = 'get'.ucfirst($clase);
-		echo $path.' - '.$RequestUrl;
 		$data = new $clase();
 		
 			foreach ($data->$elGet() as $key => $val) {
 			   if ($val['url'] === $RequestUrl) {
-				   echo "<br /> ---------->PIT  ".$da;
 				    $da = explode('::',$val['controller']);
 				    $this->controlador = $da[0];
 				    $this->metodo = $da[1];
