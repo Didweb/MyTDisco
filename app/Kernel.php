@@ -1,6 +1,6 @@
 <?php
-require_once 'app/Lecturas.php';
-require_once 'app/tmp/config.php';
+//require_once 'app/Lecturas.php';
+//require_once 'app/tmp/config.php';
 
 class Kernel extends Lecturas
 {

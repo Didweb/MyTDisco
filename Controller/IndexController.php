@@ -5,6 +5,7 @@ class IndexController
 {
 	private $constantes;
 	private $redirect;
+	private $encontrada;
 	
 	public function __construct($constantes,$redirect)
 	{

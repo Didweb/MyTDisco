@@ -2,13 +2,11 @@
 require_once('vendor/autoload.php'); 
 require_once 'app/Request.php';
 require_once 'app/Kernel.php';
+//use APP\Kernel;
 
 class Bootstrap extends Kernel
 {
 	private $destino;
-	
-
-	
 	
 	public static function run(Request $peticion)
 	{
@@ -32,8 +30,6 @@ class Bootstrap extends Kernel
 		//echo "<br /><br />".'Controlador: '.$nomControlador.'   /  Metodo: '.$nomMetodo."<br /><br />";
 		
 		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect);
-		
-		if($nomMetodo=='error404'){echo ' <span style="color:red; font-width:bold; ">RESULTADO: ERROR404</span>';}
 		
 		$carga->$nomMetodo();
 	

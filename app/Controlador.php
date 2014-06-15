@@ -1,28 +1,30 @@
 <?php
-
-
-class ErrorController 
+abstract class Controlador
 {
-
-	public function __construct($constantes,$redirect)
+	protected $encontrada;
+	
+	public function __construct($redirect)
 	{
-	$this->constantes = $constantes;
-	$this->redirect  = $redirect;	
+		if($redirect == 404){
+			$this->encontrada = false;
+			
+			} else {
+			$this->encontrada = true;	
+			}
 	}
 	
 	public function error404()
 	{
-		header("HTTP/1.0 404 Not Found");
 		$loader = new Twig_Loader_Filesystem('templates/error');
 		$twig = new Twig_Environment($loader, array(
 			'cache' => __DIR__ . '/../../app/cache',
 		));
-		
 		$redirect = $this->redirect;
 		echo $twig->render('error404.html', array('redirect' => $redirect));
+		
 	}
 	
-
+	
 }
 
 ?>
