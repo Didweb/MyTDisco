@@ -8,14 +8,14 @@
 
  private $ConfigUrl = "config/rutas.yml";
 
- private $OtraRuta = "aluxxfzzzzztttttkkkkkk.php";
+ private $OtraRuta = "pitos";
  
  private $data = array (
   'RutasConfig' => 
   array (
     'TmpUrl' => 'app/tmp/rutas.php',
     'ConfigUrl' => 'config/rutas.yml',
-    'OtraRuta' => 'aluxxfzzzzztttttkkkkkk.php',
+    'OtraRuta' => 'pitos',
   ),
 ); 
 

@@ -2,26 +2,28 @@
 abstract class Controlador
 {
 	protected $encontrada;
+	protected $twig;
 	
-	public function __construct($redirect)
-	{
-		if($redirect == 404){
-			$this->encontrada = false;
-			
-			} else {
-			$this->encontrada = true;	
-			}
-	}
 	
-	public function error404()
+	
+	public function cargaTwig($path)
 	{
-		$loader = new Twig_Loader_Filesystem('templates/error');
-		$twig = new Twig_Environment($loader, array(
-			'cache' => __DIR__ . '/../../app/cache',
-		));
-		$redirect = $this->redirect;
-		echo $twig->render('error404.html', array('redirect' => $redirect));
+		if($_SERVER['HTTP_HOST']=='localhost'){
+			$loader = new Twig_Loader_Filesystem($path);
+			$twig = new Twig_Environment($loader, array(
+				'cache' => __DIR__ . '/../../app/cache',
+				'debug' => true
+			));
+		} else {
+			$loader = new Twig_Loader_Filesystem($path);
+			$twig = new Twig_Environment($loader, array(
+				'cache' => __DIR__ . '/../../app/cache',
+				'debug' => false
+			));	
+		}
 		
+		$this->twig  = $twig;
+		return $this->twig;
 	}
 	
 	

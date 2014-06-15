@@ -1,35 +1,34 @@
 <?php
+require_once 'app/Controlador.php';
 
-
-class IndexController 
+class IndexController extends Controlador
 {
 	private $constantes;
 	private $redirect;
-	private $encontrada;
 	
 	public function __construct($constantes,$redirect)
 	{
 	$this->constantes = $constantes;
-	$this->redirect  = $redirect;	
+	$this->redirect  = $redirect;
+	
 	}
 	
 	public function index2()
 	{
-		
-		$loader = new Twig_Loader_Filesystem('templates/fijas');
-		$twig = new Twig_Environment($loader, array(
-			'cache' => __DIR__ . '/../../app/cache',
-		));
 		$redirect = $this->redirect;
-		echo $twig->render('pato-dos.html', array('redirect' => $redirect));
 		
+		$twig = $this->cargaTwig('templates/fijas');	
+		echo $twig->render('pato-dos.html', array('redirect' => $redirect));
 		
 	}
 	
 	public function indexpolka()
 	{
-		echo "<br /> <b>CONSTANTE OtraRuta</b>: [en Controlador]".$this->constantes->getOtraRuta()."<br /><br />";
-		echo "<br />En controlador Indesx dentro de <b>indexpolka</b> metodo <<<-----";
+		$constante = $this->constantes->getOtraRuta();
+		
+		$twig = $this->cargaTwig('templates/fijas');	
+		echo $twig->render('polka.html', array('constante' => $constante));
+		
 	}
 }
 

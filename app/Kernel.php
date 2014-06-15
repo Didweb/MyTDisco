@@ -6,9 +6,18 @@ class Kernel extends Lecturas
 {
 	public $cons;
 	
+	
 	public function __construct()
 	{
 		$this->LectorYamlConfig();	
+		if($_SERVER['HTTP_HOST']=='localhost')
+			{
+			define ('ENTORNO','_debug');	
+			} else {
+			define ('ENTORNO','');	
+				
+			}
+			
 	}
 	
 	public function setConstantes()
