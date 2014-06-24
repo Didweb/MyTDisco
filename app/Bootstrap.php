@@ -28,7 +28,7 @@ class Bootstrap extends Kernel
 		
 		//echo "<br /><br />".'Controlador: '.$nomControlador.'   /  Metodo: '.$nomMetodo."<br /><br />";
 		
-		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect);
+		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect,$peticion->parametros_get);
 		
 		$carga->$nomMetodo();
 	

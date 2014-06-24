@@ -5,11 +5,13 @@ class IndexController extends Controlador
 {
 	private $constantes;
 	private $redirect;
+	private $parametros_get;
 	
-	public function __construct($constantes,$redirect)
+	public function __construct($constantes,$redirect,$parametros_get=array())
 	{
-	$this->constantes = $constantes;
-	$this->redirect  = $redirect;
+	$this->constantes 		= $constantes;
+	$this->redirect  		= $redirect;
+	$this->parametros_get 	= $parametros_get;
 	
 	}
 	
@@ -17,8 +19,9 @@ class IndexController extends Controlador
 	{
 		$redirect = $this->redirect;
 		
+		
 		$twig = $this->cargaTwig('templates/fijas');	
-		echo $twig->render('pato-dos.html', array('redirect' => $redirect));
+		echo $twig->render('pato-dos.html', array('redirect' => $redirect,'parametros'=>$this->parametros_get));
 		
 	}
 	
