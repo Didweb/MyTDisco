@@ -22,7 +22,9 @@ Bueno casi nada ;P
 
 # Estado del Proyecto.
 
-Proceso embrionario del proyecto. Iniciando el Bootstrap y ocncepto de redirección hacia los Controladores.
+- Proceso embrionario del proyecto. Iniciando el Bootstrap y concepto de redirección hacia los Controladores.
+- Creando recogida de parametros por Get.
+ 
 
 
 
