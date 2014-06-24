@@ -157,7 +157,7 @@ class LecturasInterpretes
 				if($url2[$nom2]=='string'){
 					$nueva_url .= '(.*\w)/';
 					} elseif ($url2[$nom2]=='int') {
-					$nueva_url .= '(.*\d)/';
+					$nueva_url .= '(\d[^aA-zZ_-]*)/';
 					}
 					
 				}
