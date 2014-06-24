@@ -3,3 +3,5 @@ RutasConfig:
     ConfigUrl: config/rutas.yml
     OtraRuta: pitos
     
+    idiomas: es,ca,en
+    

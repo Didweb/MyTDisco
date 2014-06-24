@@ -1,11 +1,11 @@
 ruta_uno:
-    url: pato/dos
+    url: pato/dos/{nombre:string}/{pagina:int}
     controller: Index::index2
     
     
 ruta_dos:
-    url: POLKAXY
-    controller: Index::indexpolka  
+    url: POLKAXY/{apellido:string}
+    controller: Index::indexpolka
 
 ruta_tres:
     url: pluma
@@ -13,4 +13,4 @@ ruta_tres:
 
 ruta_cuatro:
     url: pupa
-    conroller: Pupa::pa    
+    conroller: Pupa::pa

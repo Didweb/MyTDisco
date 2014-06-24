@@ -48,10 +48,7 @@ class Request extends Lecturas
 			$this->redirect = 404;
 		
 		}
-		
-		
-		 
-		
+	
 	}
 }
 

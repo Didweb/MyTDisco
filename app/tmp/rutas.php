@@ -6,12 +6,12 @@
  private $data = array (
   'ruta_uno' => 
   array (
-    'url' => 'pato/dos',
+    'url' => 'pato/dos/{nombre:string}/{pagina:int}',
     'controller' => 'Index::index2',
   ),
   'ruta_dos' => 
   array (
-    'url' => 'POLKAXY',
+    'url' => 'POLKAXY/{apellido:string}',
     'controller' => 'Index::indexpolka',
   ),
   'ruta_tres' => 

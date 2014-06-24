@@ -9,6 +9,8 @@
  private $ConfigUrl = "config/rutas.yml";
 
  private $OtraRuta = "pitos";
+
+ private $idiomas = "es,ca,en";
  
  private $data = array (
   'RutasConfig' => 
@@ -16,6 +18,7 @@
     'TmpUrl' => 'app/tmp/rutas.php',
     'ConfigUrl' => 'config/rutas.yml',
     'OtraRuta' => 'pitos',
+    'idiomas' => 'es,ca,en',
   ),
 ); 
 
@@ -40,6 +43,12 @@
  	 public function getOtraRuta() { 
  
  	 	 return $this->OtraRuta;  
+  	 	 } 
+  
+ 
+ 	 public function getIdiomas() { 
+ 
+ 	 	 return $this->idiomas;  
   	 	 } 
   
 
