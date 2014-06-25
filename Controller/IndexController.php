@@ -18,8 +18,7 @@ class IndexController extends Controlador
 	public function index2()
 	{
 		$redirect = $this->redirect;
-		
-		
+
 		$twig = $this->cargaTwig('templates/fijas');	
 		echo $twig->render('pato-dos.html', array('redirect' => $redirect,'parametros'=>$this->parametros_get));
 		
