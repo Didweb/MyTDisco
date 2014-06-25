@@ -20,7 +20,7 @@ class IndexController extends Controlador
 		$redirect = $this->redirect;
 		
 		
-		$twig = $this->cargaTwig('templates/fijas');	
+		$twig = $this->cargaTwig('src/templates/fijas');	
 		echo $twig->render('pato-dos.html', array('redirect' => $redirect,'parametros'=>$this->parametros_get));
 		
 	}
@@ -29,7 +29,7 @@ class IndexController extends Controlador
 	{
 		$constante = $this->constantes->getOtraRuta();
 		
-		$twig = $this->cargaTwig('templates/fijas');	
+		$twig = $this->cargaTwig('src/templates/fijas');	
 		echo $twig->render('polka.html', array('constante' => $constante));
 		
 	}
