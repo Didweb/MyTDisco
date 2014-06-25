@@ -21,7 +21,7 @@ class Bootstrap extends Kernel
 	
 		
 		$res = $peticion->setDestino();
-		require_once 'Controller/'.$peticion->controlador.'Controller.php';
+		require_once 'src/Controller/'.$peticion->controlador.'Controller.php';
 		
 		$nomControlador = $peticion->controlador.'Controller';
 		$nomMetodo 		= $peticion->metodo;

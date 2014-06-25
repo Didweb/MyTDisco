@@ -13,7 +13,7 @@ class ErrorController
 	public function error404()
 	{
 		header("HTTP/1.0 404 Not Found");
-		$loader = new Twig_Loader_Filesystem('templates/error');
+		$loader = new Twig_Loader_Filesystem('src/templates/error');
 		$twig = new Twig_Environment($loader, array(
 			'cache' => __DIR__ . '/../../app/cache',
 		));
