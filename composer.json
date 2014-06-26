@@ -9,7 +9,9 @@
 	],
 	"require": {
 		"mustangostang/spyc": "0.5.*@dev",
-		"twig/twig": "1.*"
+		"twig/twig": "1.*",
+		"phpunit/phpunit": "4.1.*",
+		"didweb/myt-local": "2.1.*"
 	
 	},
 	"autoload": {
