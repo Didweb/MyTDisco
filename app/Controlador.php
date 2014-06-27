@@ -8,7 +8,6 @@ abstract class Controlador
 	
 	public function cargaTwig($path)
 	{
-		
 		if($_SERVER['HTTP_HOST']=='localhost'){
 			$loader = new Twig_Loader_Filesystem($path);
 			$twig = new Twig_Environment($loader, array(

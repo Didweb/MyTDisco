@@ -2,43 +2,45 @@
 session_start();
 require_once('vendor/autoload.php'); 
 require_once 'app/Request.php';
-require_once 'app/Kernel.php';
 
 
-class Bootstrap extends Kernel
+class Bootstrap extends Request
 {
-	private $destino;
+	public $constantes;
 	
-	public static function run(Request $peticion)
+	public static function run()
 	{
-		$kernel = new Kernel();
-		$kernel->setConstantes();
+		$peticion = new Request();
+		$constantes = $peticion->setConstantes();
 		
-
+		if ( $_SERVER['HTTP_HOST'] == 'localhost' ){
+			$constantes->setHOME($constantes->getHOME_dev());
+			}
 		
+		$peticion->setDestino();
 		
-		$peticion->setUrl();
-		$destino = $peticion->getUrl();
-		
-	
-		
-		$res = $peticion->setDestino();
 		require_once 'src/Controller/'.$peticion->controlador.'Controller.php';
 		
 		$nomControlador = $peticion->controlador.'Controller';
 		$nomMetodo 		= $peticion->metodo;
 		
-		//echo "<br /><br />".'Controlador: '.$nomControlador.'   /  Metodo: '.$nomMetodo."<br /><br />";
+		if(isset($peticion->parametros_get['lang'])) {
+			$parametro_get_lang = $peticion->parametros_get['lang']; 
+			} else {
+			$parametro_get_lang = '';	
+			}
 		
+		/* Concretamos el idioma del usurio. 
+		 * Mostramos uno soportado si el suyo no lo soporta la app.
+		 * */
+		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas());
 		
-		$idioma = $peticion->getIdiomaLang($peticion->parametros_get['lang'],$kernel->cons->getIdiomas());
-		
-		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect,$peticion->parametros_get,$idioma);
-		
+		/* Inicializamos el controlador correspondiente a la url. */
+		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma);
 		$carga->$nomMetodo();
 	
 		
-		return $res;
+		
 	}	
 	
 }

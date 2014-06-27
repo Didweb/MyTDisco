@@ -9,6 +9,7 @@ class IndexController extends Controlador
 	private $parametros_get;
 	private $idioma;
 	
+	
 	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma)
 	{
 	$this->constantes 		= $constantes;
@@ -20,12 +21,15 @@ class IndexController extends Controlador
 	
 	public function index2()
 	{
-		$redirect = $this->redirect;
-		
-		
 		
 		$twig = $this->cargaTwig('src/templates/fijas');	
-		echo $twig->render('pato-dos.html', array('redirect' => $redirect,'parametros'=>$this->parametros_get,'idioma'=>$this->idioma,'idiomassoportados'=>$this->constantes->getIdiomas()));
+		echo $twig->render('pato-dos.html', array(
+											'redirect' 		=> $this->redirect,
+											'parametros'	=> $this->parametros_get,
+											'idioma'		=> $this->idioma,
+											'idiomassoportados'=> $this->constantes->getIdiomas(),
+											'HOME'			=> $this->constantes->getHOME()
+											));
 		
 	}
 	
@@ -34,7 +38,10 @@ class IndexController extends Controlador
 		$constante = $this->constantes->getOtraRuta();
 		
 		$twig = $this->cargaTwig('src/templates/fijas');	
-		echo $twig->render('polka.html', array('constante' => $constante,'idioma'=>$this->idioma));
+		echo $twig->render('polka.html', array(
+										'constante' => $constante,
+										'idioma'	=> $this->idioma,
+										'HOME'		=> $this->constantes->getHOME()));
 		
 	}
 }

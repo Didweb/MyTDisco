@@ -3,18 +3,17 @@
 
 class LecturasInterpretes
 {
-	static $controlador;
-	static $metodo;
-	static $redirect;
-	static $constantes;
-	static $nueva_url;
+	public $controlador;
+	public $metodo;
+	public $redirect;
+	public $constantes;
+	private $nueva_url;
 	
-	static $parametros_get;
+	public $parametros_get;
 	
 
 	public function LectorYamlRutas($RequestUrl)
 		{
-		
 		
 		$originalFile = 'config/rutas.yml';
 		$compiledFile = 'app/tmp/rutas.php';
@@ -25,8 +24,8 @@ class LecturasInterpretes
 			file_put_contents('app/tmp/rutas.php', "<?php\n\n class rutas \n { \n\n private " . $phpCode . " \n\n public function getRutas()\n{ \n return \$this->data; \n} \n\n} \n\n?>");  	
 			return $this->ComprobarRuta($RequestUrl,'app/tmp/rutas.php','rutas');
 			}
-		else {
-			return $this->ComprobarRuta($RequestUrl,'app/tmp/rutas.php','rutas');	
+			else {
+				return $this->ComprobarRuta($RequestUrl,'app/tmp/rutas.php','rutas');	
 			}
 		
 		}	
@@ -42,67 +41,44 @@ class LecturasInterpretes
 		$compiledFile = 'app/tmp/config.php';
 		
 		if(!$this->isCompiled($originalFile, $compiledFile)) {
-			$data = Spyc::YAMLLoad('config/config.yml');
-			$phpCode = '$data = ' . var_export($data, TRUE) . ';';
-			
-			$getset='';
-			$variables='';
-			if (is_array($data))
-{
-			foreach($data as $nom=>$val){
-				foreach($data[$nom] as $nom2=>$val2)
-					{
-					$variables.="\n private \$".$nom2." = \"".$data[$nom][$nom2]."\";\n";	
+				$data = Spyc::YAMLLoad('config/config.yml');
+				$phpCode = '$data = ' . var_export($data, TRUE) . ';';
+				
+				$getset='';
+				$variables='';
+				if (is_array($data)) {
+					foreach($data as $nom=>$val){
+						foreach($data[$nom] as $nom2=>$val2)
+							{
+							$variables.="\n private \$".$nom2." = \"".$data[$nom][$nom2]."\";\n";	
 
-					
-					$getset.=" \n \n \t public function get".ucfirst($nom2)."() {";
-					$getset.=" \n \n \t \t return \$this->".$nom2."; ";	
-					$getset.=" \n  \t \t } \n ";		
-					}
-					
-				}
-			} else {echo "NO ES ARRAY";}
-			file_put_contents('app/tmp/config.php', "<?php\n\n class config \n { \n\n " .$variables ." \n private " .$phpCode ." \n\n \t public function getConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
-			return $this->ComprobarConstantes($RequestUrl,'app/tmp/config.php','config'); }
-		else {
-			return $this->ComprobarConstantes($RequestUrl,'app/tmp/config.php','config');	 }
-			
-			
-			
+							
+							$getset.=" \n \n \t public function get".ucfirst($nom2)."() {";
+							$getset.=" \n \n \t \t return \$this->".$nom2."; ";	
+							$getset.=" \n  \t \t } \n ";
+							
+							$getset.=" \n \n \t public function set".ucfirst($nom2)."(\$valor) {";
+							$getset.=" \n \n \t \t  \$this->".$nom2." = \$valor; ";	
+							$getset.=" \n \n \t \t return \$this; ";	
+							$getset.=" \n  \t \t } \n ";
+									
+							}
+							
+						}
+				} 
+				file_put_contents('app/tmp/config.php', "<?php\n\n class config \n { \n\n " .$variables ." \n private " .$phpCode ." \n\n \t public function getConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
+			}
+
 		require_once ('app/tmp/config.php');	
 		$constantes = new config();
 		return $constantes;
 		}	
 
 
-	/*
-	 * Esta función Comprueba si existe la ruta en nuestro config.yml
-	 * */
-	public function ComprobarConstantes($RequestUrl,$path,$clase)
-		{
-		require_once ($path);
-		$elGet = 'get'.ucfirst($clase);
-		$data = new $clase();
-		
-			foreach ($data->$elGet() as $key => $val) {
-			   if ($val['url'] === $RequestUrl) {
-				    $da = explode('::',$val['controller']);
-				    $this->controlador = $da[0];
-				    $this->metodo = $da[1];
-				    if(isset($da[2])){
-				    $this->redirect = $da[2];}
-				    else{
-					$this->redirect = 302;}
-				    return true;
-			   }
-			}
-		return null;
-			
-		}
-
 
 	/*
 	 * Esta función Comprueba si existe la ruta en nuestro rutas.yml
+	 * En caso de no existir devuelve un valor null y 404
 	 * */
 	public function ComprobarRuta($RequestUrl,$path,$clase)
 		{
@@ -131,6 +107,9 @@ class LecturasInterpretes
 				    return true;
 			   }
 			}
+			$this->controlador = 'Error';
+			$this->metodo = 'error404';
+			$this->redirect = 404;	
 		return null;
 			
 		}
@@ -188,11 +167,13 @@ class LecturasInterpretes
 			
 			foreach($des_ModeloUrl as $nom2=>$val){
 				
+				if(isset($des_ModeloUrl[$nom])){
 					if($des_RequestUrl[$nom]!= $des_ModeloUrl[$nom]){
 						$ordenes = $this->LimpioPara($des_ModeloUrl[$nom]);
 						$parametros[$ordenes[0]] = strip_tags($des_RequestUrl[$nom]);
 						
 						}
+					}	
 			}
 			
 		}

@@ -3,5 +3,7 @@ RutasConfig:
     ConfigUrl: config/rutas.yml
     OtraRuta: pitos
     
-    idiomas: es,ca,en,fr
+    idiomas: es,ca,en,fr,it
     
+    HOME_dev: http://localhost/MyT/
+    HOME: http://www.google.com/
