@@ -2,9 +2,11 @@
 //require_once 'app/Lecturas.php';
 //require_once 'app/tmp/config.php';
 
+
 class Kernel extends Lecturas
 {
 	public $cons;
+	
 	
 	
 	public function __construct()
@@ -30,6 +32,7 @@ class Kernel extends Lecturas
 	{	
 	return $this->cons;	
 	}
+
 
 	
 }

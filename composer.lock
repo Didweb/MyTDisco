@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "didweb/myt-local",
-            "version": "2.1",
+            "version": "2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTlocale.git",
-                "reference": "6433a7876d67c5dadf93ffbe8f761717ccc3cf4a"
+                "reference": "bc0a7364704847672e5d28449c889c2b06a2da40"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTlocale/zipball/6433a7876d67c5dadf93ffbe8f761717ccc3cf4a",
-                "reference": "6433a7876d67c5dadf93ffbe8f761717ccc3cf4a",
+                "url": "https://api.github.com/repos/Didweb/MyTlocale/zipball/bc0a7364704847672e5d28449c889c2b06a2da40",
+                "reference": "bc0a7364704847672e5d28449c889c2b06a2da40",
                 "shasum": ""
             },
             "require": {
@@ -39,9 +39,10 @@
             "description": "MyT Framework - Sistema internalizacion",
             "homepage": "https://github.com/Didweb",
             "keywords": [
-                "redimensionar imagen",
-                "resize",
-                "thumbnail"
+                "internalizacion",
+                "lang",
+                "locale",
+                "multilingue"
             ],
             "time": "2014-06-26 00:00:00"
         },

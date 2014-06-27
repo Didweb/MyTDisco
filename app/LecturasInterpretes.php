@@ -158,6 +158,8 @@ class LecturasInterpretes
 					$nueva_url .= '(.*\w)/';
 					} elseif ($url2[$nom2]=='int') {
 					$nueva_url .= '(\d[^aA-zZ_-]*)/';
+					} elseif ($url2[$nom2]=='locale') {
+					$nueva_url .= '(.*\w)/';
 					}
 					
 				}

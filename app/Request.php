@@ -1,10 +1,12 @@
 <?php
 require_once 'app/Lecturas.php';
+require_once 'vendor/didweb/myt-local/MyTlocale/myLocale.php';
 
 class Request extends Lecturas
 {
 	private $url;
 	public $DestinoControlador;
+	public $lang;
 	
 	public function __construct()
 	{
@@ -50,6 +52,15 @@ class Request extends Lecturas
 		}
 	
 	}
+	
+	
+	public function getIdiomaLang($getLa,$idiomasSoportados)
+	{
+	$lang = new myLocale($idiomasSoportados);
+	$idioma = $lang->setLang($getLa);
+	return $this->lang = $idioma;
+	}
+	
 }
 
 ?>

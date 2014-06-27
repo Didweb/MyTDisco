@@ -1,7 +1,9 @@
 <?php
+session_start();
 require_once('vendor/autoload.php'); 
 require_once 'app/Request.php';
 require_once 'app/Kernel.php';
+
 
 class Bootstrap extends Kernel
 {
@@ -12,7 +14,7 @@ class Bootstrap extends Kernel
 		$kernel = new Kernel();
 		$kernel->setConstantes();
 		
-		
+
 		
 		
 		$peticion->setUrl();
@@ -28,7 +30,10 @@ class Bootstrap extends Kernel
 		
 		//echo "<br /><br />".'Controlador: '.$nomControlador.'   /  Metodo: '.$nomMetodo."<br /><br />";
 		
-		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect,$peticion->parametros_get);
+		
+		$idioma = $peticion->getIdiomaLang($peticion->parametros_get['lang'],$kernel->cons->getIdiomas());
+		
+		$carga = new $nomControlador($kernel->setConstantes(),$peticion->redirect,$peticion->parametros_get,$idioma);
 		
 		$carga->$nomMetodo();
 	

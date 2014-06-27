@@ -6,7 +6,7 @@
  private $data = array (
   'ruta_uno' => 
   array (
-    'url' => 'pato/dos/{nombre:string}/{pagina:int}',
+    'url' => 'pato/dos/{lang:locale}/{pagina:int}',
     'controller' => 'Index::index2',
   ),
   'ruta_dos' => 
