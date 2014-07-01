@@ -48,6 +48,7 @@ class LecturasInterpretes
 				
 				$getset='';
 				$variables='';
+				
 				if (is_array($data)) {
 					foreach($data as $nom=>$val){
 						foreach($data[$nom] as $nom2=>$val2)
@@ -66,8 +67,9 @@ class LecturasInterpretes
 							$getset.=" \n  \t \t } \n ";
 									
 							}
-							
 						}
+							
+						
 				} 
 				file_put_contents('app/tmp/config.php', "<?php\n\n class config \n { \n\n " .$variables ." \n private " .$phpCode ." \n\n \t public function getConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
 			}
@@ -77,6 +79,30 @@ class LecturasInterpretes
 		return $constantes;
 		}	
 
+
+
+	/*
+	 * Modificamos si es necesario la clase config donde almacenamos las constantes.
+	 * */
+	public function LectorYamlSeguridad()
+		{
+		
+		
+		$originalFile = 'config/seguridad.yml';
+		$compiledFile = 'app/tmp/seguridad.php';
+		
+		if(!$this->isCompiled($originalFile, $compiledFile)) {
+				$data = Spyc::YAMLLoad('config/seguridad.yml');
+				$phpCode = '$data = ' . var_export($data, TRUE) . ';';
+				
+				
+				file_put_contents('app/tmp/seguridad.php', "<?php\n\n class SeguridadConfig \n {  \n private " .$phpCode ." \n\n \t public function getSeguridadConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
+			}
+
+		require_once ('app/tmp/seguridad.php');	
+		$seguridad = new config();
+		return $seguridad;
+		}	
 
 
 	/*

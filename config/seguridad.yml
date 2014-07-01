@@ -1,0 +1,8 @@
+Seguridad:
+    zonas1:
+        1: /oficina/*
+        1: /getsor/
+    
+    usuarios:
+        edu: pass3:1
+        pepito: pass2:1

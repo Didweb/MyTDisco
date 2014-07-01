@@ -13,10 +13,15 @@ class Bootstrap extends Request
 		$peticion = new Request();
 		$constantes = $peticion->setConstantes();
 		
-		$usu = $constantes->getEdu();
+		if(method_exists($constantes,'getSeguridad')){
+			$seguridad = $constantes->getSeguridad();
+			if($seguridad == 1){
+				
+				$ConfigSeguridad = $peticion->setSeguridadConfig();
+				}
+			}
 		
 		
-		echo "<br /> Las constantes: ".$usu;
 		
 		//foreach()
 		

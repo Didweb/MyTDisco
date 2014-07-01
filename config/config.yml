@@ -1,4 +1,4 @@
-RutasConfig:
+Configuracion:
     TmpUrl: app/tmp/rutas.php
     ConfigUrl: config/rutas.yml
     OtraRuta: pitos
@@ -8,7 +8,4 @@ RutasConfig:
     HOME_dev: http://localhost/MyT/
     HOME: http://www.google.com/
     
-Seguridad:
-    zona1: /oficina/*,/getsor/
-    
-    edu: pass3:1
+    Seguridad: 1

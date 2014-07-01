@@ -7,6 +7,7 @@ class Request extends Lecturas
 	private $url;
 	public 	$DestinoControlador;
 	public 	$lang;
+	private $seguridad;
 	
 	public function __construct()
 	{
@@ -22,6 +23,14 @@ class Request extends Lecturas
 		return $this;	
 	}
 	
+	public function getSeguridad()
+	{
+		$data = Spyc::YAMLLoad('config/seguridad.yml');
+		$seguridad = var_export($data, TRUE);
+		
+		$this->seguridad = $seguridad;
+		return $this;	
+	}
 	
 	public function setUrl()
 	{
@@ -50,6 +59,11 @@ class Request extends Lecturas
 	public function setConstantes()
 	{
 		return $this->LectorYamlConfig();	
+	}
+	
+	public function setSeguridadConfig()
+	{
+		return $this->LectorYamlSeguridad();	
 	}
 	
 }
