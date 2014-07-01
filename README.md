@@ -13,7 +13,7 @@ En principo intentare que sea funcional.
 Las herramientas que me interesan implementar son:
 
 - Composer.
-- Doctrine.
+- ORM posiblemente me decante por idiorm
 - Lectura de Yaml.
 - Twig.
 - Sistema de traducciones.
@@ -24,6 +24,10 @@ Bueno casi nada ;P
 
 - Proceso embrionario del proyecto. Iniciando el Bootstrap y concepto de redirección hacia los Controladores.
 - Creando recogida de parametros por Get.
+- Se ha creado sistema de idiomas. Dependencia especificada en composer.json `"didweb/myt-local": "2.1.*"`
+- Se ha creado también el sistema para atuentificación de usuarios. Falta terminar par apoderla integrar en las dependencias.
+
+
  
 
 
