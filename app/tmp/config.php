@@ -15,6 +15,10 @@
  private $HOME_dev = "http://localhost/MyT/";
 
  private $HOME = "http://www.google.com/";
+
+ private $zona1 = "/oficina/*,/getsor/";
+
+ private $edu = "pass3:1";
  
  private $data = array (
   'RutasConfig' => 
@@ -25,6 +29,11 @@
     'idiomas' => 'es,ca,en,fr,it',
     'HOME_dev' => 'http://localhost/MyT/',
     'HOME' => 'http://www.google.com/',
+  ),
+  'Seguridad' => 
+  array (
+    'zona1' => '/oficina/*,/getsor/',
+    'edu' => 'pass3:1',
   ),
 ); 
 
@@ -113,6 +122,34 @@
  	 public function setHOME($valor) { 
  
  	 	  $this->HOME = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getZona1() { 
+ 
+ 	 	 return $this->zona1;  
+  	 	 } 
+  
+ 
+ 	 public function setZona1($valor) { 
+ 
+ 	 	  $this->zona1 = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getEdu() { 
+ 
+ 	 	 return $this->edu;  
+  	 	 } 
+  
+ 
+ 	 public function setEdu($valor) { 
+ 
+ 	 	  $this->edu = $valor;  
  
  	 	 return $this;  
   	 	 } 

@@ -1,6 +1,8 @@
 <?php
 //require_once('vendor/mustangostang/spyc/Spyc.php'); 
 
+
+
 class LecturasInterpretes
 {
 	public $controlador;
@@ -50,6 +52,7 @@ class LecturasInterpretes
 					foreach($data as $nom=>$val){
 						foreach($data[$nom] as $nom2=>$val2)
 							{
+
 							$variables.="\n private \$".$nom2." = \"".$data[$nom][$nom2]."\";\n";	
 
 							

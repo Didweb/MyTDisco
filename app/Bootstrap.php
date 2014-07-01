@@ -13,6 +13,14 @@ class Bootstrap extends Request
 		$peticion = new Request();
 		$constantes = $peticion->setConstantes();
 		
+		$usu = $constantes->getEdu();
+		
+		
+		echo "<br /> Las constantes: ".$usu;
+		
+		//foreach()
+		
+		
 		if ( $_SERVER['HTTP_HOST'] == 'localhost' ){
 			$constantes->setHOME($constantes->getHOME_dev());
 			}

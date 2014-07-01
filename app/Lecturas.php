@@ -2,6 +2,7 @@
 require_once 'app/LecturasInterpretes.php';
 
 
+
 class Lecturas extends LecturasInterpretes
 {
 	
