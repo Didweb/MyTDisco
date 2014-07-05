@@ -17,8 +17,12 @@ El idioma : {{ idioma }}
 Idiomas Soportados: <b>{{ idiomassoportados }}</b>
 <br /> 
 
+{% include 'tomate.html' %}
+<br /> <br /> 
 Traducciones: <b>{{ trad.Saludo }}</b>
 <br /> 
+Traducciones: <b>{{ trad.Despedida | e }}</b>
+<br /> <br /> 
 <a href="{{ HOME }}POLKAXY/asadas">Volver a Polka</a>
 </p>
 

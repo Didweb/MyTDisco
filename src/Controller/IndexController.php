@@ -1,6 +1,7 @@
 <?php
 require_once 'app/Controlador.php';
 require_once 'vendor/autoload.php';
+include 'menus.php';
 
 class IndexController extends Controlador
 {
@@ -8,6 +9,7 @@ class IndexController extends Controlador
 	private $redirect;
 	private $parametros_get;
 	private $idioma;
+	private $menus;
 	
 	
 	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma,$locale)
@@ -18,12 +20,20 @@ class IndexController extends Controlador
 	$this->idioma 			= $idioma;
 	$this->locale 			= $locale;
 	
+	$this->menus = new menus();
+	
 	}
 	
+
 	public function index2()
 	{
 		
 		$traducciones = $this->locale->trad('comun');
+		$ori = $traducciones->getDespedida();
+		
+		$ori = preg_replace('#%1#','-- TOMA --',$ori);
+		$traducciones->setDespedida($ori);
+		$t = $this->menus;
 		
 		$twig = $this->cargaTwig('src/templates/fijas');	
 		echo $twig->render('pato-dos.html', array(
@@ -32,7 +42,8 @@ class IndexController extends Controlador
 											'idioma'		=> $this->idioma,
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
 											'HOME'			=> $this->constantes->getHOME(),
-											'trad'			=> $traducciones
+											'trad'			=> $traducciones,
+											'saludotomate'	=> $t
 											));
 		
 	}

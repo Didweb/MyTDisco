@@ -6,7 +6,7 @@
  
  private $saludo = "Bienvenidos a mi web.";
 
- private $despedida = "Adios hasta la próxima.";
+ private $despedida = "Adios hasta la próxima %1 .";
 
  private $texto1 = "el sisetma de textos es este.";
  
@@ -14,7 +14,7 @@
   'Es' => 
   array (
     'saludo' => 'Bienvenidos a mi web.',
-    'despedida' => 'Adios hasta la próxima.',
+    'despedida' => 'Adios hasta la próxima %1 .',
     'texto1' => 'el sisetma de textos es este.',
   ),
 ); 
