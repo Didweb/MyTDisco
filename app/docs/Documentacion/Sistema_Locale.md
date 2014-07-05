@@ -81,4 +81,72 @@ En este ejemplo se ve como se define en la parte de la url que dice `{lang:local
 Este mecanismo hace que detecte el idioma por GET y además diferenciar las URLs para el tema SEO.
 
 
+
+## Idioma, Controladores y Vista
+
+Para utilizar el sistema en las vistas y los controladores se hace de la siguiente manera.
+
+Dentro del directorio `src/locale` se crean tantas carpetas como idiomas necesarios con el nombre del idioma según **ISO 639-1**, ejemplo `es` para español, `ca` para catalán, etc.
+
+Dentro de cada idioma existirán los distintos diccionarios que se pueden crear tantos como queramos, organizados por paginas, por temas, etc.
+
+Los diccionarios han de tener el nombre en minúsculas seguido d eun guión bajo y el código de idioma que corresponda, ejemplo: `nombre_es.yml` en formato `yml`. Siempre ha de existir una copia para cada idioma con los mismos parámetros y sus traducciones.
+
+
+### Cómo funciona el locale y la vista
+
+Dentro de `app` tenemos `AppLocale.php` este se encarga de almacenar el idioma y preparar el objeto. Dentro de `app/Bootstrap.php`,  este objeto se inyecta en el controlador en el último parámetro llamado `$locale`:
+
+```
+
+		$locale = new AppLocale($idioma);
+		
+		/* Inicializamos el controlador correspondiente a la url. */
+		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale);
+		$carga->$nomMetodo();
+
+```
+
+Dentro del controlador podemos llamar al método que se encarga de traernos el diccionario que corresponda. De esta forma:
+
+```
+
+$traducciones = $this->locale->trad('comun');
+
+```
+
+En este caso nos traerá el diccionario llamado `comun` y el idioma el que corresponda.
+
+Lo pasamos a la vista como un parámetro y lo podemos visualizar en la plantilla de la siguiente manera:
+
+En el controlador...
+
+```
+		$traducciones = $this->locale->trad('comun');
+		
+		$twig = $this->cargaTwig('src/templates/fijas');	
+		echo $twig->render('pato-dos.html', array( 'trad' => $traducciones ));
+
+```
+
+
+En la vista ...
+
+```
+
+Traducciones: <b>{{ trad.Saludo }}</b>
+
+```
+
+Donde `Saludo` es el nombre del parámetro de traducción que se indico en el archivo `yml`.
+
+
+
+
+### Cache de idiomas
+
+La lectura del archivo `yml` se realiza en el caso de que este tenga cambios. Si tiene cambios o es nuevo, el sisetma crea el objeto necesario para llamar alas traducciones.
+
+
+
 [1]:  Inicio_Documentacion.md

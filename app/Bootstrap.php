@@ -2,6 +2,7 @@
 session_start();
 require_once('vendor/autoload.php'); 
 require_once 'app/Request.php';
+require_once 'app/AppLocale.php';
 
 
 class Bootstrap extends Request
@@ -48,8 +49,10 @@ class Bootstrap extends Request
 		 * */
 		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas());
 		
+		$locale = new AppLocale($idioma);
+		
 		/* Inicializamos el controlador correspondiente a la url. */
-		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma);
+		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale);
 		$carga->$nomMetodo();
 	
 		

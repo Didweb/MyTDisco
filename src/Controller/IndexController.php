@@ -10,17 +10,20 @@ class IndexController extends Controlador
 	private $idioma;
 	
 	
-	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma)
+	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma,$locale)
 	{
 	$this->constantes 		= $constantes;
 	$this->redirect  		= $redirect;
 	$this->parametros_get 	= $parametros_get;
 	$this->idioma 			= $idioma;
+	$this->locale 			= $locale;
 	
 	}
 	
 	public function index2()
 	{
+		
+		$traducciones = $this->locale->trad('comun');
 		
 		$twig = $this->cargaTwig('src/templates/fijas');	
 		echo $twig->render('pato-dos.html', array(
@@ -28,7 +31,8 @@ class IndexController extends Controlador
 											'parametros'	=> $this->parametros_get,
 											'idioma'		=> $this->idioma,
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
-											'HOME'			=> $this->constantes->getHOME()
+											'HOME'			=> $this->constantes->getHOME(),
+											'trad'			=> $traducciones
 											));
 		
 	}

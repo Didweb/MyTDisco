@@ -9,6 +9,7 @@ class LecturasInterpretes
 	public $metodo;
 	public $redirect;
 	public $constantes;
+	public $locale;
 	private $nueva_url;
 	
 	public $parametros_get;
@@ -31,6 +32,66 @@ class LecturasInterpretes
 			}
 		
 		}	
+
+	
+
+	public function LecturaLocaleYml($solicitud)
+	{
+		$separa = explode('_',$solicitud);
+		$NomClase = ucfirst($separa[0]); 
+		$originalFile = 'src/locale/'.$separa[1].'/'.$solicitud.'.yml';
+		
+		if(!file_exists($originalFile)){
+				
+				$mensaje = "Se ha producido un <b style='color:red'>ERROR</b> el archivo no existe: <br /><br /><b>$originalFile</b><br />  <br /><br /> NO existe este diccionario en el directorio <b>/src/locale/".$separa[1]."</b> <br /><br />Es necesario crear el archivo con las traducciones para que estas se puedan leer.";
+				$this->error($mensaje);
+				}
+    
+		
+		
+		
+		$compiledFile = 'app/tmp/locale/'.$solicitud.'.php';
+		
+		if(!$this->isCompiled($originalFile, $compiledFile)) {
+				$data = Spyc::YAMLLoad($originalFile);
+				$phpCode = '$data = ' . var_export($data, TRUE) . ';';
+				
+				$getset='';
+				$variables='';
+				
+				if (is_array($data)) {
+					foreach($data as $nom=>$val){
+						foreach($data[$nom] as $nom2=>$val2)
+							{
+
+							$variables.="\n private \$".$nom2." = \"".$data[$nom][$nom2]."\";\n";	
+
+							
+							$getset.=" \n \n \t public function get".ucfirst($nom2)."() {";
+							$getset.=" \n \n \t \t return \$this->".$nom2."; ";	
+							$getset.=" \n  \t \t } \n ";
+							
+							$getset.=" \n \n \t public function set".ucfirst($nom2)."(\$valor) {";
+							$getset.=" \n \n \t \t  \$this->".$nom2." = \$valor; ";	
+							$getset.=" \n \n \t \t return \$this; ";	
+							$getset.=" \n  \t \t } \n ";
+									
+							}
+						}
+							
+						
+				}
+				
+				
+				file_put_contents($compiledFile, "<?php\n\n class ".$separa[0]." \n { \n\n " .$variables ." \n private " .$phpCode ." \n\n \t public function get".$separa[0]."() { \n \t \t return \$this->data; \n \t \t } \n\n ".$getset."  \n\n} ?>");  	
+			}
+
+		require_once ($compiledFile);	
+		$locale = new $NomClase();
+		return $locale;	
+		
+	}
+
 
 	/*
 	 * Modificamos si es necesario la clase config donde almacenamos las constantes.
@@ -232,6 +293,12 @@ class LecturasInterpretes
 	   
 	   return FALSE; 
 	 }
+	
+	
+	public function error($valor)
+	{
+	throw new Exception ($valor);
+	}
 	
 }
 

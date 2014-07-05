@@ -1,6 +1,13 @@
 ChangeLog MyT
 ============
 
+### 3.0.3
+5-7-2014 - Eduard Pinuaga
+
+- Recoger diccionarios del sistema locale.
+- Actualizar docuemntación
+
+
 ### 3.0.2
 5-7-2014 - Eduard Pinuaga
 

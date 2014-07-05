@@ -11,5 +11,9 @@ class Lecturas extends LecturasInterpretes
 		return $this->LectorYamlRutas($RequestUrl); 
 	}
 
+	public function LecturaLocale($solicitud)
+	{
+		return $this->LecturaLocaleYml($solicitud);
+	}
 }
 ?>
