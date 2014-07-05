@@ -1,6 +1,11 @@
 ChangeLog MyT
 ============
 
+### 3.0.2
+5-7-2014 - Eduard Pinuaga
+
+- Inicio la documentación de MyT Framework.
+
 
 ### 3.0.1
 5-7-2014 - Eduard Pinuaga
