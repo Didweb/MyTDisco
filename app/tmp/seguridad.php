@@ -1,9 +1,7 @@
 <?php
 
  class SeguridadConfig 
- { 
-
-  
+ {  
  private $data = array (
   'Seguridad' => 
   array (
