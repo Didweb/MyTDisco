@@ -8,6 +8,7 @@ class Request extends Lecturas
 	public 	$DestinoControlador;
 	public 	$lang;
 	private $seguridad;
+	public $packidiomas;
 	
 	public function __construct()
 	{
@@ -47,14 +48,16 @@ class Request extends Lecturas
 	}
 	
 	
-	public function getIdiomaLang($getLa,$idiomasSoportados)
+	public function getIdiomaLang($getLa,$idiomasSoportados,$estilo)
 	{
 		$lang 	= new myLocale($idiomasSoportados);
 		$idioma = $lang->setLang($getLa);
-		
+		$lang->setEstilo($estilo);
+		$this->packidiomas = $lang;
 		return $this->lang = $idioma;
 	}
 	
+
 	
 	public function setConstantes()
 	{

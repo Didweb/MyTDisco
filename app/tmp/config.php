@@ -12,6 +12,8 @@
 
  private $idiomas = "es,ca,en,fr,it";
 
+ private $estilo = "iso";
+
  private $HOME_dev = "http://localhost/MyT/";
 
  private $HOME = "http://www.google.com/";
@@ -25,6 +27,7 @@
     'ConfigUrl' => 'config/rutas.yml',
     'OtraRuta' => 'pitos',
     'idiomas' => 'es,ca,en,fr,it',
+    'estilo' => 'iso',
     'HOME_dev' => 'http://localhost/MyT/',
     'HOME' => 'http://www.google.com/',
     'Seguridad' => 1,
@@ -88,6 +91,20 @@
  	 public function setIdiomas($valor) { 
  
  	 	  $this->idiomas = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getEstilo() { 
+ 
+ 	 	 return $this->estilo;  
+  	 	 } 
+  
+ 
+ 	 public function setEstilo($valor) { 
+ 
+ 	 	  $this->estilo = $valor;  
  
  	 	 return $this;  
   	 	 } 

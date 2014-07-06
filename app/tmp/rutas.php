@@ -4,6 +4,16 @@
  { 
 
  private $data = array (
+  'Index' => 
+  array (
+    'url' => '',
+    'controller' => 'Index::index',
+  ),
+  'IndexIdioma' => 
+  array (
+    'url' => 'home/{lang:locale}',
+    'controller' => 'Index::index',
+  ),
   'ruta_uno' => 
   array (
     'url' => 'pato/dos/{lang:locale}/{pagina:int}',

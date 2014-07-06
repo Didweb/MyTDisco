@@ -1,12 +1,14 @@
 <?php
 require_once 'vendor/autoload.php';
-require_once 'vendor/didweb/myt-sniper/src/mySniper.php';
+//require_once 'vendor/didweb/myt-sniper/src/mySniper.php';
 
 class Controlador
 {
 	protected $encontrada;
 	protected $twig;
 	public $sniper;
+	public $menuIdioma;
+	public $estilo;
 	
 
 	
@@ -39,6 +41,9 @@ class Controlador
 		return $this->sniper;
 		
 	}
+	
+	
+
 	
 }
 

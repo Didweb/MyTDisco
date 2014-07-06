@@ -4,6 +4,7 @@ Configuracion:
     OtraRuta: pitos
     
     idiomas: es,ca,en,fr,it
+    estilo: iso
     
     HOME_dev: http://localhost/MyT/
     HOME: http://www.google.com/

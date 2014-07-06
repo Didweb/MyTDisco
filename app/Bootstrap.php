@@ -47,12 +47,11 @@ class Bootstrap extends Request
 		/* Concretamos el idioma del usurio. 
 		 * Mostramos uno soportado si el suyo no lo soporta la app.
 		 * */
-		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas());
-		
+		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
 		$locale = new AppLocale($idioma);
 		
 		/* Inicializamos el controlador correspondiente a la url. */
-		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale);
+		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale,$peticion->packidiomas);
 		$carga->$nomMetodo();
 	
 		

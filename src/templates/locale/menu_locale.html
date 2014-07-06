@@ -1,0 +1,25 @@
+<aside id='locale'>
+	{% if idioma.estilo=='iso'  %}	
+		
+		{% for idiomalista in idioma.soportados %}
+			{% if idioma.getLang==idiomalista %}
+				<a href='{{ HOME }}home/{{ idiomalista }}' class='localesel'>{{ idiomalista }}*</a>
+			{% else %}
+				<a href='{{ HOME }}home/{{ idiomalista }}'>{{ idiomalista }}</a>
+			{% endif %}
+		{% endfor %}
+
+	{% elseif idioma.estilo=='img' %}
+
+		{% for idiomalista in idioma.soportados %}
+			{% if idioma.getLang==idiomalista %}
+				<a href='?lang={{ idiomalista }}' class='localesel'>*</a>
+			{% else %}
+				<a href='?lang={{ idiomalista }}'></a>
+			{% endif %}
+		{% endfor %}
+
+
+	{% endif %}
+
+</aside>
