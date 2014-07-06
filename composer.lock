@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "didweb/myt-local",
-            "version": "2.1.5",
+            "version": "2.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTlocale.git",
-                "reference": "bc0a7364704847672e5d28449c889c2b06a2da40"
+                "reference": "34dd51f98ab7d2a5c03d5f173b3e1b48ca30b04c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTlocale/zipball/bc0a7364704847672e5d28449c889c2b06a2da40",
-                "reference": "bc0a7364704847672e5d28449c889c2b06a2da40",
+                "url": "https://api.github.com/repos/Didweb/MyTlocale/zipball/34dd51f98ab7d2a5c03d5f173b3e1b48ca30b04c",
+                "reference": "34dd51f98ab7d2a5c03d5f173b3e1b48ca30b04c",
                 "shasum": ""
             },
             "require": {
