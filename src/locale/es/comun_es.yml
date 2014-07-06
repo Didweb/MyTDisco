@@ -1,5 +1,5 @@
 Es:
     saludo: Bienvenidos a mi web.
-    despedida: Adios hasta la próxima %1 .
+    despedida: Adios hasta la próxima %1 <span style='color:red'>otro</span> -> %2  y el otro -> %3.
     
     texto1: el sisetma de textos es este.

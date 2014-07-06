@@ -21,7 +21,25 @@ Idiomas Soportados: <b>{{ idiomassoportados }}</b>
 <br /> <br /> 
 Traducciones: <b>{{ trad.Saludo }}</b>
 <br /> 
-Traducciones: <b>{{ trad.Despedida | e }}</b>
+Traducciones: <b>{{ trad.Despedida | raw }}</b>
+<br /> <br /> 
+
+<hr />
+{% for key,cosa in cosas %}
+{{ key }} - {{ cosa }}<br />
+{% endfor %}
+
+
+{% for key,cosa2 in cosas2 %}
+{{ key }} - {{ cosa2 }}<br />
+{% endfor %}
+<br /><br />
+
+{% for key,cosa3 in cosas3 %}
+{{ key }} - {{ cosa3.sub1 }}<br />
+{% endfor %}
+
+<hr/>
 <br /> <br /> 
 <a href="{{ HOME }}POLKAXY/asadas">Volver a Polka</a>
 </p>

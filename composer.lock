@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1c8567cffba56a6e663a145f629c90a5",
+    "hash": "2f98cbece731d8b64c743ccc0b191d0d",
     "packages": [
         {
             "name": "didweb/myt-local",
@@ -45,6 +45,44 @@
                 "multilingue"
             ],
             "time": "2014-06-26 00:00:00"
+        },
+        {
+            "name": "didweb/myt-sniper",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Didweb/MyTsniper.git",
+                "reference": "2f4cdcdd5aa0188cc2ba9413c6dfeeccddd9dd18"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/2f4cdcdd5aa0188cc2ba9413c6dfeeccddd9dd18",
+                "reference": "2f4cdcdd5aa0188cc2ba9413c6dfeeccddd9dd18",
+                "shasum": ""
+            },
+            "require": {
+                "phpunit/phpunit": "4.1.*"
+            },
+            "type": "myt-framework",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPLv3"
+            ],
+            "authors": [
+                {
+                    "name": "Eduard Pinuaga",
+                    "email": "info@did-web.com",
+                    "homepage": "http://www.did-web.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MyT Framework - Coleccion de codigos",
+            "homepage": "https://github.com/Didweb",
+            "keywords": [
+                "colecicon codigos",
+                "funciones"
+            ],
+            "time": "2014-07-05 00:00:00"
         },
         {
             "name": "mustangostang/spyc",
@@ -791,16 +829,16 @@
         },
         {
             "name": "twig/twig",
-            "version": "v1.15.1",
+            "version": "v1.16.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/fabpot/Twig.git",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed"
+                "reference": "8ce37115802e257a984a82d38254884085060024"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fabpot/Twig/zipball/1fb5784662f438d7d96a541e305e28b812e2eeed",
-                "reference": "1fb5784662f438d7d96a541e305e28b812e2eeed",
+                "url": "https://api.github.com/repos/fabpot/Twig/zipball/8ce37115802e257a984a82d38254884085060024",
+                "reference": "8ce37115802e257a984a82d38254884085060024",
                 "shasum": ""
             },
             "require": {
@@ -809,7 +847,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.15-dev"
+                    "dev-master": "1.16-dev"
                 }
             },
             "autoload": {
@@ -844,7 +882,7 @@
             "keywords": [
                 "templating"
             ],
-            "time": "2014-02-13 10:19:29"
+            "time": "2014-07-05 12:19:05"
         }
     ],
     "packages-dev": [

@@ -1,10 +1,14 @@
 <?php
-abstract class Controlador
+require_once 'vendor/autoload.php';
+require_once 'vendor/didweb/myt-sniper/src/mySniper.php';
+
+class Controlador
 {
 	protected $encontrada;
 	protected $twig;
+	public $sniper;
 	
-	
+
 	
 	public function cargaTwig($path)
 	{
@@ -27,6 +31,14 @@ abstract class Controlador
 		return $this->twig;
 	}
 	
+	public function cargaSniper($sniper)
+	{
+		$this->sniper = new mySniper();
+		$this->sniper->__autoload($sniper);	
+		
+		return $this->sniper;
+		
+	}
 	
 }
 

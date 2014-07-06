@@ -20,6 +20,8 @@ class IndexController extends Controlador
 	$this->idioma 			= $idioma;
 	$this->locale 			= $locale;
 	
+	
+	
 	$this->menus = new menus();
 	
 	}
@@ -31,9 +33,16 @@ class IndexController extends Controlador
 		$traducciones = $this->locale->trad('comun');
 		$ori = $traducciones->getDespedida();
 		
-		$ori = preg_replace('#%1#','-- TOMA --',$ori);
+		$sniper = $this->cargaSniper('mapeatxt');
+		$ori = $sniper->clase->mapeatxt($ori,'-- TOMA DOBLE 111 --','-- TOMA DOBLE 222 --','-- TOMA DOBLE 333 --');
+		
 		$traducciones->setDespedida($ori);
 		$t = $this->menus;
+		
+		$arraydecosas = array('cosa 1','cosa 2', 'cosa 3');
+		$arraydecosas2 = array('key1' => 'cosa 1','key2' => 'cosa 2','key3' =>  'cosa 3');
+		
+		$arraydecosas3 = array('key1' => array('sub1'=>'cosa 1 sub1','sub2'=>'cosa 1 sub2'),'key2' => 'cosa 2','key3' =>  'cosa 3');
 		
 		$twig = $this->cargaTwig('src/templates/fijas');	
 		echo $twig->render('pato-dos.html', array(
@@ -43,7 +52,10 @@ class IndexController extends Controlador
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
 											'HOME'			=> $this->constantes->getHOME(),
 											'trad'			=> $traducciones,
-											'saludotomate'	=> $t
+											'saludotomate'	=> $t,
+											'cosas'			=> $arraydecosas,
+											'cosas2'		=> $arraydecosas2,
+											'cosas3'		=> $arraydecosas3
 											));
 		
 	}
