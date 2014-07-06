@@ -12,7 +12,8 @@
 		"twig/twig": "1.*",
 		"phpunit/phpunit": "4.1.*",
 		"didweb/myt-local": "2.1.*",
-		"didweb/myt-sniper": "1.*"
+		"didweb/myt-sniper": "1.*",
+		"didweb/myt-segurata": "dev-master"
 	
 	},
 	"autoload": {
