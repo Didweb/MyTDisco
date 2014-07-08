@@ -17,7 +17,8 @@
     RewriteEngine On
 
     RewriteBase /MyT/
-    Redirect 301 pato/dosx  http://localhost/MyT/pato/dos
+    RewriteCond %{REQUEST_URI} !^/orox$ 
+    RewriteRule ^orox$  http://localhost/MyT/ [R=301,L]
 
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
