@@ -14,17 +14,21 @@ class Bootstrap extends Request
 		$peticion = new Request();
 		$constantes = $peticion->setConstantes();
 		
+		
 		if(method_exists($constantes,'getSeguridad')){
 			$seguridad = $constantes->getSeguridad();
 			if($seguridad == 1){
 				
-				$ConfigSeguridad = $peticion->setSeguridadConfig();
+				$ConfigSeguridad 		= $peticion->setSeguridadConfig();
+				$parametrosSeguridad 	= $ConfigSeguridad->getSeguridadConfig();
+				
+				$parametrosSeg = $peticion->listasSeguridad($parametrosSeguridad);
+				
+				$packseguridad = $peticion->packseguridad($parametrosSeg);
+				
+				
 				}
 			}
-		
-		
-		
-		//foreach()
 		
 		
 		if ( $_SERVER['HTTP_HOST'] == 'localhost' ){
@@ -51,7 +55,7 @@ class Bootstrap extends Request
 		$locale = new AppLocale($idioma);
 		
 		/* Inicializamos el controlador correspondiente a la url. */
-		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale,$peticion->packidiomas);
+		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale,$peticion->packidiomas,$packseguridad);
 		$carga->$nomMetodo();
 	
 		

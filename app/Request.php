@@ -1,37 +1,22 @@
 <?php
 require_once 'app/Lecturas.php';
 require_once 'vendor/didweb/myt-local/MyTlocale/myLocale.php';
-
+require_once 'vendor/didweb/myt-segurata/src/mySegurata.php';
 class Request extends Lecturas
 {
 	private $url;
 	public 	$DestinoControlador;
 	public 	$lang;
-	private $seguridad;
+	public $seguridad;
 	public $packidiomas;
+	public $packseguridad;
 	
 	public function __construct()
 	{
 		$this->setUrl();	
 	}
 	
-	public function getConstantes()
-	{
-		$data = Spyc::YAMLLoad('config/config.yml');
-		$constantes = var_export($data, TRUE);
-		
-		$this->constantes = $constantes;
-		return $this;	
-	}
-	
-	public function getSeguridad()
-	{
-		$data = Spyc::YAMLLoad('config/seguridad.yml');
-		$seguridad = var_export($data, TRUE);
-		
-		$this->seguridad = $seguridad;
-		return $this;	
-	}
+
 	
 	public function setUrl()
 	{
@@ -58,15 +43,60 @@ class Request extends Lecturas
 	}
 	
 
+	public function packseguridad($parametros)
+	{
+		$seguridad = new mySegurata($parametros);
+		$this->packseguridad = $seguridad;
+		
+		return $this;
+		
+	}
+
 	
 	public function setConstantes()
 	{
 		return $this->LectorYamlConfig();	
 	}
 	
+	
+	
+	
 	public function setSeguridadConfig()
 	{
 		return $this->LectorYamlSeguridad();	
+	}
+	
+	
+	
+	
+	public function listasSeguridad($parametros)
+	{
+		$para = array();
+		$lista = '';
+		$listapw = '';
+		foreach($parametros as $nom2=>$val2){
+				foreach($parametros[$nom2] as $nom3=>$val3){
+					if($nom3=='usuarios'){
+						foreach($parametros[$nom2][$nom3] as $nom4=>$val4){
+							$se = explode(':',$val4);
+							$lista	.=$nom4.':'.$se[1];
+							$listapw.=$nom4.':'.$se[0]; }
+						}
+					}
+					}
+				if(isset($_SESSION['pass'])) {
+					$session = $_SESSION['pass']; } else {$session = '';}
+					
+				if(isset($_COOKIE['pass'])) {
+					$cookie = $_COOKIE['pass']; } else {$cookie = '';}
+						
+				$para['lista']		= $lista;
+				$para['listaPSW']	= $listapw; 
+				$para['acceso']		= 0; 
+				$para['session']	= $session; 
+				$para['cookie']		= $cookie; 
+				$para['opcionCookie']	= 0; 
+		return $para;
 	}
 	
 }

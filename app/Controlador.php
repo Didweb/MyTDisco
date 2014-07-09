@@ -1,6 +1,6 @@
 <?php
 require_once 'vendor/autoload.php';
-//require_once 'vendor/didweb/myt-sniper/src/mySniper.php';
+require_once 'vendor/didweb/myt-sniper/src/mySniper.php';
 
 class Controlador
 {
@@ -10,7 +10,23 @@ class Controlador
 	public $menuIdioma;
 	public $estilo;
 	
+	private $hola;
 
+	public function __construct($valor)
+	{
+		$this->setHola($valor);
+	}
+
+	public function setHola($valor)
+	{
+	  	$this->hola = $valor;
+	  	return $this;
+	}
+	
+	public function getHola()
+	{
+		return $this->hola;
+	}
 	
 	public function cargaTwig($path)
 	{

@@ -14,7 +14,7 @@ class IndexController extends Controlador
 	private $packidiomas;
 	
 	
-	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma,$locale,$packidiomas)
+	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma,$locale,$packidiomas,$seguridad)
 	{
 	$this->constantes 		= $constantes;
 	$this->redirect  		= $redirect;
@@ -22,6 +22,8 @@ class IndexController extends Controlador
 	$this->idioma 			= $idioma;
 	$this->locale 			= $locale;
 	$this->packidiomas 		= $packidiomas;
+	
+	parent::__construct('hola');
 	
 	$this->menus = new menus();
 	
@@ -49,7 +51,7 @@ class IndexController extends Controlador
 		
 		
 		
-		
+		$hola = $this->getHola();
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/fijas/pato-dos.html', array(
 											'redirect' 		=> $this->redirect,
@@ -62,7 +64,8 @@ class IndexController extends Controlador
 											'cosas2'		=> $arraydecosas2,
 											'cosas3'		=> $arraydecosas3,
 											'menuidioma'	=> $this->menuIdioma,
-											'idioma'			=> $this->packidiomas
+											'idioma'		=> $this->packidiomas,
+											'hola'			=> $hola
 											));
 		
 	}

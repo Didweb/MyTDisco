@@ -161,7 +161,7 @@ class LecturasInterpretes
 			}
 
 		require_once ('app/tmp/seguridad.php');	
-		$seguridad = new config();
+		$seguridad = new SeguridadConfig();
 		return $seguridad;
 		}	
 

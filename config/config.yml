@@ -1,7 +1,7 @@
 Configuracion:
     TmpUrl: app/tmp/rutas.php
     ConfigUrl: config/rutas.yml
-    OtraRuta: pitos
+    OtraRuta: pitosxxx
     
     idiomas: es,ca,en,fr,it
     estilo: iso
