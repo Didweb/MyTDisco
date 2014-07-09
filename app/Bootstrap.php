@@ -12,11 +12,11 @@ class Bootstrap extends Request
 	public static function run()
 	{
 		$peticion = new Request();
-		$constantes = $peticion->setConstantes();
+		$constantes = $peticion->getConstantes();
 		
 		
-		if(method_exists($constantes,'getSeguridad')){
-			$seguridad = $constantes->getSeguridad();
+		/*
+			$seguridad = $peticion->constantes->getSeguridad();
 			if($seguridad == 1){
 				
 				$ConfigSeguridad 		= $peticion->setSeguridadConfig();
@@ -28,12 +28,12 @@ class Bootstrap extends Request
 				
 				
 				}
-			}
+			
+		*/
 		
 		
-		if ( $_SERVER['HTTP_HOST'] == 'localhost' ){
-			$constantes->setHOME($constantes->getHOME_dev());
-			}
+		
+		
 		
 		$peticion->setDestino();
 		
@@ -42,20 +42,12 @@ class Bootstrap extends Request
 		$nomControlador = $peticion->controlador.'Controller';
 		$nomMetodo 		= $peticion->metodo;
 		
-		if(isset($peticion->parametros_get['lang'])) {
-			$parametro_get_lang = $peticion->parametros_get['lang']; 
-			} else {
-			$parametro_get_lang = '';	
-			}
-		
-		/* Concretamos el idioma del usurio. 
-		 * Mostramos uno soportado si el suyo no lo soporta la app.
-		 * */
-		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
-		$locale = new AppLocale($idioma);
+
+	
 		
 		/* Inicializamos el controlador correspondiente a la url. */
-		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale,$peticion->packidiomas,$packseguridad);
+		//$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale,$peticion->packidiomas,$packseguridad);
+		$carga = new $nomControlador();
 		$carga->$nomMetodo();
 	
 		

@@ -3,9 +3,9 @@
 		
 		{% for idiomalista in idioma.soportados %}
 			{% if idioma.getLang==idiomalista %}
-				<a href='{{ HOME }}home/{{ idiomalista }}' class='localesel'>{{ idiomalista }}*</a>
+				<a href='{{ cons.HOME }}home/{{ idiomalista }}' class='localesel'>{{ idiomalista }}*</a>
 			{% else %}
-				<a href='{{ HOME }}home/{{ idiomalista }}'>{{ idiomalista }}</a>
+				<a href='{{ cons.HOME }}home/{{ idiomalista }}'>{{ idiomalista }}</a>
 			{% endif %}
 		{% endfor %}
 

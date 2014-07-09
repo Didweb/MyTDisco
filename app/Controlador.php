@@ -1,8 +1,9 @@
 <?php
 require_once 'vendor/autoload.php';
 require_once 'vendor/didweb/myt-sniper/src/mySniper.php';
+require_once 'app/Request.php';
 
-class Controlador
+class Controlador extends Request
 {
 	protected $encontrada;
 	protected $twig;
@@ -10,23 +11,45 @@ class Controlador
 	public $menuIdioma;
 	public $estilo;
 	
-	private $hola;
+	public $locale;
 
-	public function __construct($valor)
-	{
-		$this->setHola($valor);
-	}
-
-	public function setHola($valor)
-	{
-	  	$this->hola = $valor;
-	  	return $this;
-	}
+	public $redirect;
+	public $parametros_get;
+	public $idioma;
+	public $menus;
 	
-	public function getHola()
+	public $constantes;
+	
+	public function __construct()
 	{
-		return $this->hola;
+
+		// Cargamos las constantes y las ponemos disponibles.
+		$this->setConstantes();
+		$constantes = $this->getConstantes();
+		
+		// Preparamos el HOME
+		if ( $_SERVER['HTTP_HOST'] == 'localhost' ){
+			$constantes->setHOME($constantes->getHOME_dev());
+			}
+		
+		
+		
+		// Definimos el idioma del usuario.
+		if(isset($constantes->parametros_get['lang'])) {
+			$parametro_get_lang = $constantes->parametros_get['lang']; 
+			} else {
+			$parametro_get_lang = '';	
+			}
+		$idioma = $this->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
+		// Preparamos las traducciones.
+		$this->locale = new AppLocale($idioma);	
+		$this->idioma = $idioma;
+		
+
+		
 	}
+
+
 	
 	public function cargaTwig($path)
 	{
@@ -59,6 +82,10 @@ class Controlador
 	}
 	
 	
+	public function cargaConstantes()
+	{
+		return $this->constantes;
+	}
 
 	
 }

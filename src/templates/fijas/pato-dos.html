@@ -6,24 +6,9 @@
 	
 {% include '/locale/menu_locale.html' %}	
 	
-<h1>En Plantilla Pato-dos [twig] {{ hola }}</h1>
+<h1>En Plantilla Pato-dos [twig] {{ elhome }}</h1>
 <p>
-<br /> <b>LA REDIRECCION: {{ redirect }}</b>
-<br />
-Este es el contenido desde la plantilla.
-<br /><br />
-GET = lang: {{ parametros.lang }}
-<br />
-GET = pagina: {{ parametros.pagina }}
-<br />
-El idioma : {{ idioma.getLang }}
-<br />
-Estilo : {{ estilo }}
-<br />
-Idiomas Soportados: <b>{{ idiomassoportados }}</b>
-<br /> 
 
-{% include '/fijas/tomate.html' %}
 <br /> <br /> 
 Traducciones: <b>{{ trad.Saludo }}</b>
 <br /> 
@@ -31,23 +16,10 @@ Traducciones: <b>{{ trad.Despedida | raw }}</b>
 <br /> <br /> 
 
 <hr />
-{% for key,cosa in cosas %}
-{{ key }} - {{ cosa }}<br />
-{% endfor %}
 
-
-{% for key,cosa2 in cosas2 %}
-{{ key }} - {{ cosa2 }}<br />
-{% endfor %}
-<br /><br />
-
-{% for key,cosa3 in cosas3 %}
-{{ key }} - {{ cosa3.sub1 }}<br />
-{% endfor %}
-
-<hr/>
 <br /> <br /> 
-<a href="{{ HOME }}POLKAXY/asadas">Volver a Polka</a>
+<a href="{{ cons.getHOME }}POLKAXY/asadas">Volver a Polka</a> <br />
+<a href="{{ cons.getHOME }}">Inicio</a>
 </p>
 
 </body></html>

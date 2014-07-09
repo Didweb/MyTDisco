@@ -2,18 +2,22 @@
 require_once 'app/Lecturas.php';
 require_once 'vendor/didweb/myt-local/MyTlocale/myLocale.php';
 require_once 'vendor/didweb/myt-segurata/src/mySegurata.php';
+
 class Request extends Lecturas
 {
 	private $url;
 	public 	$DestinoControlador;
 	public 	$lang;
-	public $seguridad;
-	public $packidiomas;
-	public $packseguridad;
+	public  $seguridad;
+	public  $packidiomas;
+	public  $packseguridad;
+	
+	public $constantes;
 	
 	public function __construct()
 	{
 		$this->setUrl();	
+		$this->setConstantes();
 	}
 	
 
@@ -55,9 +59,14 @@ class Request extends Lecturas
 	
 	public function setConstantes()
 	{
-		return $this->LectorYamlConfig();	
+		$this->constantes =  $this->LectorYamlConfig();	
+		return $this;
 	}
 	
+	public function getConstantes()
+	{
+		return $this->constantes;
+	}
 	
 	
 	
