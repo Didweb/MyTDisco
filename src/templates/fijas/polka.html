@@ -5,7 +5,7 @@
 
 {% include '/locale/menu_locale.html' %}		
 	
-<h1>POLKA en [twig]</h1>
+<h1>POLKA en [twig] {{ HOME }}</h1>
 <p>
 
 <br />
@@ -13,8 +13,9 @@
 <br />En controlador Indesx dentro de <b>indexpolka</b> metodo <<<-----
 
 <br /><br />
-El idioma => {{ idioma }}
+El idioma => {{ idioma.getLang }}
 <br />
-<a href="{{ HOME }}pato/dos/{{ idioma }}/1">Volver a pato</a>
+<a href="{{ cons.HOME }}pato/dos/{{ idioma.getLang }}/1">Volver a pato</a> <br />
+<a href="{{ cons.getHOME }}">Inicio</a>
 </p>
 </body></html>

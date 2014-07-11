@@ -5,64 +5,39 @@ include 'menus.php';
 
 class IndexController extends Controlador
 {
-	private $constantes;
-	private $redirect;
-	private $parametros_get;
-	private $idioma;
-	private $menus;
-	
-	private $packidiomas;
+	public $cons;
+
 	
 	
-	public function __construct($constantes,$redirect,$parametros_get=array(),$idioma,$locale,$packidiomas)
+	public function __construct()
 	{
-	$this->constantes 		= $constantes;
-	$this->redirect  		= $redirect;
-	$this->parametros_get 	= $parametros_get;
-	$this->idioma 			= $idioma;
-	$this->locale 			= $locale;
-	$this->packidiomas 		= $packidiomas;
-	
-	$this->menus = new menus();
-	
+		parent::__construct();
+		
 	}
 	
 	
 	
 	public function index2()
 	{
-		
+		// Carga de traducciones
 		$traducciones = $this->locale->trad('comun');
 		$ori = $traducciones->getDespedida();
 		
+		// Carga de Sniper mapear texto y pasar parametros
 		$sniper = $this->cargaSniper('mapeatxt');
 		$ori = $sniper->clase->mapeatxt($ori,'-- TOMA DOBLE 111 --','-- TOMA DOBLE 222 --','-- TOMA DOBLE 333 --');
-		
 		$traducciones->setDespedida($ori);
-		$t = $this->menus;
-		
-		$arraydecosas = array('cosa 1','cosa 2', 'cosa 3');
-		$arraydecosas2 = array('key1' => 'cosa 1','key2' => 'cosa 2','key3' =>  'cosa 3');
-		
-		$arraydecosas3 = array('key1' => array('sub1'=>'cosa 1 sub1','sub2'=>'cosa 1 sub2'),'key2' => 'cosa 2','key3' =>  'cosa 3');
 		
 		
 		
-		
-		
+		$home = $this->constantes->getHOME();
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/fijas/pato-dos.html', array(
-											'redirect' 		=> $this->redirect,
+											'trad'	=> $traducciones,
+											'cons'	=> $this->constantes,
 											'parametros'	=> $this->parametros_get,
-											'idiomassoportados'=> $this->constantes->getIdiomas(),
-											'HOME'			=> $this->constantes->getHOME(),
-											'trad'			=> $traducciones,
-											'saludotomate'	=> $t,
-											'cosas'			=> $arraydecosas,
-											'cosas2'		=> $arraydecosas2,
-											'cosas3'		=> $arraydecosas3,
-											'menuidioma'	=> $this->menuIdioma,
-											'idioma'			=> $this->packidiomas
+											'elhome'=> $home,
+											'idioma'=> $this->packidiomas
 											));
 		
 	}
@@ -78,14 +53,6 @@ class IndexController extends Controlador
 		$ori = $sniper->clase->mapeatxt($ori,'-- TOMA DOBLE 111 --','-- TOMA DOBLE 222 --','-- TOMA DOBLE 333 --');
 		
 		$traducciones->setDespedida($ori);
-		$t = $this->menus;
-		
-		$arraydecosas = array('cosa 1','cosa 2', 'cosa 3');
-		$arraydecosas2 = array('key1' => 'cosa 1','key2' => 'cosa 2','key3' =>  'cosa 3');
-		
-		$arraydecosas3 = array('key1' => array('sub1'=>'cosa 1 sub1','sub2'=>'cosa 1 sub2'),'key2' => 'cosa 2','key3' =>  'cosa 3');
-		
-	
 		
 		
 		$twig = $this->cargaTwig('src/templates');	
@@ -93,13 +60,9 @@ class IndexController extends Controlador
 											'redirect' 		=> $this->redirect,
 											'parametros'	=> $this->parametros_get,
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
-											'HOME'			=> $this->constantes->getHOME(),
 											'trad'			=> $traducciones,
-											'saludotomate'	=> $t,
-											'cosas'			=> $arraydecosas,
-											'cosas2'		=> $arraydecosas2,
-											'cosas3'		=> $arraydecosas3,
-											'idioma'		=> $this->packidiomas
+											'cons'	=> $this->constantes,
+											'idioma'=> $this->packidiomas
 											));
 		
 	}
@@ -109,16 +72,14 @@ class IndexController extends Controlador
 	
 	public function indexpolka()
 	{
-		$constante = $this->constantes->getOtraRuta();
+		$otraruta = $this->constantes->getOtraRuta();
 		$losidiomas = explode(',',$this->constantes->getIdiomas());
 		
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/fijas/polka.html', array(
-										'constante' => $constante,
-										'idioma'	=> $this->idioma,
-										'HOME'		=> $this->constantes->getHOME(),
-										'estilo'		=> $this->constantes->getEstilo(),
-										'losidiomas'	=> $losidiomas
+										'constante' => $otraruta,
+										'cons'	=> $this->constantes,
+										'idioma'=> $this->packidiomas
 										));
 		
 	}

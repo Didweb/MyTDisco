@@ -1,13 +1,14 @@
 <?php
+require_once 'app/Controlador.php';
+require_once 'vendor/autoload.php';
 
-
-class ErrorController 
+class ErrorController extends Controlador
 {
 
-	public function __construct($constantes,$redirect)
+	public function __construct()
 	{
-	$this->constantes = $constantes;
-	$this->redirect  = $redirect;	
+		parent::__construct();	
+	
 	}
 	
 	public function error404()
@@ -19,7 +20,7 @@ class ErrorController
 		));
 		
 		$redirect = $this->redirect;
-		echo $twig->render('error404.html', array('redirect' => $redirect));
+		echo $twig->render('error404.html', array('redirect' => $this->redirect));
 	}
 	
 

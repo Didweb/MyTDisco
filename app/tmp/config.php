@@ -8,7 +8,7 @@
 
  private $ConfigUrl = "config/rutas.yml";
 
- private $OtraRuta = "pitos";
+ private $OtraRuta = "pitosxxx";
 
  private $idiomas = "es,ca,en,fr,it";
 
@@ -25,7 +25,7 @@
   array (
     'TmpUrl' => 'app/tmp/rutas.php',
     'ConfigUrl' => 'config/rutas.yml',
-    'OtraRuta' => 'pitos',
+    'OtraRuta' => 'pitosxxx',
     'idiomas' => 'es,ca,en,fr,it',
     'estilo' => 'iso',
     'HOME_dev' => 'http://localhost/MyT/',
