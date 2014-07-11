@@ -35,6 +35,7 @@ class IndexController extends Controlador
 		echo $twig->render('/fijas/pato-dos.html', array(
 											'trad'	=> $traducciones,
 											'cons'	=> $this->constantes,
+											'parametros'	=> $this->parametros_get,
 											'elhome'=> $home,
 											'idioma'=> $this->packidiomas
 											));

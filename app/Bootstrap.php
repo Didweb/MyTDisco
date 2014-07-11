@@ -37,16 +37,24 @@ class Bootstrap extends Request
 		
 		$peticion->setDestino();
 		
+		
+		/* Concretamos el idioma del usurio. 
+		 * Mostramos uno soportado si el suyo no lo soporta la app.
+		 * */
+		if(isset($peticion->parametros_get['lang'])) {
+			$parametro_get_lang = $peticion->parametros_get['lang']; 
+			} else {
+			$parametro_get_lang = '';	
+			}
+		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
+		
+		// Montamos controlador.
 		require_once 'src/Controller/'.$peticion->controlador.'Controller.php';
 		
 		$nomControlador = $peticion->controlador.'Controller';
 		$nomMetodo 		= $peticion->metodo;
 		
-
-	
-		
-		/* Inicializamos el controlador correspondiente a la url. */
-		//$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale,$peticion->packidiomas,$packseguridad);
+		// Llamamos al controlador.
 		$carga = new $nomControlador();
 		$carga->$nomMetodo();
 	

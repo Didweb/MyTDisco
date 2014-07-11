@@ -35,15 +35,21 @@ class Controlador extends Request
 		
 		
 		// Definimos el idioma del usuario.
-		if(isset($constantes->parametros_get['lang'])) {
-			$parametro_get_lang = $constantes->parametros_get['lang']; 
+	
+		if(isset($get->parametros_get['lang'])) {
+			$parametro_get_lang = $get->parametros_get['lang']; 
 			} else {
 			$parametro_get_lang = '';	
 			}
+			
 		$idioma = $this->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
+		$this->idioma = $idioma;
+		
+		
 		// Preparamos las traducciones.
 		$this->locale = new AppLocale($idioma);	
-		$this->idioma = $idioma;
+		
+		
 		
 
 		

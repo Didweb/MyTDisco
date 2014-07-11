@@ -15,6 +15,14 @@ class LecturasInterpretes
 	public $parametros_get;
 	
 
+
+
+	public function setParametros_get($valor)
+	{
+		$this->parametros_get = $valor;
+		return $this;
+	}
+
 	public function LectorYamlRutas($RequestUrl)
 		{
 		
@@ -188,7 +196,7 @@ class LecturasInterpretes
 				    $this->controlador 		= $da[0];
 				    $this->metodo 			= $da[1];
 				    $this->parametros_get 	= $this->JackParametros($RequestUrl,$val['url']);
-				    
+
 
 				    if(isset($da[2])){
 						$this->redirect = $da[2];}

@@ -3,6 +3,7 @@
 		
 		{% for idiomalista in idioma.soportados %}
 			{% if idioma.getLang==idiomalista %}
+			
 				<a href='{{ cons.HOME }}home/{{ idiomalista }}' class='localesel'>{{ idiomalista }}*</a>
 			{% else %}
 				<a href='{{ cons.HOME }}home/{{ idiomalista }}'>{{ idiomalista }}</a>

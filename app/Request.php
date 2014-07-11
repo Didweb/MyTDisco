@@ -12,6 +12,7 @@ class Request extends Lecturas
 	public  $packidiomas;
 	public  $packseguridad;
 	
+	public $parametros_get;
 	public $constantes;
 	
 	public function __construct()
@@ -35,7 +36,8 @@ class Request extends Lecturas
 		return $resultado;
 	
 	}
-	
+
+
 	
 	public function getIdiomaLang($getLa,$idiomasSoportados,$estilo)
 	{
@@ -68,6 +70,8 @@ class Request extends Lecturas
 		return $this->constantes;
 	}
 	
+	
+
 	
 	
 	public function setSeguridadConfig()
