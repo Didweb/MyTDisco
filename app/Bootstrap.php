@@ -8,35 +8,13 @@ require_once 'app/AppLocale.php';
 class Bootstrap extends Request
 {
 	public $constantes;
+	public $parametrosSeg;
 	
 	public static function run()
 	{
 		$peticion = new Request();
 		$constantes = $peticion->getConstantes();
-		
-		
-		/*
-			$seguridad = $peticion->constantes->getSeguridad();
-			if($seguridad == 1){
-				
-				$ConfigSeguridad 		= $peticion->setSeguridadConfig();
-				$parametrosSeguridad 	= $ConfigSeguridad->getSeguridadConfig();
-				
-				$parametrosSeg = $peticion->listasSeguridad($parametrosSeguridad);
-				
-				$packseguridad = $peticion->packseguridad($parametrosSeg);
-				
-				
-				}
-			
-		*/
-		
-		
-		
-		
-		
 		$peticion->setDestino();
-		
 		
 		/* Concretamos el idioma del usurio. 
 		 * Mostramos uno soportado si el suyo no lo soporta la app.
@@ -48,15 +26,72 @@ class Bootstrap extends Request
 			}
 		$idioma = $peticion->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
 		
-		// Montamos controlador.
-		require_once 'src/Controller/'.$peticion->controlador.'Controller.php';
 		
-		$nomControlador = $peticion->controlador.'Controller';
-		$nomMetodo 		= $peticion->metodo;
 		
-		// Llamamos al controlador.
-		$carga = new $nomControlador();
-		$carga->$nomMetodo();
+		
+			$seguridad = $peticion->constantes->getSeguridad();
+			
+			if($seguridad == 1){
+				
+				$ConfigSeguridad 		= $peticion->setSeguridadConfig();
+				$parametrosSeguridad 	= $ConfigSeguridad->getSeguridadConfig();
+				
+				$parametrosSeg = $peticion->listasSeguridad($parametrosSeguridad);
+				
+				$packseguridad = $peticion->packseguridad($parametrosSeg);
+				
+				$acceso = new mySegurata($parametrosSeg);
+				$visita = $acceso->visita();
+				
+				if($peticion->permiso > $visita){
+					
+					
+					// Montamos controlador.
+					require_once 'src/Controller/SeguridadController.php';
+					
+					$nomControlador = 'SeguridadController';
+					$nomMetodo 		= 'login';
+					
+					// Llamamos al controlador.
+					$carga = new $nomControlador($parametrosSeg);
+					$carga->$nomMetodo($peticion->url);
+					
+					} else {
+						
+					
+						// Montamos controlador.
+						require_once 'src/Controller/'.$peticion->controlador.'Controller.php';
+						
+						// Llamamos al controlador.
+						$nomControlador = $peticion->controlador.'Controller';
+						$nomMetodo 		= $peticion->metodo;
+						
+						if($peticion->metodo=='check'){
+							$carga = new $nomControlador($parametrosSeg);
+							} else {
+							$carga = new $nomControlador();	
+							}
+						
+						
+						$carga->$nomMetodo();
+					
+						}
+				
+				}
+			
+		
+				
+				
+				
+		
+		
+		
+		
+		
+		
+		
+
+
 	
 		
 		

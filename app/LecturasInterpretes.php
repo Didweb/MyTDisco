@@ -195,13 +195,14 @@ class LecturasInterpretes
 				    $da = explode('::',$val['controller']);
 				    $this->controlador 		= $da[0];
 				    $this->metodo 			= $da[1];
+				    $this->permiso 			= $val['permiso'];
 				    $this->parametros_get 	= $this->JackParametros($RequestUrl,$val['url']);
 
 
 				    if(isset($da[2])){
 						$this->redirect = $da[2];}
 						else{
-						$this->redirect = 302;}
+						$this->redirect = 202;}
 				    return true;
 			   }
 			}
@@ -253,6 +254,7 @@ class LecturasInterpretes
 		$this->nueva_url = "#^".$nueva_url."(/)?$#";
 		return $this;
 	}
+
 
 
 	public function JackParametros($RequestUrl,$ModeloUrl)

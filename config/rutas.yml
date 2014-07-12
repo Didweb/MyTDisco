@@ -1,24 +1,36 @@
 Index:
     url:
     controller: Index::index
+    permiso: 0
 
 IndexIdioma:
     url: home/{lang:locale}
     controller: Index::index
+    permiso: 0
       
 ruta_uno:
     url: pato/dos/{lang:locale}/{pagina:int}
     controller: Index::index2
+    permiso: 1
    
-    
+   
+   
 ruta_dos:
     url: POLKAXY/{apellido:string}
     controller: Index::indexpolka
+    permiso: 0
 
 ruta_tres:
     url: pluma
     controller: Pluma::po
+    permiso: 0
 
 ruta_cuatro:
     url: pupa
     conroller: Pupa::pa
+    permiso: 0
+
+login2:
+    url: checking
+    conroller: Seguridad::check
+    permiso: 0

@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<body>
+{% extends 'frontend/base.html' %}
 	
-	
+{% block contenidos %}	
 {% include '/locale/menu_locale.html' %}		
 	
 <h1>INDEX</h1>
@@ -23,7 +20,7 @@ Estilo : {{ estilo }}
 Idiomas Soportados: <b>{{ idiomassoportados }}</b>
 <br /> 
 
-{% include '/fijas/tomate.html' %}
+{% include '/frontend/tomate.html' %}
 <br /> <br /> 
 Traducciones: <b>{{ trad.Saludo }}</b>
 <br /> 
@@ -37,4 +34,4 @@ Traducciones: <b>{{ trad.Despedida | raw }}</b>
 <a href="{{ cons.getHOME }}POLKAXY/asadas">Volver a Polka</a>
 </p>
 
-</body></html>
+{% endblock %}
