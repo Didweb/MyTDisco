@@ -1,6 +1,9 @@
 Sistema Seguridad
 =================
 
+[Inicio Documentación][1] 
+
+
 Sistema para el control de accesos a zonas restringidas.
 
 Actualmente no soporta usuarios desde base de datos, solo configurados desde un archivo de configuración. Esta planeado ampliar este servicio [MyTSeguridad][1]
@@ -68,4 +71,5 @@ Las URLs  del tipo: `getsor/es/1`, `getsor/en/1`, `getsor/es/3`, etc. solo puede
 
 
 [1]: https://github.com/Didweb/MyTsegurata
+[2]:  Inicio_Documentacion.md
 
