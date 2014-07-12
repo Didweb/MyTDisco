@@ -30,9 +30,9 @@ Bueno casi nada ;P
 
 # DOcuemntación
 
-- [Docuemntación de MyT Framework][1]
+- [Documentación de MyT Framework][1]
 
-[1]: ../app/docs/Documentacion/Inicio_Documentacion.md
+[1]: ../../app/docs/Documentacion/Inicio_Documentacion.md
 
 
 
