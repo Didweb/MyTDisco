@@ -48,17 +48,8 @@ Dentro de `app/Bootstrap.php` se hace el control de idioma en esta parte del có
 
 ```
 
-Se define el idioma por defecto o bien el del usuario si el sistema lo soporta este se envía al **Controlador** como parámetro en la siguiente línea:
+El controlador de forma extendida vuelve a llamar a la idioma para poder tener disponibles los distintos parámetros.
 
-```
-
-		/* Inicializamos el controlador correspondiente a la url. */
-		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma);
-		$carga->$nomMetodo();
-
-```
-
-En el último parámetro con el nombre `$idioma`.
 
 
 
@@ -90,22 +81,13 @@ Dentro del directorio `src/locale` se crean tantas carpetas como idiomas necesar
 
 Dentro de cada idioma existirán los distintos diccionarios que se pueden crear tantos como queramos, organizados por paginas, por temas, etc.
 
-Los diccionarios han de tener el nombre en minúsculas seguido d eun guión bajo y el código de idioma que corresponda, ejemplo: `nombre_es.yml` en formato `yml`. Siempre ha de existir una copia para cada idioma con los mismos parámetros y sus traducciones.
+Los diccionarios han de tener el nombre en minúsculas seguido de un guión bajo y el código de idioma que corresponda, ejemplo: `nombre_es.yml` en formato `yml`. Siempre ha de existir una copia para cada idioma con los mismos parámetros y sus traducciones.
 
 
 ### Cómo funciona el locale y la vista
 
-Dentro de `app` tenemos `AppLocale.php` este se encarga de almacenar el idioma y preparar el objeto. Dentro de `app/Bootstrap.php`,  este objeto se inyecta en el controlador en el último parámetro llamado `$locale`:
+Dentro de `Controlador` tenemos `AppLocale.php`, se extiende desde el controlador,  para desde el controlador poder acceder a los parámetros y funciones de `locale`:
 
-```
-
-		$locale = new AppLocale($idioma);
-		
-		/* Inicializamos el controlador correspondiente a la url. */
-		$carga = new $nomControlador($constantes, $peticion->redirect, $peticion->parametros_get, $idioma,$locale);
-		$carga->$nomMetodo();
-
-```
 
 Dentro del controlador podemos llamar al método que se encarga de traernos el diccionario que corresponda. De esta forma:
 
@@ -138,14 +120,49 @@ Traducciones: <b>{{ trad.Saludo }}</b>
 
 ```
 
-Donde `Saludo` es el nombre del parámetro de traducción que se indico en el archivo `yml`.
+Donde `Saludo` es el nombre del parámetro de traducción que se indicó en el archivo `yml`.
 
 
 
+### Pasar parámetros a los textos
 
-### Cache de idiomas
+Se pueden pasar parámetros a los textos desde el controlador con un sniper llamado `mapeatxt`, cargamos el sniper así, en este ejemplo se ve como se carga el diccionario y luego a uno de los textos le pasamos unos parámetros:
 
-La lectura del archivo `yml` se realiza en el caso de que este tenga cambios. Si tiene cambios o es nuevo, el sisetma crea el objeto necesario para llamar alas traducciones.
+```
+
+		// Carga de traducciones
+		$traducciones = $this->locale->trad('comun');
+		$ori = $traducciones->getDespedida();
+		
+		// Carga de Sniper mapear texto y pasar parametros
+		$sniper = $this->cargaSniper('mapeatxt');
+		$ori = $sniper->clase->mapeatxt($ori,'-- TOMA DOBLE 111 --','-- TOMA DOBLE 222 --','-- TOMA DOBLE 333 --');
+		$traducciones->setDespedida($ori);
+
+
+```
+
+Para poder pasar parámetros a los textos lo tenemos que guardar de la siguiente manera en el diccionario:
+
+
+```
+
+Es:
+    saludo: Bienvenidos a mi web.
+    despedida: Adios hasta la próxima %1 <span style='color:red'>otro</span> -> %2  y el otro -> %3.
+
+
+```
+
+Como se ve se han de poner %n para cada parámetro, el texto también admite etiquetas `html`
+
+
+
+### Caché de idiomas
+
+La lectura del archivo `yml` se realiza en el caso de que este tenga cambios. Si tiene cambios o es nuevo, el sistema crea el objeto necesario para llamar a las traducciones.
+
+
 
 
 
