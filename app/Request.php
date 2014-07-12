@@ -5,7 +5,7 @@ require_once 'vendor/didweb/myt-segurata/src/mySegurata.php';
 
 class Request extends Lecturas
 {
-	private $url;
+	public $url;
 	public 	$DestinoControlador;
 	public 	$lang;
 	public  $seguridad;
@@ -14,7 +14,8 @@ class Request extends Lecturas
 	
 	public $parametros_get;
 	public $constantes;
-	
+	public $permiso;
+		
 	public function __construct()
 	{
 		$this->setUrl();	
@@ -92,8 +93,8 @@ class Request extends Lecturas
 					if($nom3=='usuarios'){
 						foreach($parametros[$nom2][$nom3] as $nom4=>$val4){
 							$se = explode(':',$val4);
-							$lista	.=$nom4.':'.$se[1];
-							$listapw.=$nom4.':'.$se[0]; }
+							$lista	.=$nom4.':'.$se[1].',';
+							$listapw.=$nom4.':'.$se[0].',';  }
 						}
 					}
 					}
@@ -103,12 +104,13 @@ class Request extends Lecturas
 				if(isset($_COOKIE['pass'])) {
 					$cookie = $_COOKIE['pass']; } else {$cookie = '';}
 						
-				$para['lista']		= $lista;
-				$para['listaPSW']	= $listapw; 
+				$para['lista']		= substr($lista, 0,-1);
+				$para['listaPSW']	= substr($listapw,0, -1); 
 				$para['acceso']		= 0; 
 				$para['session']	= $session; 
 				$para['cookie']		= $cookie; 
 				$para['opcionCookie']	= 0; 
+				
 		return $para;
 	}
 	

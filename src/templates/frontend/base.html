@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        {% block metarobots %}
+        <meta name="robots" CONTENT="index, follow">
+        {% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{ cons.HOME }}css/reset.css" rel="stylesheet" type="text/css" />
+        {% block cabecerasextras %}  {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ cons.HOME }}/deco/frontend/favicon.ico" />
+    </head>
+    <body>
+	
+    {% block body %}{% endblock %}
+       
+       
+    <footer>
+    EL footer
+    </footer>   
+        {% block javascripts %}{% endblock %}
+        
+
+    </body>
+</html>

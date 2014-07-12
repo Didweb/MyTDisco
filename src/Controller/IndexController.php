@@ -32,7 +32,7 @@ class IndexController extends Controlador
 		
 		$home = $this->constantes->getHOME();
 		$twig = $this->cargaTwig('src/templates');	
-		echo $twig->render('/fijas/pato-dos.html', array(
+		echo $twig->render('/backend/pato-dos.html', array(
 											'trad'	=> $traducciones,
 											'cons'	=> $this->constantes,
 											'parametros'	=> $this->parametros_get,
@@ -56,7 +56,7 @@ class IndexController extends Controlador
 		
 		
 		$twig = $this->cargaTwig('src/templates');	
-		echo $twig->render('/fijas/index.html', array(
+		echo $twig->render('/frontend/index.html', array(
 											'redirect' 		=> $this->redirect,
 											'parametros'	=> $this->parametros_get,
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
@@ -76,7 +76,7 @@ class IndexController extends Controlador
 		$losidiomas = explode(',',$this->constantes->getIdiomas());
 		
 		$twig = $this->cargaTwig('src/templates');	
-		echo $twig->render('/fijas/polka.html', array(
+		echo $twig->render('/frontend/polka.html', array(
 										'constante' => $otraruta,
 										'cons'	=> $this->constantes,
 										'idioma'=> $this->packidiomas
