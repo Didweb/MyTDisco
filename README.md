@@ -32,7 +32,7 @@ Bueno casi nada ;P
 
 - [Docuemntación de MyT Framework][1]
 
-[1]: app/docs/Documentacion/Inicio_Dicumentacion.md
+[1]: /app/docs/Documentacion/Inicio_Dicumentacion.md
 
 
 
