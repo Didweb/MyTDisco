@@ -1,7 +1,7 @@
 Sistema Seguridad
 =================
 
-[Inicio Documentación][1] 
+[Inicio Documentación][2] 
 
 
 Sistema para el control de accesos a zonas restringidas.
