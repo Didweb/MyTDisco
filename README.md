@@ -28,11 +28,9 @@ Bueno casi nada ;P
 - Se ha creado también el sistema para atuentificación de usuarios. Falta terminar par apoderla integrar en las dependencias.
 
 
-# DOcuemntación
+# Docuemntación
 
-- [Documentación de MyT Framework][1]
-
-[1]: ../../app/docs/Documentacion/Inicio_Documentacion.md
+- Documentación de MyT Framework : Dentro de `app/docs/Documentacion`
 
 
 
