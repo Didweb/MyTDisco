@@ -37,13 +37,13 @@
   'ruta_cuatro' => 
   array (
     'url' => 'pupa',
-    'controller' => 'Pupa::pa',
+    'conroller' => 'Pupa::pa',
     'permiso' => 0,
   ),
   'login2' => 
   array (
     'url' => 'checking',
-    'controller' => 'Seguridad::check',
+    'conroller' => 'Seguridad::check',
     'permiso' => 0,
   ),
 ); 
