@@ -11,6 +11,7 @@ class Controlador extends Request
 	public $menuIdioma;
 	public $estilo;
 	
+	
 	public $locale;
 
 	public $redirect;
@@ -56,6 +57,7 @@ class Controlador extends Request
 	}
 
 
+
 	
 	public function cargaTwig($path)
 	{
@@ -72,7 +74,7 @@ class Controlador extends Request
 				'debug' => false
 			));	
 		}
-		
+		$twig->addGlobal("session", $_SESSION);
 		$this->twig  = $twig;
 		
 		return $this->twig;

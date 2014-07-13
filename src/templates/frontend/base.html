@@ -6,12 +6,13 @@
         <meta name="robots" CONTENT="index, follow">
         {% endblock %}
         <title>{% block title %}{% endblock %}</title>
-        <link href="{{ cons.HOME }}css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="{{ cons.HOME }}src/css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="{{ cons.HOME }}src/css/menu_idiomas.css" rel="stylesheet" type="text/css" />
         {% block cabecerasextras %}  {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ cons.HOME }}/deco/frontend/favicon.ico" />
     </head>
     <body>
-	
+	{% set donde = 'home' %}
     {% block body %}{% endblock %}
        
        

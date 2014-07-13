@@ -13,7 +13,18 @@ ruta_uno:
     controller: Index::index2
     permiso: 1
    
-   
+
+Gestor_index:
+    url: gestor/{lang:locale}/index
+    controller: Gestor::indexgestor
+    permiso: 1
+
+Gestor_index_cambio_idioma:
+    url: gestor/{lang:locale}
+    controller: Gestor::indexgestor
+    permiso: 1
+    
+       
    
 ruta_dos:
     url: POLKAXY/{apellido:string}
@@ -27,10 +38,15 @@ ruta_tres:
 
 ruta_cuatro:
     url: pupa
-    conroller: Pupa::pa
+    controller: Pupa::pa
     permiso: 0
 
 login2:
     url: checking
-    conroller: Seguridad::check
+    controller: Seguridad::check
+    permiso: 0
+
+checkout:
+    url: checkout
+    controller: Seguridad::checkout
     permiso: 0

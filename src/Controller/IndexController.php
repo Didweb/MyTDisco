@@ -37,7 +37,7 @@ class IndexController extends Controlador
 											'cons'	=> $this->constantes,
 											'parametros'	=> $this->parametros_get,
 											'elhome'=> $home,
-											'idioma'=> $this->packidiomas
+											'idioma'=> $this->packidiomas,
 											));
 		
 	}
@@ -62,7 +62,8 @@ class IndexController extends Controlador
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
 											'trad'			=> $traducciones,
 											'cons'	=> $this->constantes,
-											'idioma'=> $this->packidiomas
+											'idioma'=> $this->packidiomas,
+											'usuario'=>$_SESSION['user']
 											));
 		
 	}

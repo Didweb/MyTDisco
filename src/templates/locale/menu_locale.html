@@ -2,11 +2,12 @@
 	{% if idioma.estilo=='iso'  %}	
 		
 		{% for idiomalista in idioma.soportados %}
+		
 			{% if idioma.getLang==idiomalista %}
 			
-				<a href='{{ cons.HOME }}home/{{ idiomalista }}' class='localesel'>{{ idiomalista }}*</a>
+				<a href='{{ cons.HOME }}{{ donde }}/{{ idiomalista }}' class='localesel'>{{ idiomalista }}</a>
 			{% else %}
-				<a href='{{ cons.HOME }}home/{{ idiomalista }}'>{{ idiomalista }}</a>
+				<a href='{{ cons.HOME }}{{ donde }}/{{ idiomalista }}' class='iso'>{{ idiomalista }}</a>
 			{% endif %}
 		{% endfor %}
 
@@ -14,9 +15,9 @@
 
 		{% for idiomalista in idioma.soportados %}
 			{% if idioma.getLang==idiomalista %}
-				<a href='?lang={{ idiomalista }}' class='localesel'>*</a>
+				<a href='{{ cons.HOME }}{{ donde }}/{{ idiomalista }}' class='idioma_img localesel_{{ idiomalista }}'></a>
 			{% else %}
-				<a href='?lang={{ idiomalista }}'></a>
+				<a href='{{ cons.HOME }}{{ donde }}/{{ idiomalista }}' class='idioma_img clase_{{ idiomalista }}'></a>
 			{% endif %}
 		{% endfor %}
 

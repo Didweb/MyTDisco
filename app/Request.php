@@ -31,6 +31,8 @@ class Request extends Lecturas
 	}
 	
 
+	
+
 	public function setDestino()
 	{
 		$resultado = $this->BuscaUrl($this->url);
@@ -90,6 +92,9 @@ class Request extends Lecturas
 		$listapw = '';
 		foreach($parametros as $nom2=>$val2){
 				foreach($parametros[$nom2] as $nom3=>$val3){
+					if($nom3=='comodin'){
+						$comodin = $parametros[$nom2]['comodin'];
+						}
 					if($nom3=='usuarios'){
 						foreach($parametros[$nom2][$nom3] as $nom4=>$val4){
 							$se = explode(':',$val4);
@@ -110,6 +115,7 @@ class Request extends Lecturas
 				$para['session']	= $session; 
 				$para['cookie']		= $cookie; 
 				$para['opcionCookie']	= 0; 
+				$para['comodin']	= $comodin;
 				
 		return $para;
 	}

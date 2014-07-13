@@ -1,8 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head></head>
-<body>
-
+{% extends 'frontend/frontend.html' %}
+{% block contenidos %}	
 {% include '/locale/menu_locale.html' %}		
 	
 <h1>POLKA en [twig] {{ HOME }}</h1>
@@ -18,4 +15,4 @@ El idioma => {{ idioma.getLang }}
 <a href="{{ cons.HOME }}pato/dos/{{ idioma.getLang }}/1">Volver a pato</a> <br />
 <a href="{{ cons.getHOME }}">Inicio</a>
 </p>
-</body></html>
+{% endblock %}

@@ -165,7 +165,7 @@ class LecturasInterpretes
 				$phpCode = '$data = ' . var_export($data, TRUE) . ';';
 				
 				
-				file_put_contents('app/tmp/seguridad.php', "<?php\n\n class SeguridadConfig \n {  \n private " .$phpCode ." \n\n \t public function getSeguridadConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
+				file_put_contents('app/tmp/seguridad.php', "<?php\n\n class SeguridadConfig \n {  \n private " .$phpCode ." \n\n \t public function getSeguridadConfig() { \n \t \t return \$this->data; \n \t \t }  \n\n  \n\n} ?>");  	
 			}
 
 		require_once ('app/tmp/seguridad.php');	
@@ -187,7 +187,7 @@ class LecturasInterpretes
 			foreach ($data->$elGet() as $key => $val) {
 				
 			$this->JackUrl($val['url']);
-				
+			
 			$verifica = preg_match($this->nueva_url,$RequestUrl);
 				
 			   if ($verifica===1) {

@@ -22,6 +22,18 @@
     'controller' => 'Index::index2',
     'permiso' => 1,
   ),
+  'Gestor_index' => 
+  array (
+    'url' => 'gestor/{lang:locale}/index',
+    'controller' => 'Gestor::indexgestor',
+    'permiso' => 1,
+  ),
+  'Gestor_index_cambio_idioma' => 
+  array (
+    'url' => 'gestor/{lang:locale}',
+    'controller' => 'Gestor::indexgestor',
+    'permiso' => 1,
+  ),
   'ruta_dos' => 
   array (
     'url' => 'POLKAXY/{apellido:string}',
@@ -37,13 +49,19 @@
   'ruta_cuatro' => 
   array (
     'url' => 'pupa',
-    'conroller' => 'Pupa::pa',
+    'controller' => 'Pupa::pa',
     'permiso' => 0,
   ),
   'login2' => 
   array (
     'url' => 'checking',
-    'conroller' => 'Seguridad::check',
+    'controller' => 'Seguridad::check',
+    'permiso' => 0,
+  ),
+  'checkout' => 
+  array (
+    'url' => 'checkout',
+    'controller' => 'Seguridad::checkout',
     'permiso' => 0,
   ),
 ); 

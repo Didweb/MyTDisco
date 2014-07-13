@@ -52,12 +52,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTsegurata.git",
-                "reference": "e11d019ac86df61c652026da0b55ebe7858dfb2e"
+                "reference": "244edfc09e7303f436f1ec167d21c3a930cf7bcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTsegurata/zipball/e11d019ac86df61c652026da0b55ebe7858dfb2e",
-                "reference": "e11d019ac86df61c652026da0b55ebe7858dfb2e",
+                "url": "https://api.github.com/repos/Didweb/MyTsegurata/zipball/244edfc09e7303f436f1ec167d21c3a930cf7bcb",
+                "reference": "244edfc09e7303f436f1ec167d21c3a930cf7bcb",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "control accesos",
                 "restringido"
             ],
-            "time": "2014-07-06 15:10:58"
+            "time": "2014-07-13 08:32:26"
         },
         {
             "name": "didweb/myt-sniper",
@@ -820,17 +820,17 @@
         },
         {
             "name": "symfony/yaml",
-            "version": "v2.5.0",
+            "version": "v2.5.1",
             "target-dir": "Symfony/Component/Yaml",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Yaml.git",
-                "reference": "b4b09c68ec2f2727574544ef0173684281a5033c"
+                "reference": "1057e87364c0b38b50f5695fc9df9dd189036bec"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Yaml/zipball/b4b09c68ec2f2727574544ef0173684281a5033c",
-                "reference": "b4b09c68ec2f2727574544ef0173684281a5033c",
+                "url": "https://api.github.com/repos/symfony/Yaml/zipball/1057e87364c0b38b50f5695fc9df9dd189036bec",
+                "reference": "1057e87364c0b38b50f5695fc9df9dd189036bec",
                 "shasum": ""
             },
             "require": {
@@ -865,7 +865,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "http://symfony.com",
-            "time": "2014-05-16 14:25:18"
+            "time": "2014-07-08 12:21:33"
         },
         {
             "name": "twig/twig",

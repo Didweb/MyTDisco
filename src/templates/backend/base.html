@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        {% block metarobots %}
+        <meta name="robots" CONTENT="index, follow">
+        {% endblock %}
+        <title>{% block title %}{% endblock %}</title>
+        <link href="{{ cons.HOME }}src/css/reset.css" rel="stylesheet" type="text/css" />
+        <link href="{{ cons.HOME }}src/css/gestor.css" rel="stylesheet" type="text/css" />
+        <link href="{{ cons.HOME }}src/css/menu_idiomas_gestor.css" rel="stylesheet" type="text/css" />
+        {% block cabecerasextras %}  {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ cons.HOME }}src/deco/frontend/favicon.ico" />
+    </head>
+    <body>
+	{% set donde = 'gestor' %}
+    {% block body %}{% endblock %}
+       
+       
+    <footer>
+		<p>
+			<a href='{{ cons.webcmyt }}' target='_blank' title='{{ trad_comun.getFooter_webde }} MyT Framework v. {{ cons.getVersiongestor }}'>MyT Framework v. {{ cons.getVersiongestor }}</a> - CopiLeft {{ cons.licencia }} - {{ trad_comun.getFooter_creadopor }} <a href='{{ cons.webcreador }}' target='_blank' title='{{ trad_comun.getFooter_webde }} {{ cons.cliente }}'>{{ cons.creado }}</a>
+			<br><br>
+			{{ trad_comun.getFooter_para }} <a href='{{ cons.webcliente }}' target='_blank' title='{{ trad_comun.getFooter_webde }} {{ cons.cliente }}'>{{ cons.cliente }}</a>
+		</p>
+    </footer>   
+        {% block javascripts %}{% endblock %}
+        
+
+    </body>
+</html>

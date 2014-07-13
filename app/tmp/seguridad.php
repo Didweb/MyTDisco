@@ -5,6 +5,7 @@
  private $data = array (
   'Seguridad' => 
   array (
+    'comodin' => 'anarquia',
     'usuarios' => 
     array (
       'edu' => 'e3f96800b051602e7ac5542e01747eb09147a54b:1',

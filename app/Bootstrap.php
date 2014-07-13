@@ -38,7 +38,6 @@ class Bootstrap extends Request
 				
 				$parametrosSeg = $peticion->listasSeguridad($parametrosSeguridad);
 				
-				$packseguridad = $peticion->packseguridad($parametrosSeg);
 				
 				$acceso = new mySegurata($parametrosSeg);
 				$visita = $acceso->visita();
@@ -58,7 +57,6 @@ class Bootstrap extends Request
 					
 					} else {
 						
-					
 						// Montamos controlador.
 						require_once 'src/Controller/'.$peticion->controlador.'Controller.php';
 						
@@ -66,7 +64,7 @@ class Bootstrap extends Request
 						$nomControlador = $peticion->controlador.'Controller';
 						$nomMetodo 		= $peticion->metodo;
 						
-						if($peticion->metodo=='check'){
+						if($peticion->metodo=='check' || $peticion->metodo=='checkout'){
 							$carga = new $nomControlador($parametrosSeg);
 							} else {
 							$carga = new $nomControlador();	

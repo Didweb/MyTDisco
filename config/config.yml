@@ -3,8 +3,16 @@ Configuracion:
     ConfigUrl: config/rutas.yml
     OtraRuta: pitosxxx
     
+    versiongestor: 2.0.0
+    creado: Did-web.com
+    licencia: GPL3
+    cliente: WebCliente.com
+    webcliente: http://www.webcliente.com
+    webcmyt: https://github.com/Didweb/MyT
+    webcreador: http://www.did-web.com
+    
     idiomas: es,ca,en,fr,it
-    estilo: iso
+    estilo: img
     
     HOME_dev: http://localhost/MyT/
     HOME: http://www.google.com/

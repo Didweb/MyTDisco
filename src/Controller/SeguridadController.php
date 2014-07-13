@@ -67,6 +67,16 @@ class SeguridadController extends Controlador
 	
 	}
 	
+	
+	public function checkout()
+	{
+		$acceso = new mySegurata($this->parametrosSeguridad);
+		$_SESSION['user']='';
+		$_SESSION['pass']='';
+		$acceso->setRes_entrada(0);
+		header('Location: '.$this->constantes->getHOME());
+		exit;	
+	}
 
 }
 

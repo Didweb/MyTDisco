@@ -1,4 +1,4 @@
-{% extends 'frontend/base.html' %}
+{% extends 'backend/base.html' %}
 
 {% block stylesheets %}
 {{ parent() }}
@@ -10,7 +10,8 @@
 {% block body %}
 
 <header>
-cabeza xxx
+{% include '/locale/menu_locale.html' %}
+{% include '/seguridad/menu_acceso.html' %}
 </header>
 {% block contenidos %}{% endblock %}
 {% endblock %}
