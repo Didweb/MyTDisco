@@ -1,6 +1,6 @@
 # Framework MyT
 
-Creando mi propio Framework
+Creando mi propio Framework **En Proceso**
 
 ## Objetivo
 
@@ -20,12 +20,12 @@ Las herramientas que me interesan implementar son:
 
 Bueno casi nada ;P
 
-# Estado del Proyecto.
+# Estado del Proyecto. **En Proceso**
 
-- Proceso embrionario del proyecto. Iniciando el Bootstrap y concepto de redirección hacia los Controladores.
-- Creando recogida de parametros por Get.
+- Creación de Boostrap.php y sistema MVC.
+- Gestión de servicios para los controladores.
 - Se ha creado sistema de idiomas. Dependencia especificada en composer.json `"didweb/myt-local": "2.1.*"`
-- Se ha creado también el sistema para atuentificación de usuarios. Falta terminar par apoderla integrar en las dependencias.
+- Se ha creado el sistema de control de accesos. Dependencia especificada en composer.json `"didweb/myt-segurata": "dev-master"`.
 
 
 # Docuemntación
