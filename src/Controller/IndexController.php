@@ -81,7 +81,13 @@ class IndexController extends Controlador
 		$otraruta = $this->constantes->getOtraRuta();
 		$losidiomas = explode(',',$this->constantes->getIdiomas());
 		
-
+		$this->cargarConexion();
+		
+		$productos =  ORM::for_table('productos')->find_many();
+		
+		foreach ($productos as $producto) {
+			echo "Nombre: ".$producto->nombre."<br>";
+			}
 		
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/frontend/polka.html', array(

@@ -51,6 +51,16 @@ class Controlador extends Request
 		
 	}
 
+
+	public function cargarConexion()
+	{
+		ORM::configure('mysql:host=localhost;dbname=myt');
+		ORM::configure('username', 'root');
+		ORM::configure('password', 'rasmysql');
+		
+	}
+
+
 	public function getLocaleTard()
 	{
 		$locale_new = new AppLocale($this->idioma);
