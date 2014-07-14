@@ -7,19 +7,19 @@ aside#locale .iso:hover {color:#000000; text-decoration:underline; }
 .localesel {font-weight:bold;}
 
 .idioma_img { background-image: url('../../src/deco/idioma.png');  width:21px; height:21px; display:block; opacity: 0.8; filter: alpha(opacity=80);}
-.clase_es 	{ background-position:0px 0px; 		opacity: 0.4; filter: alpha(opacity=40); }
+.clase_es 	{ background-position:0px 0px; 		opacity: 0.2; filter: alpha(opacity=20); }
 .clase_es:hover { opacity: 1.0; filter: alpha(opacity=100); }
 
-.clase_ca 	{ background-position:-21px 0px;  	opacity: 0.4; filter: alpha(opacity=40); }
+.clase_ca 	{ background-position:-21px 0px;  	opacity: 0.2; filter: alpha(opacity=20); }
 .clase_ca:hover { opacity: 1.0; filter: alpha(opacity=100); }
 
-.clase_en 	{ background-position:-42px 0px;  	opacity: 0.4; filter: alpha(opacity=40); }
+.clase_en 	{ background-position:-42px 0px;  	opacity: 0.2; filter: alpha(opacity=420); }
 .clase_en:hover { opacity: 1.0; filter: alpha(opacity=100); }
 
-.clase_fr 	{ background-position:-63px 0px;  	opacity: 0.4; filter: alpha(opacity=40); }
+.clase_fr 	{ background-position:-63px 0px;  	opacity: 0.2; filter: alpha(opacity=20); }
 .clase_fr:hover { opacity: 1.0; filter: alpha(opacity=100); }
 
-.clase_it 	{ background-position:-84px 0px;  	opacity: 0.4; filter: alpha(opacity=40); }
+.clase_it 	{ background-position:-84px 0px;  	opacity: 0.2; filter: alpha(opacity=20); }
 .clase_it:hover { opacity: 1.0; filter: alpha(opacity=100); }
 
 .localesel_es {background-position:0px 0px; }

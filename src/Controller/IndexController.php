@@ -6,13 +6,18 @@ include 'menus.php';
 class IndexController extends Controlador
 {
 	public $cons;
-
+	public $trad_acceso;
+	public $trad;
 	
 	
 	public function __construct()
 	{
 		parent::__construct();
 		
+		$comun = $this->getLocaleTard();
+		$this->trad  = $comun->trad('comun');
+		$acceso 	= $this->getLocaleTard();
+		$this->trad_acceso = $acceso->trad('formpass');
 	}
 	
 	
@@ -20,20 +25,20 @@ class IndexController extends Controlador
 	public function index2()
 	{
 		// Carga de traducciones
-		$traducciones = $this->locale->trad('comun');
-		$ori = $traducciones->getDespedida();
+		$ori = $this->trad->getDespedida();
 		
 		// Carga de Sniper mapear texto y pasar parametros
 		$sniper = $this->cargaSniper('mapeatxt');
 		$ori = $sniper->clase->mapeatxt($ori,'-- TOMA DOBLE 111 --','-- TOMA DOBLE 222 --','-- TOMA DOBLE 333 --');
-		$traducciones->setDespedida($ori);
+		$this->trad->setDespedida($ori);
 		
-		
+
 		
 		$home = $this->constantes->getHOME();
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/backend/pato-dos.html', array(
-											'trad'	=> $traducciones,
+											'trad'			=> $this->trad,
+											'trad_acceso' 	=> $this->trad_acceso,
 											'cons'	=> $this->constantes,
 											'parametros'	=> $this->parametros_get,
 											'elhome'=> $home,
@@ -46,24 +51,24 @@ class IndexController extends Controlador
 	public function index()
 	{
 		
-		$traducciones = $this->locale->trad('comun');
-		$ori = $traducciones->getDespedida();
+		$ori = $this->trad->getDespedida();
 		
 		$sniper = $this->cargaSniper('mapeatxt');
 		$ori = $sniper->clase->mapeatxt($ori,'-- TOMA DOBLE 111 --','-- TOMA DOBLE 222 --','-- TOMA DOBLE 333 --');
 		
-		$traducciones->setDespedida($ori);
+		$this->trad->setDespedida($ori);
 		
+
 		
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/frontend/index.html', array(
 											'redirect' 		=> $this->redirect,
 											'parametros'	=> $this->parametros_get,
 											'idiomassoportados'=> $this->constantes->getIdiomas(),
-											'trad'			=> $traducciones,
+											'trad'			=> $this->trad,
+											'trad_acceso' => $this->trad_acceso,
 											'cons'	=> $this->constantes,
-											'idioma'=> $this->packidiomas,
-											'usuario'=>$_SESSION['user']
+											'idioma'=> $this->packidiomas
 											));
 		
 	}
@@ -76,8 +81,11 @@ class IndexController extends Controlador
 		$otraruta = $this->constantes->getOtraRuta();
 		$losidiomas = explode(',',$this->constantes->getIdiomas());
 		
+
+		
 		$twig = $this->cargaTwig('src/templates');	
 		echo $twig->render('/frontend/polka.html', array(
+										'trad_acceso' => $this->trad_acceso,
 										'constante' => $otraruta,
 										'cons'	=> $this->constantes,
 										'idioma'=> $this->packidiomas

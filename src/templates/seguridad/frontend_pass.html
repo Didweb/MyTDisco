@@ -1,0 +1,17 @@
+{% extends 'seguridad/base.html' %}
+
+{% block cabecerasextras %}
+{{ parent() }}
+<link href="{{ cons.HOME }}src/css/formulario_pass.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block javascripts %}{% endblock %}
+
+{% block body %}
+
+<header id='pass'>
+<h1>{{ trad.form_h1 }}</h1>
+<p>{{ trad.form_p }}</p>
+</header>
+{% block contenidos %}{% endblock %}
+{% endblock %}

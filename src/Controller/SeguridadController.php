@@ -11,6 +11,10 @@ class SeguridadController extends Controlador
 	{
 		parent::__construct();	
 		$this->parametrosSeguridad 	= $parametrosseg;
+		
+		$traducciones = $this->getLocaleTard();
+		$diccionario = $traducciones->trad('formpass');
+		$this->txt_comun = $diccionario;
 	}
 	
 	public function login($urlregreso)
@@ -18,10 +22,12 @@ class SeguridadController extends Controlador
 
 		
 		
-		$twig = $this->cargaTwig('src/templates/seguridad');
+		$twig = $this->cargaTwig('src/templates');
 		$redirect = $this->redirect;
-		echo $twig->render('login.html', array(	'cons'	=> $this->constantes,
-												'redirect' => $this->redirect,
+		echo $twig->render('seguridad/login.html', array(	
+												'trad'		=> $this->txt_comun,
+												'cons'		=> $this->constantes,
+												'redirect' 	=> $this->redirect,
 												'regreso'	=> $urlregreso));
 	}
 	
@@ -55,9 +61,11 @@ class SeguridadController extends Controlador
 		} else {
 			
 		echo "<h1>NO PERIMITIDO [ metodo check ]</h1>";	
-		$twig = $this->cargaTwig('src/templates/seguridad');
+		$twig = $this->cargaTwig('src/templates');
 		$redirect = $this->redirect;
-		echo $twig->render('login2.html', array('cons'		=> $this->constantes,
+		echo $twig->render('seguridad/login2.html', array(
+												'trad'		=> $this->txt_comun,
+												'cons'		=> $this->constantes,
 												'redirect' 	=> $this->redirect,
 												'regreso' 	=> $regreso));
 		}

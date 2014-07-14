@@ -46,17 +46,16 @@ class Controlador extends Request
 		$idioma = $this->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
 		$this->idioma = $idioma;
 		
-		
-		// Preparamos las traducciones.
-		$this->locale = new AppLocale($idioma);	
-		
-		
-		
+
 
 		
 	}
 
-
+	public function getLocaleTard()
+	{
+		$locale_new = new AppLocale($this->idioma);
+		return $locale_new;
+	}
 
 	
 	public function cargaTwig($path)

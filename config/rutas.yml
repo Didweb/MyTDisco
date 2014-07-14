@@ -24,6 +24,10 @@ Gestor_index_cambio_idioma:
     controller: Gestor::indexgestor
     permiso: 1
     
+Gestor_index_cambio_idioma2:
+    url: gestor
+    controller: Gestor::indexgestor
+    permiso: 1
        
    
 ruta_dos:

@@ -1,0 +1,45 @@
+
+header#pass    { margin:auto; width:30%;}
+header#pass h1 { text-align: center; color:#4D687C; font-size:1.8em;}
+header#pass p { text-align: center; color:#4D687C;}
+form#form_pass { margin:auto; border:1px solid #DDE0E1; width:30%; padding:1em;}
+
+form#form_pass div {  width:100%; margin-bottom:0.5em; }
+form#form_pass label { display:block; width:95%;  color:#6A879C;}
+form#form_pass input {  padding:0.3em; width:95%;}
+
+footer#pass { margin:auto; width:30%; text-align:center; padding-top:2em;}
+
+footer#pass a 		{ color:#666C6E; font-weight:lighter; text-decoration:none; }
+footer#pass a:hover { color:#333333; text-decoration:underline; }
+
+.boton:hover {font-weight:bold;}
+
+
+@media screen and (max-width:1024px) {
+	header#pass    	{ width:25%;}
+	header#pass h1 	{ font-size:1.4em;}
+	form#form_pass 	{ width:20%; padding:0.7em;}
+	footer#pass 	{  width:20%; }
+}
+
+@media screen and (max-width:768px) {
+	header#pass		{ width:40%;}
+	form#form_pass 	{ width:40%;}
+}
+
+
+@media screen and (max-width:640px) {
+	form#form_pass { width:50%; }
+}
+
+
+@media screen and (max-width:480px) {
+	header#pass		{ width:50%;}
+}
+
+@media screen and (max-width:320px) {
+	header#pass	   { width:80%;}
+	form#form_pass { width:80%; padding:0.7em;}
+	footer#pass 	{  width:80%; }
+}

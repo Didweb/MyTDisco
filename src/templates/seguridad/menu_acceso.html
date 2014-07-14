@@ -1,5 +1,11 @@
-<aside id='menu_seguridad'>
-Hola {{ session.user }} 
-<br />
-<a href="{{ cons.getHOME }}checkout">Salir de la sesión</a>
-</aside>
+{% if session.user is defined  %}
+{% if session.user !=''  %}
+	<aside id='menu_seguridad'>
+		{{ trad_acceso.menu_hola }} {{ session.user }} 
+		<br />
+		<a href="{{ cons.getHOME }}checkout">{{ trad_acceso.menu_salir }}</a>
+	</aside>
+{% endif %}
+{% endif %}
+
+

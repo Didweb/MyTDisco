@@ -34,6 +34,12 @@
     'controller' => 'Gestor::indexgestor',
     'permiso' => 1,
   ),
+  'Gestor_index_cambio_idioma2' => 
+  array (
+    'url' => 'gestor',
+    'controller' => 'Gestor::indexgestor',
+    'permiso' => 1,
+  ),
   'ruta_dos' => 
   array (
     'url' => 'POLKAXY/{apellido:string}',
