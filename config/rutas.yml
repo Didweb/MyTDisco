@@ -14,7 +14,7 @@ ruta_uno:
     permiso: 1
    
 Gestor_listado:
-    url: gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}
+    url: gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}/{orden:string}
     controller: Gestor::listado
     permiso: 1
 

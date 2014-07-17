@@ -5,3 +5,10 @@ Ca:
     menu_inicio: Inici
     menu_volver: Tornar al
     listado_de: Llistat    
+
+    next: proxim
+    last: ultim
+    first: primer
+    previous: anterior
+
+    listado_p: Llistat de registres de la taula

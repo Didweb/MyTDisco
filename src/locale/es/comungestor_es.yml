@@ -5,3 +5,10 @@ Es:
     menu_inicio: Inicio
     menu_volver: Volver al
     listado_de: Listado de
+
+    next: próximo
+    last: último
+    first: primero
+    previous: anterior
+    
+    listado_p: Listado de registros de la tabla

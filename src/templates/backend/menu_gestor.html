@@ -3,6 +3,14 @@
 {% if get.tabla !='' %}	
 {% set clase_atras_index='atras' %}	
 {% endif %}
+
+{% set elorden='ASC' %}
+{% if session.orden is defined %}
+{% set elorden=session.orden %}
+
+{% endif %}	
+
+
 <div class='capsula {{ clase_atras_index }}'><a href='{{ cons.HOME }}gestor' title='{{ trad.menu_volver }} {{ trad.menu_inicio }}'>{{ trad.menu_inicio }}</a></div>	
 {% for tablas in menuTablas %}
 
@@ -10,7 +18,7 @@
 	{% if get.tabla == tablas %}
 		{% set clase_atras='' %}
 	{% endif %}
-<div class='capsula {{ clase_atras }}'><a href='{{ cons.HOME}}gestor/listado/{{ tablas }}/id/1' title='{{ trad.listado_de }} {{ tablas }}'>{{ tablas }}</a></div>
+<div class='capsula {{ clase_atras }}'><a href='{{ cons.HOME}}gestor/listado/{{ tablas }}/id/1/{{ elorden }}' title='{{ trad.listado_de }} {{ tablas }}'>{{ tablas|title }}</a></div>
 {% endfor %}
 
 </nav>

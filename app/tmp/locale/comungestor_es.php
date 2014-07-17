@@ -15,6 +15,16 @@
  private $menu_volver = "Volver al";
 
  private $listado_de = "Listado de";
+
+ private $next = "próximo";
+
+ private $last = "último";
+
+ private $first = "primero";
+
+ private $previous = "anterior";
+
+ private $listado_p = "Listado de registros de la tabla";
  
  private $data = array (
   'Es' => 
@@ -25,6 +35,11 @@
     'menu_inicio' => 'Inicio',
     'menu_volver' => 'Volver al',
     'listado_de' => 'Listado de',
+    'next' => 'próximo',
+    'last' => 'último',
+    'first' => 'primero',
+    'previous' => 'anterior',
+    'listado_p' => 'Listado de registros de la tabla',
   ),
 ); 
 
@@ -113,6 +128,76 @@
  	 public function setListado_de($valor) { 
  
  	 	  $this->listado_de = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNext() { 
+ 
+ 	 	 return $this->next;  
+  	 	 } 
+  
+ 
+ 	 public function setNext($valor) { 
+ 
+ 	 	  $this->next = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getLast() { 
+ 
+ 	 	 return $this->last;  
+  	 	 } 
+  
+ 
+ 	 public function setLast($valor) { 
+ 
+ 	 	  $this->last = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getFirst() { 
+ 
+ 	 	 return $this->first;  
+  	 	 } 
+  
+ 
+ 	 public function setFirst($valor) { 
+ 
+ 	 	  $this->first = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getPrevious() { 
+ 
+ 	 	 return $this->previous;  
+  	 	 } 
+  
+ 
+ 	 public function setPrevious($valor) { 
+ 
+ 	 	  $this->previous = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getListado_p() { 
+ 
+ 	 	 return $this->listado_p;  
+  	 	 } 
+  
+ 
+ 	 public function setListado_p($valor) { 
+ 
+ 	 	  $this->listado_p = $valor;  
  
  	 	 return $this;  
   	 	 } 

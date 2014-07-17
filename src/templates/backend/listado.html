@@ -2,22 +2,73 @@
 
 {% block contenidos %}	
 	
+
+	
 	
 {% include '/backend/menu_gestor.html' %}
 <section>
 	<article id='information'>
-	<h1>Listado: {{ get.tabla }}</h1>
+	<h1>{{ trad.listado_de }}: {{ get.tabla|title  }}</h1>
 	<p>
-	Listado de registros de la tabla {{ get.tabla }}
+	{{ trad.listado_p }} {{ get.tabla|title }}
 	</p>
 	</article>
 
-	<article  id='list'>
+		
+	<table id='listado'>
+	  <thead>
+		<tr>
+		{% for campo in campos %}	
+		
+		{% if campo == campo_orden %}
+		{% set dir_orden=orden_cambio  %}
+		{% set class_fil='filtrado' %}
+		{% else %}
+		{% set dir_orden='ASC'  %}
+		{% set class_fil='' %}
+		{% endif %}
+		
+			<th><a href='{{ cons.HOME}}gestor/listado/{{ get.tabla }}/{{ campo }}/1/{{ orden_cambio }}' title='' class='orden {{ dir_orden }} {{ class_fil }}'>{{ campo }}</a></th>
+		{% endfor %}	
+			
+		</tr>
+	</thead>
+	<tbody>
+		{% set col = campos|length %}
+		{% set vuelta = 1 %}
+		{% set n=1 %}
 	{% for item in listado %}
-	<br> - {{ item.nombre }} [{{ item.id }}]
+			
+			{% if n is divisibleby(2)  %}
+				{% set linea="impar" %} 
+            {% else %}
+				{% set linea="par" %}
+            {% endif %}
+			
+			
+			{% if vuelta == 1 %}
+			<tr class="{{ linea }}">
+			{% endif %}
+			
+		<td>{{ item.valor }}</td>
+		
+		{% if vuelta==col %}
+				{% set vuelta=1 %}
+				{% set n=n+1 %}
+			</tr> 
+			{% else %}
+				{% set vuelta=vuelta+1 %}
+				
+           {% endif %}
+			
+			
 	{% endfor %}
-	</article>
+	
+		
+	</tbody>	
 
+	
+	</table>	
 </section>
 {% include '/paginacion/paginacion.html' %}
 

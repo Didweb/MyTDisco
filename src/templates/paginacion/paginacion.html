@@ -1,7 +1,7 @@
 {% if paginacion.getTotalpaginas > 1 %}
 <div class="pagination"> 
 {% if paginacion.getPrimera is defined and paginacion.getPagina != paginacion.getPrimera %}
-<a class="first" href="{{ cons.HOME }}{{ url }}1"  rel="index,follow">first</a>
+<a class="first" href="{{ cons.HOME }}{{ url }}1/{{ session.orden  }}"  rel="index,follow">{{ trad.first|title }}</a>
 {% endif %}
 {% if paginacion.previa is defined and paginacion.getPagina>1 %}
 {% set num_previous =  paginacion.getPagina-1 %}
@@ -11,7 +11,7 @@
 				{% else %}
 				{% set follow_page="noindex,follow" %}
 			{% endif %}	
-    <a class="previous" href="{{ cons.HOME }}{{ url }}{{ num_previous }}" rel="{{ follow_page }}">previous</a>
+    <a class="previous" href="{{ cons.HOME }}{{ url }}{{ num_previous }}/{{ session.orden  }}" rel="{{ follow_page }}">{{ trad.previous|title }}</a>
     {% endif %} 
 
     {% for page in paginacion.getPagpaginador %}
@@ -23,7 +23,7 @@
 				{% else %}
 				{% set follow_page="noindex,follow" %}
 				{% endif %}
-<span class="page"> <a href="{{ cons.HOME }}{{ url }}{{ page }}" rel="{{ follow_page }}">{{ page }}</a> </span>    
+<span class="page"><a href="{{ cons.HOME }}{{ url }}{{ page }}/{{ session.orden  }}" rel="{{ follow_page }}">{{ page }}</a></span>    
             {% endif %}
         {% else %}
             <span class="current">{{ page }}</span>
@@ -33,12 +33,12 @@
  
     {% if paginacion.getProxima is defined and paginacion.getPagina < paginacion.getUltima %}
             {% set num_next =  paginacion.getPagina+1 %}
-            <a class="next" href="{{ cons.HOME }}{{ url }}{{ num_next }}" rel="noindex,follow">next</a>
+            <a class="next" href="{{ cons.HOME }}{{ url }}{{ num_next }}/{{ session.orden  }}" rel="noindex,follow">{{ trad.next|title }}</a>
     {% endif %}
 
 
     {% if paginacion.getUltima is defined and paginacion.getPagina != paginacion.getUltima %}
-            <a class="last" href="" rel="noindex,follow">last</a>
+            <a class="last" href="{{ cons.HOME }}{{ url }}{{ paginacion.getUltima }}/{{ session.orden }}" rel="noindex,follow">{{ trad.last|title }}</a>
     {% endif %}
 
 </div>

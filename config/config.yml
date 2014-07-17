@@ -11,7 +11,7 @@ Configuracion:
     webcmyt: https://github.com/Didweb/MyT
     webcreador: http://www.did-web.com
     
-    idiomas: es,ca,en,fr,it
+    idiomas: es,ca,en
     estilo: img
     
     HOME_dev: http://localhost/MyT/

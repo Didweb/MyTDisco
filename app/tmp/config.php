@@ -24,7 +24,7 @@
 
  private $webcreador = "http://www.did-web.com";
 
- private $idiomas = "es,ca,en,fr,it";
+ private $idiomas = "es,ca,en";
 
  private $estilo = "img";
 
@@ -47,7 +47,7 @@
     'webcliente' => 'http://www.webcliente.com',
     'webcmyt' => 'https://github.com/Didweb/MyT',
     'webcreador' => 'http://www.did-web.com',
-    'idiomas' => 'es,ca,en,fr,it',
+    'idiomas' => 'es,ca,en',
     'estilo' => 'img',
     'HOME_dev' => 'http://localhost/MyT/',
     'HOME' => 'http://www.google.com/',

@@ -5,3 +5,10 @@ En:
     menu_inicio: Home
     menu_volver: Back to
     listado_de: Listing
+
+    next: next
+    last: last
+    first: first
+    previous: previous
+
+    listado_p: List of table records

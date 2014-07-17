@@ -1,7 +1,9 @@
 Gestor:
-    tablas: productos,categorias
+    tablas: productos,categorias,subcategorias
     n_listados: 1
 
 Campos:
-    productos: id,nombre
-    categorias: id,nombre    
+    productos: id,nombre,idcategorias
+    categorias: id,nombre,idsubcategorias 
+    subcategorias: id,nombre
+    dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre  

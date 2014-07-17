@@ -24,7 +24,7 @@
   ),
   'Gestor_listado' => 
   array (
-    'url' => 'gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}',
+    'url' => 'gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}/{orden:string}',
     'controller' => 'Gestor::listado',
     'permiso' => 1,
   ),

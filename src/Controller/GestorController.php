@@ -59,25 +59,77 @@ class GestorController extends Controlador
 		$tabla  = $this->parametros_get['tabla'];
 		$pagina = $this->parametros_get['pagina'];
 		$campo_orden = $this->parametros_get['campo_orden'];
+		$orden = $this->parametros_get['orden'];
+		$_SESSION['orden'] = $orden;
 		
 	
-		
-		
+		// Campos a listar
+		$campos = $this->gestorConfig->getGestor();
+		$campos = explode(',',$campos['Campos'][$tabla]);
+
+		// contamos registros
 		$totalregistros =  ORM::for_table($tabla)->count();	
 		$rpag = 2;
 		
+		// preparamos paginador
 		$paginacion = $this->cargaSniper('paginador');
 		$paginacion->clase->inicio($totalregistros,$pagina,$rpag,$pagpaginador=3);
-		
 		$res_paginacion = $paginacion->clase->getPagpaginador();
 		
 		$inicio = $paginacion->clase->getInicio()-1;
 		$final  = $paginacion->clase->getFinal();
 		
+		if($orden=='ASC'){
+			$orden_cambio = 'DESC';
+				// Buscamos campos
 		$listado = ORM::for_table($tabla)
+			->select_many($campos)
 			->order_by_asc($campo_orden)
 			->limit(" $inicio,$final ")
             ->find_many();	
+			} elseif($orden=='DESC'){
+				$orden_cambio = 'ASC';
+					// Buscamos campos
+		$listado = ORM::for_table($tabla)
+			->select_many($campos)
+			->order_by_desc($campo_orden)
+			->limit(" $inicio,$final ")
+            ->find_many();	
+				}
+		
+	
+	
+		// listamos campos dependientes
+		$lista_depe = $this->crearDependientes();
+		
+		
+		// Preparamos listado de resultados para listar en template
+		$lista_fin=array();
+		$n=0;
+		$reg=0;
+		foreach ($listado as $item){
+				foreach($campos as $nom2=>$val2){
+					$nombre_campo = $campos[$nom2];
+					$valor_campo  = $item->$campos[$nom2];
+					
+					// Buscamos posibles campos dependientes
+					foreach ($lista_depe as $nomdep=>$valdep){
+						
+						if($campos[$nom2]==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
+							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
+										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
+										->find_one($item->$campos[$nom2]);
+										
+							$valor_campo=$val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+							}
+						
+						}
+					
+					
+					$lista_fin[$n]=array('campo'=>$nombre_campo,'valor'=>$valor_campo);
+				$n++;
+				}
+			}
 		
 		
 		$twig = $this->cargaTwig('src/templates');	
@@ -87,10 +139,13 @@ class GestorController extends Controlador
 											'trad'			=> $this->txt_comun,
 											'cons'		 => $this->constantes,
 											'idioma'	 => $this->packidiomas,
-											'listado'	 => $listado,	
+											'listado'	 => $lista_fin,	
 											'paginacion' => $paginacion->clase,
 											'url'		 => 'gestor/listado/'.$tabla.'/'.$campo_orden.'/',
 											'menuTablas' => $this->menuTablas,
+											'campos'	 => $campos,
+											'orden_cambio' => $orden_cambio,
+											'campo_orden'	=> $campo_orden
 											));
 		
 		
@@ -109,6 +164,40 @@ class GestorController extends Controlador
 	}
 	
 
+	public function crearDependientes()
+	{
+		// productos.idcategorias:categorias|id|nombre#categorias.idsubcategorias:subcategorias|id|nombre  
+		$depe =  $this->gestorConfig->getGestor();
+		$depe = explode('@',$depe['Campos']['dependientes']);
+		
+		$res_depe=array();
+		$n=0;
+		foreach($depe as $nom=>$val){
+			$depe2 = explode(':',$depe[$nom]);
+			
+				foreach($depe2 as $nom2=>$val2){
+				$depe3 = explode('.',$depe2[0]);
+				$tabla = $depe3[0];
+				$campo = $depe3[1];
+				
+				$depe4 = explode('|',$depe2[1]);
+				$tabla_padre = $depe4[0];
+				$campo_busca = $depe4[1];
+				$campo_muestra = $depe4[2];
+				}
+		$res_depe[$n]=array(
+							'tabla'			=>$tabla ,
+							'campo'			=>$campo,
+							'tabla_padre'	=>$tabla_padre,
+							'campo_busca'	=>$campo_busca,
+							'campo_muetsra'	=>$campo_muestra
+							);
+					
+		$n++;
+					
+		}	
+		return $res_depe;
+	}
 	
 }
 
