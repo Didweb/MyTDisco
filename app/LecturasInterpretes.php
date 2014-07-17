@@ -15,7 +15,12 @@ class LecturasInterpretes
 	public $parametros_get;
 	
 
-
+	public function getParametros_get()
+	{
+		echo "ooooooooooooooooooo";
+		print_r($this->parametros_get);
+	 return $this->parametros_get;	
+	}
 
 	public function setParametros_get($valor)
 	{
@@ -150,6 +155,52 @@ class LecturasInterpretes
 
 
 
+	public function LectorYamlGestor()
+		{
+		
+		
+		$originalFile = 'config/gestor.yml';
+		$compiledFile = 'app/tmp/gestor.php';
+		
+		if(!$this->isCompiled($originalFile, $compiledFile)) {
+				$data = Spyc::YAMLLoad('config/gestor.yml');
+				$phpCode = '$data = ' . var_export($data, TRUE) . ';';
+				
+				$getset='';
+				$variables='';
+				
+				if (is_array($data)) {
+					foreach($data as $nom=>$val){
+						foreach($data[$nom] as $nom2=>$val2)
+							{
+
+							$variables.="\n private \$".$nom2." = \"".$data[$nom][$nom2]."\";\n";	
+
+							
+							$getset.=" \n \n \t public function get".ucfirst($nom2)."() {";
+							$getset.=" \n \n \t \t return \$this->".$nom2."; ";	
+							$getset.=" \n  \t \t } \n ";
+							
+							$getset.=" \n \n \t public function set".ucfirst($nom2)."(\$valor) {";
+							$getset.=" \n \n \t \t  \$this->".$nom2." = \$valor; ";	
+							$getset.=" \n \n \t \t return \$this; ";	
+							$getset.=" \n  \t \t } \n ";
+									
+							}
+						}
+							
+						
+				} 
+				file_put_contents('app/tmp/gestor.php', "<?php\n\n class gestor \n { \n\n " .$variables ." \n private " .$phpCode ." \n\n \t public function getGestor() { \n \t \t return \$this->data; \n \t \t }  \n\n ".$getset." \n\n} ?>");  	
+			}
+
+		require_once ('app/tmp/gestor.php');	
+		$gestor = new gestor();
+		return $gestor;
+		}	
+
+
+
 	/*
 	 * Modificamos si es necesario la clase config donde almacenamos las constantes.
 	 * */
@@ -277,6 +328,7 @@ class LecturasInterpretes
 			}
 			
 		}
+		$this->parametros_get = $parametros;
 		return $parametros;
 		
 	}

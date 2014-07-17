@@ -13,6 +13,11 @@ ruta_uno:
     controller: Index::index2
     permiso: 1
    
+Gestor_listado:
+    url: gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}
+    controller: Gestor::listado
+    permiso: 1
+
 
 Gestor_index:
     url: gestor/{lang:locale}/index
@@ -28,6 +33,8 @@ Gestor_index_cambio_idioma2:
     url: gestor
     controller: Gestor::indexgestor
     permiso: 1
+
+
        
    
 ruta_dos:

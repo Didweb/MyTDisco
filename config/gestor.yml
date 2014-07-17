@@ -1,0 +1,7 @@
+Gestor:
+    tablas: productos,categorias
+    n_listados: 1
+
+Campos:
+    productos: id,nombre
+    categorias: id,nombre    

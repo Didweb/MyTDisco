@@ -9,6 +9,12 @@
  private $footer_para = "Per";
 
  private $footer_creadopor = "Creat per";
+
+ private $menu_inicio = "Inici";
+
+ private $menu_volver = "Tornar al";
+
+ private $listado_de = "Llistat";
  
  private $data = array (
   'Ca' => 
@@ -16,6 +22,9 @@
     'footer_webde' => 'Web de',
     'footer_para' => 'Per',
     'footer_creadopor' => 'Creat per',
+    'menu_inicio' => 'Inici',
+    'menu_volver' => 'Tornar al',
+    'listado_de' => 'Llistat',
   ),
 ); 
 
@@ -62,6 +71,48 @@
  	 public function setFooter_creadopor($valor) { 
  
  	 	  $this->footer_creadopor = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getMenu_inicio() { 
+ 
+ 	 	 return $this->menu_inicio;  
+  	 	 } 
+  
+ 
+ 	 public function setMenu_inicio($valor) { 
+ 
+ 	 	  $this->menu_inicio = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getMenu_volver() { 
+ 
+ 	 	 return $this->menu_volver;  
+  	 	 } 
+  
+ 
+ 	 public function setMenu_volver($valor) { 
+ 
+ 	 	  $this->menu_volver = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getListado_de() { 
+ 
+ 	 	 return $this->listado_de;  
+  	 	 } 
+  
+ 
+ 	 public function setListado_de($valor) { 
+ 
+ 	 	  $this->listado_de = $valor;  
  
  	 	 return $this;  
   	 	 } 

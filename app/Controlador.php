@@ -51,12 +51,26 @@ class Controlador extends Request
 		
 	}
 
+	public function cargaGets()
+	{
+		$get = new Request();
+		$get->setDestino();
+		$this->parametros_get = $get->parametros_get;
+	}
+	
+	
 
 	public function cargarConexion()
 	{
 		ORM::configure('mysql:host=localhost;dbname=myt');
 		ORM::configure('username', 'root');
 		ORM::configure('password', 'rasmysql');
+		
+	}
+
+	public function cargaGestorConfig()
+	{
+		return $this->getGestorConfig();
 		
 	}
 

@@ -22,6 +22,12 @@
     'controller' => 'Index::index2',
     'permiso' => 1,
   ),
+  'Gestor_listado' => 
+  array (
+    'url' => 'gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}',
+    'controller' => 'Gestor::listado',
+    'permiso' => 1,
+  ),
   'Gestor_index' => 
   array (
     'url' => 'gestor/{lang:locale}/index',

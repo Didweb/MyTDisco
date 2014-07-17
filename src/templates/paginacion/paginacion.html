@@ -1,0 +1,47 @@
+{% if paginacion.getTotalpaginas > 1 %}
+<div class="pagination"> 
+{% if paginacion.getPrimera is defined and paginacion.getPagina != paginacion.getPrimera %}
+<a class="first" href="{{ cons.HOME }}{{ url }}1"  rel="index,follow">first</a>
+{% endif %}
+{% if paginacion.previa is defined and paginacion.getPagina>1 %}
+{% set num_previous =  paginacion.getPagina-1 %}
+     
+    {% if num_previous==1 %}
+				{% set follow_page="index,follow" %}
+				{% else %}
+				{% set follow_page="noindex,follow" %}
+			{% endif %}	
+    <a class="previous" href="{{ cons.HOME }}{{ url }}{{ num_previous }}" rel="{{ follow_page }}">previous</a>
+    {% endif %} 
+
+    {% for page in paginacion.getPagpaginador %}
+        {% if page != paginacion.getPagina %}
+        {% if page >0 or page < paginacion.getUltima %}
+        
+        		{% if page==1 %}
+				{% set follow_page="index,follow" %}
+				{% else %}
+				{% set follow_page="noindex,follow" %}
+				{% endif %}
+<span class="page"> <a href="{{ cons.HOME }}{{ url }}{{ page }}" rel="{{ follow_page }}">{{ page }}</a> </span>    
+            {% endif %}
+        {% else %}
+            <span class="current">{{ page }}</span>
+        {% endif %}
+
+    {% endfor %}
+ 
+    {% if paginacion.getProxima is defined and paginacion.getPagina < paginacion.getUltima %}
+            {% set num_next =  paginacion.getPagina+1 %}
+            <a class="next" href="{{ cons.HOME }}{{ url }}{{ num_next }}" rel="noindex,follow">next</a>
+    {% endif %}
+
+
+    {% if paginacion.getUltima is defined and paginacion.getPagina != paginacion.getUltima %}
+            <a class="last" href="" rel="noindex,follow">last</a>
+    {% endif %}
+
+</div>
+{% endif %}
+
+

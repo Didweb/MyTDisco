@@ -1,0 +1,24 @@
+{% extends 'backend/backend.html' %}
+
+{% block contenidos %}	
+	
+	
+{% include '/backend/menu_gestor.html' %}
+<section>
+	<article id='information'>
+	<h1>Listado: {{ get.tabla }}</h1>
+	<p>
+	Listado de registros de la tabla {{ get.tabla }}
+	</p>
+	</article>
+
+	<article  id='list'>
+	{% for item in listado %}
+	<br> - {{ item.nombre }} [{{ item.id }}]
+	{% endfor %}
+	</article>
+
+</section>
+{% include '/paginacion/paginacion.html' %}
+
+{% endblock %}

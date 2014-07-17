@@ -15,6 +15,8 @@ class Request extends Lecturas
 	public $parametros_get;
 	public $constantes;
 	public $permiso;
+	
+	
 		
 	public function __construct()
 	{
@@ -82,7 +84,11 @@ class Request extends Lecturas
 		return $this->LectorYamlSeguridad();	
 	}
 	
-	
+	public function getGestorConfig()
+	{
+		return $this->LectorYamlGestor();	
+		
+	}
 	
 	
 	public function listasSeguridad($parametros)

@@ -16,6 +16,7 @@ footer#pass a:hover { color:#333333; text-decoration:underline; }
 .boton:hover {font-weight:bold;}
 
 
+
 @media screen and (max-width:1024px) {
 	header#pass    	{ width:25%;}
 	header#pass h1 	{ font-size:1.4em;}

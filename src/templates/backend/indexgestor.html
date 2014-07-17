@@ -2,22 +2,15 @@
 {% block contenidos %}	
 	
 	
-<h1>En Plantilla Pato-dos [twig] {{ elhome }}</h1>
 
 
+{% include '/backend/menu_gestor.html' %}
+<h1>En Plantilla Pato-dos [twig] {{ elhome }}xxxx</h1>
 <p>
-
-<br /> <br /> 
-Traducciones: <b>{{ trad.Saludo }}</b>
-<br /> 
-Traducciones: <b>{{ trad.Despedida | raw }}</b>
-<br /> <br /> 
-
-<hr />
-
-<br /> <br /> 
-<a href="{{ cons.getHOME }}POLKAXY/asadas">Volver a Polka</a> <br />
-<a href="{{ cons.getHOME }}">Inicio</a>
+Home de gestor
 </p>
+{% for item in listado %}
+<br> - {{ item.nombre }} [{{ item.id }}]
+{% endfor %}
 
 {% endblock %}
