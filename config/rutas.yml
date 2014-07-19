@@ -19,6 +19,23 @@ Gestor_editar:
    controller: Gestor::editar
    permiso: 1 
 
+
+Gestor_editar_idioma:
+   url: gestor/editar-idioma/{tabla:string}/{id:int}/{idiomareg:string}
+   controller: Gestor::editaridioma
+   permiso: 1 
+
+
+Gestor_editar_idioma_accion:
+   url: gestor/editar-idioma-accion/{tabla:string}/{id:int}/{idiomareg:string}
+   controller: Gestor::editaridiomaccion
+   permiso: 1 
+   
+
+Gestor_editar_accion:
+   url: gestor/editar-accion/{tabla:string}/{id:int}
+   controller: Gestor::editaraccion
+   permiso: 1 
    
 Gestor_buscador:
    url: gestor/buscador/reultado

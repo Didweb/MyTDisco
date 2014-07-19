@@ -9,14 +9,14 @@
 	<article id='information'>
 <h1>{{ trad.h1_editar }}: <b>{{ get.id }}</b> {{ trad.dela }} <b>{{ get.tabla|title }}</b></h1>
 <p>
-ppp de edita xxx
+IDIOMAS POR EDITAR
 </p>
 </article>
 
 
 <article>
 	{% include '/backend/menu_idiomas_registros.html' %}
-	<form action='{{ cons.HOME }}gestor/editar-accion/{{ get.tabla }}/{{ get.id }}' method='post'>
+	<form action='{{ cons.HOME }}gestor/editar-idioma-accion/{{ get.tabla }}/{{ get.id }}/{{ get.idiomareg }}' method='post'>
 {% for r in res %}
 
 {% if r.tipo=='depe' %}
@@ -24,7 +24,7 @@ ppp de edita xxx
 <select name='{{ r.nombre }}'>
 	<option value=''>{{ r.valor }}</option>
 	{% for rr in r.lista %}
-<option value='{{ rr.id }}'>{{ rr.nombre }}</option>
+<option value={{ rr.id }}>{{ rr.nombre }}</option>
 {% endfor %}
 </select>
 {% elseif r.tipo=='oculto'%}

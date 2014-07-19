@@ -22,3 +22,6 @@ En:
     eliminar_filtro: <a href='%1' title='return to the original list of %2'>Remove search filter</a>
 
     title_ir_editar: Edit Record
+    h1_editar: Edit registry
+    dela: table
+    modificar: Edit

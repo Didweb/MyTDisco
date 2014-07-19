@@ -28,6 +28,24 @@
     'controller' => 'Gestor::editar',
     'permiso' => 1,
   ),
+  'Gestor_editar_idioma' => 
+  array (
+    'url' => 'gestor/editar-idioma/{tabla:string}/{id:int}/{idiomareg:string}',
+    'controller' => 'Gestor::editaridioma',
+    'permiso' => 1,
+  ),
+  'Gestor_editar_idioma_accion' => 
+  array (
+    'url' => 'gestor/editar-idioma-accion/{tabla:string}/{id:int}/{idiomareg:string}',
+    'controller' => 'Gestor::editaridiomaccion',
+    'permiso' => 1,
+  ),
+  'Gestor_editar_accion' => 
+  array (
+    'url' => 'gestor/editar-accion/{tabla:string}/{id:int}',
+    'controller' => 'Gestor::editaraccion',
+    'permiso' => 1,
+  ),
   'Gestor_buscador' => 
   array (
     'url' => 'gestor/buscador/reultado',

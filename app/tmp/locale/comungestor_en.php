@@ -31,6 +31,18 @@
  private $gestorindexp = "Home Content Manager.";
 
  private $buscar = "Search";
+
+ private $res_bus = "Search Result";
+
+ private $aviso_busqueda = "This listing is filtered by the search <b>%1</b>";
+
+ private $eliminar_filtro = "<a href='%1' title='return to the original list of %2'>Remove search filter</a>";
+
+ private $title_ir_editar = "Edit Record";
+
+ private $h1_editar = "Edit registry";
+
+ private $dela = "table";
  
  private $data = array (
   'En' => 
@@ -49,6 +61,12 @@
     'getsorindex' => 'Content Management System',
     'gestorindexp' => 'Home Content Manager.',
     'buscar' => 'Search',
+    'res_bus' => 'Search Result',
+    'aviso_busqueda' => 'This listing is filtered by the search <b>%1</b>',
+    'eliminar_filtro' => '<a href=\'%1\' title=\'return to the original list of %2\'>Remove search filter</a>',
+    'title_ir_editar' => 'Edit Record',
+    'h1_editar' => 'Edit registry',
+    'dela' => 'table',
   ),
 ); 
 
@@ -249,6 +267,90 @@
  	 public function setBuscar($valor) { 
  
  	 	  $this->buscar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getRes_bus() { 
+ 
+ 	 	 return $this->res_bus;  
+  	 	 } 
+  
+ 
+ 	 public function setRes_bus($valor) { 
+ 
+ 	 	  $this->res_bus = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getAviso_busqueda() { 
+ 
+ 	 	 return $this->aviso_busqueda;  
+  	 	 } 
+  
+ 
+ 	 public function setAviso_busqueda($valor) { 
+ 
+ 	 	  $this->aviso_busqueda = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getEliminar_filtro() { 
+ 
+ 	 	 return $this->eliminar_filtro;  
+  	 	 } 
+  
+ 
+ 	 public function setEliminar_filtro($valor) { 
+ 
+ 	 	  $this->eliminar_filtro = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTitle_ir_editar() { 
+ 
+ 	 	 return $this->title_ir_editar;  
+  	 	 } 
+  
+ 
+ 	 public function setTitle_ir_editar($valor) { 
+ 
+ 	 	  $this->title_ir_editar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_editar() { 
+ 
+ 	 	 return $this->h1_editar;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_editar($valor) { 
+ 
+ 	 	  $this->h1_editar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDela() { 
+ 
+ 	 	 return $this->dela;  
+  	 	 } 
+  
+ 
+ 	 public function setDela($valor) { 
+ 
+ 	 	  $this->dela = $valor;  
  
  	 	 return $this;  
   	 	 } 

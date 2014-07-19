@@ -37,6 +37,14 @@
  private $aviso_busqueda = "Aquest llistat aquesta filtrat per la recerca <b>%1</b>";
 
  private $eliminar_filtro = "<a href='%1' title='return to the original list of %2'>Eliminar filtre de cerca</a>";
+
+ private $title_ir_editar = "Edita Registre";
+
+ private $h1_editar = "Modifica el registre";
+
+ private $dela = "de la taula";
+
+ private $modificar = "Modificar";
  
  private $data = array (
   'Ca' => 
@@ -58,6 +66,10 @@
     'res_bus' => 'Resultat Cerca',
     'aviso_busqueda' => 'Aquest llistat aquesta filtrat per la recerca <b>%1</b>',
     'eliminar_filtro' => '<a href=\'%1\' title=\'return to the original list of %2\'>Eliminar filtre de cerca</a>',
+    'title_ir_editar' => 'Edita Registre',
+    'h1_editar' => 'Modifica el registre',
+    'dela' => 'de la taula',
+    'modificar' => 'Modificar',
   ),
 ); 
 
@@ -300,6 +312,62 @@
  	 public function setEliminar_filtro($valor) { 
  
  	 	  $this->eliminar_filtro = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTitle_ir_editar() { 
+ 
+ 	 	 return $this->title_ir_editar;  
+  	 	 } 
+  
+ 
+ 	 public function setTitle_ir_editar($valor) { 
+ 
+ 	 	  $this->title_ir_editar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_editar() { 
+ 
+ 	 	 return $this->h1_editar;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_editar($valor) { 
+ 
+ 	 	  $this->h1_editar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDela() { 
+ 
+ 	 	 return $this->dela;  
+  	 	 } 
+  
+ 
+ 	 public function setDela($valor) { 
+ 
+ 	 	  $this->dela = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getModificar() { 
+ 
+ 	 	 return $this->modificar;  
+  	 	 } 
+  
+ 
+ 	 public function setModificar($valor) { 
+ 
+ 	 	  $this->modificar = $valor;  
  
  	 	 return $this;  
   	 	 } 

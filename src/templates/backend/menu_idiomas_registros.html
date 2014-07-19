@@ -1,0 +1,26 @@
+<aside id='menmu_idiomas_registros'>
+
+{% for leng_reg in idiomas_reg %}
+
+	{% if get.idiomareg is defined %}
+		{% set elidi = get.idiomareg %}
+		{% else %}
+		{% set elidi = idiomaprincipal %}
+	{% endif %}
+	
+{% if elidi==leng_reg  %}
+		<span class='idis idioma_img_reg localesel_{{ leng_reg }} sube_inte'></span>
+	{% else %}
+			{% if idiomaprincipal==leng_reg %}
+			<a href='{{ cons.HOME }}gestor/editar/{{ get.tabla  }}/{{ get.id }}' class='idis idioma_img_reg clase_{{ leng_reg }}'></a>
+			{% else %}
+			<a href='{{ cons.HOME }}gestor/editar-idioma/{{ get.tabla  }}/{{ get.id }}/{{ leng_reg }}' class='idis idioma_img_reg clase_{{ leng_reg }}'></a>
+			{% endif %}
+{% endif %}
+
+
+
+{% endfor %}
+
+
+</aside>

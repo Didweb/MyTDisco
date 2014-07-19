@@ -39,6 +39,12 @@
  private $eliminar_filtro = "<a href='%1' title='volver al listado original de %2'>Eliminar filtro de búsqueda</a>";
 
  private $title_ir_editar = "Editar Registro";
+
+ private $h1_editar = "Editar registro";
+
+ private $dela = "de la tabla";
+
+ private $modificar = "Editar";
  
  private $data = array (
   'Es' => 
@@ -61,6 +67,9 @@
     'aviso_busqueda' => 'Este listado esta filtrado por la búsqueda <b>%1</b>',
     'eliminar_filtro' => '<a href=\'%1\' title=\'volver al listado original de %2\'>Eliminar filtro de búsqueda</a>',
     'title_ir_editar' => 'Editar Registro',
+    'h1_editar' => 'Editar registro',
+    'dela' => 'de la tabla',
+    'modificar' => 'Editar',
   ),
 ); 
 
@@ -317,6 +326,48 @@
  	 public function setTitle_ir_editar($valor) { 
  
  	 	  $this->title_ir_editar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_editar() { 
+ 
+ 	 	 return $this->h1_editar;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_editar($valor) { 
+ 
+ 	 	  $this->h1_editar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDela() { 
+ 
+ 	 	 return $this->dela;  
+  	 	 } 
+  
+ 
+ 	 public function setDela($valor) { 
+ 
+ 	 	  $this->dela = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getModificar() { 
+ 
+ 	 	 return $this->modificar;  
+  	 	 } 
+  
+ 
+ 	 public function setModificar($valor) { 
+ 
+ 	 	  $this->modificar = $valor;  
  
  	 	 return $this;  
   	 	 } 

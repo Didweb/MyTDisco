@@ -12,6 +12,9 @@ class GestorController extends Controlador
 	
 	private $get;
 	private $n_registros;
+	public $idiomas_per;
+	public $idioma_reg;
+	public $idioma_principal;
 	
 	public function __construct()
 	{
@@ -116,17 +119,9 @@ class GestorController extends Controlador
 					$valor_campo  = $item->$campos[$nom2];
 					
 					// Buscamos posibles campos dependientes
-					foreach ($lista_depe as $nomdep=>$valdep){
-						
-						if($campos[$nom2]==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
-							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
-										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
-										->find_one($item->$campos[$nom2]);
-										
-							$valor_campo="<span class='mini'>id: $valor_campo  - </span> ".$val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
-							}
-						
-						}
+					$valor_campo2 = $this->buscar_dependencias($lista_depe,$tabla,$nombre_campo,$valor_campo,0 );
+					
+					$valor_campo = $valor_campo2 ;
 					
 					
 					$lista_fin[$n]=array('campo'=>$nombre_campo,'valor'=>$valor_campo);
@@ -204,19 +199,8 @@ class GestorController extends Controlador
 					$nombre_campo = $campos[$nom2];
 					$valor_campo  = $item->$campos[$nom2];
 					// Buscamos posibles campos dependientes
-					foreach ($lista_depe as $nomdep=>$valdep){
-						
-						if($campos[$nom2]==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
-							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
-										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
-										->find_one($item->$campos[$nom2]);
-										
-							$valor_campo="<span class='mini'>id: $valor_campo   - </span> ".$val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
-							}
-						
-						}
-					
-					
+					$valor_campo2 = $this->buscar_dependencias($lista_depe,$tabla,$nombre_campo,$valor_campo,0 );
+					$valor_campo = $valor_campo2;
 					$lista_fin[$n]=array('campo'=>$nombre_campo,'valor'=>$valor_campo);
 				$n++;
 				}
@@ -237,12 +221,132 @@ class GestorController extends Controlador
 											));		
 	}
 	
+	
+	public function editaridiomaccion()
+	{
+		$this->cargarConexion();
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];
+		$idiomareg = $this->parametros_get['idiomareg'];
+		
+		$existe = ORM::for_table('myt_locale')
+				->where(array ('idtotal'	=> $id,
+								'tabla'		=> $tabla,
+								'locale'	=> $idiomareg))
+				->count();
+		
+		if($existe>=1)
+		{
+		
+		foreach ($_POST as $nom=>$val){
+		$registro = ORM::for_table('myt_locale')->where(array (
+								'idtotal'	=> $id,
+								'tabla'		=> $tabla,
+								'locale'	=> $idiomareg,
+								'nombrecampo'=>$nom ))
+								->find_one();
+		
+				if(isset($_POST[$nom])){
+					$registro->set('txt', $_POST[$nom]);
+					$registro->save();	
+					}
+		
+		}
+			
+		
+		}
+		
+		$this->editaridioma();
+		
+	}
+	
+	
+	
+	
+	public function editaridioma()
+	{
+		$this->cargarConexion();
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];
+		$idiomareg = $this->parametros_get['idiomareg'];
+		
+		
+		$existe = ORM::for_table('myt_locale')
+				->where(array ('idtotal'	=> $id,
+								'tabla'		=> $tabla,
+								'locale'	=> $idiomareg))
+				->find_many();
+		$campos_tra = $this->lectura_campos_trad($tabla,$existe);
+		
+		$cuentaexiste=count($existe);
+		$_SESSION['idioma_reg']=$idiomareg;
+		
+		if($cuentaexiste==0)
+		{
+			foreach($campos_tra as $nom=>$val) {
+				
+			$crearidiomareg = ORM::for_table('myt_locale')->create();
+			$crearidiomareg->idtotal 	= $id;
+			$crearidiomareg->tabla 		= $tabla;
+			$crearidiomareg->locale 	= $idiomareg;
+			$crearidiomareg->nombrecampo = $campos_tra[$nom]['nombre'];
+			$crearidiomareg->save();
+			}
+		}
+		
+		$this->idiomas_registros();
+		
+		$twig = $this->cargaTwig('src/templates');
+		echo $twig->render('/backend/editar_idioma.html', array(
+											'get'			=> $this->parametros_get,
+											'trad_acceso'	=> $this->txt_pass,
+											'trad'			=> $this->txt_comun,
+											'cons'		 => $this->constantes,
+											'idioma'	 => $this->packidiomas,
+											'idiomaprincipal' =>$this->idioma_principal,
+											'menuTablas' => $this->menuTablas,
+											'res'	 => $campos_tra,
+											'idiomas_reg' => $this->idiomas_per
+											));
+		
+
+		
+			
+	}
+	
+
+	public function editaraccion()
+	{
+		$this->cargarConexion();
+		
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];
+		
+		$registro = ORM::for_table($tabla)->find_one($id);
+		foreach ($_POST as $nom=>$val){
+			echo "<br> ->>".$_POST[$nom];
+		if($_POST[$nom]!=''){
+		$registro->$nom = $_POST[$nom];}
+		}
+		
+		$registro->save();
+		$this->editar();
+	}
 
 
 	public function editar()
 	{
+		$this->cargarConexion();
+		
 		$id  	= $this->parametros_get['id'];
 		$tabla  = $this->parametros_get['tabla'];
+		
+		
+		
+	 	$res = ORM::for_table($tabla)->find_one($id);
+	 	$campos_editar = $this->lectura_campos($tabla,$res);
+
+		$this->idiomas_registros();
 	 	
 		$twig = $this->cargaTwig('src/templates');
 		echo $twig->render('/backend/editar.html', array(
@@ -251,11 +355,67 @@ class GestorController extends Controlador
 											'trad'			=> $this->txt_comun,
 											'cons'		 => $this->constantes,
 											'idioma'	 => $this->packidiomas,
-											'menuTablas' => $this->menuTablas
+											'menuTablas' => $this->menuTablas,
+											'res'	 => $campos_editar,
+											'idiomas_reg' => $this->idiomas_per,
+											'idiomaprincipal'=>$this->idioma_principal
 											));
 	}
 
 
+	
+	public function buscar_dependencias($lista_depe,$tabla,$nomcampo,$valor_campo,$con_lista = 0)
+	{
+	$lista='';		
+	foreach ($lista_depe as $nomdep=>$valdep){
+						
+						if($con_lista == 0){
+						
+							if($nomcampo==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
+								$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
+											->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
+											->find_one($valor_campo);
+											
+								$valor_campo = "<span class='mini'>id: $valor_campo   - </span> ".$val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+								} else {
+								$valor_campo = $valor_campo;	
+								}
+							$res = $valor_campo;
+							} 
+						
+						elseif ($con_lista == 1) {
+							
+							if($nomcampo==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
+							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
+										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
+										->find_one($valor_campo);
+										
+							$valor_campo = $val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+							
+							$lista_res =array();
+							$n=0;
+							$lista = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
+										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
+										->find_many();
+								
+								foreach ($lista as $lis){ 
+									$lista_res[$n] = array('id'=>$lis->$lista_depe[$nomdep]['campo_busca'],'nombre'=>$lis->$lista_depe[$nomdep]['campo_muetsra']);
+									$n++;
+									}
+								$lista = $lista_res;	
+								} else {
+							$valor_campo =$valor_campo;
+							
+							}	
+							
+						$res = array('valor_campo'=>$valor_campo,'lista'=>$lista);	
+							
+						}
+					}
+				return $res;	
+		
+	}
+	
 	
 	public function crearMenu()
 	{
@@ -266,6 +426,70 @@ class GestorController extends Controlador
 		
 	}
 	
+	
+	
+	public function lectura_campos($tabla,$res)
+	{
+		$campos = $this->gestorConfig->getGestor();
+		$campos = explode(',',$campos['Campos']['tab_'.$tabla]);
+		
+		$campos_editar=array();
+		$n=0;
+		
+		foreach($campos as $nom=>$val){
+			
+			$campos_detalle=explode('|',$campos[$nom]);
+			$valor = $res->$campos_detalle[0];
+			$lista = '';
+			
+			if($campos_detalle[1]=='depe'){
+			// listamos campos dependientes
+			$lista_depe = $this->crearDependientes();
+			$valor1 = $this->buscar_dependencias($lista_depe,$tabla,$campos_detalle[0],$res->$campos_detalle[0],1);
+			$valor = $valor1['valor_campo'];
+			$lista = $valor1['lista'];
+			}
+			
+			$campos_editar[$n]=array(
+							'nombre'	=> $campos_detalle[0],
+							'tipo'		=> $campos_detalle[1],
+							'formato'	=> $campos_detalle[2],
+							'valor'		=> $valor,
+							'lista'		=> $lista
+							);
+			$n++;
+			}
+		
+		return $campos_editar;
+	}
+	
+
+	
+	public function lectura_campos_trad($tabla,$res)
+	{ 
+		$campos = $this->gestorConfig->getGestor();
+		$campos = explode(',',$campos['Campos']['trad_'.$tabla]);
+		$campos_trad=array();
+		$n=0;
+		
+		foreach($campos as $nom=>$val){
+			$resultado='';
+			foreach ($res as $item ){
+				
+				if($campos[$nom]==$item->nombrecampo){
+					$resultado = $item->txt; }
+				}
+				$campos_trad[$n]=array(
+							'nombre'	=> $campos[$nom],
+							'valor'		=> $resultado);
+			$n++;
+		
+			}
+		
+		return $campos_trad;	
+	}
+
+
 
 	public function crearDependientes()
 	{
@@ -298,9 +522,34 @@ class GestorController extends Controlador
 					
 		$n++;
 					
-		}	
+		}
+
+		
 		return $res_depe;
 	}
+	
+	
+	public function idiomas_registros()
+	{
+		$idiomas_per =  explode(',',$this->constantes->getIdiomas());
+		$this->idiomas_per = $idiomas_per;	
+		$this->idioma_principal = $this->idiomas_per[0];
+		
+		
+		
+		if(isset($this->parametros_get['idioma_reg']))
+		{$_SESSION['idioma_reg'] = $this->parametros_get['idioma_reg'];
+		$this->idioma_reg = $this->parametros_get['idioma_reg'];
+		}
+
+	
+		if(!isset($_SESSION['idioma_reg']) || !isset($this->parametros_get['idioma_reg'])) {
+		$_SESSION['idioma_reg'] = $this->idioma_principal;
+		$this->idioma_reg = $this->idioma_principal;
+		}
+	
+	}
+	
 	
 }
 

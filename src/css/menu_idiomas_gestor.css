@@ -27,3 +27,8 @@ aside#locale .iso:hover {color:#000000; text-decoration:underline; }
 .localesel_en {background-position:-42px 0px; }
 .localesel_fr {background-position:-63px 0px; }
 .localesel_it {background-position:-84px 0px; }
+
+
+.idis {float:left; margin:0.3em;  text-decoration:none; display:block;}
+.idioma_img_reg { background-image: url('../../src/deco/idioma.png');  width:21px; height:21px; display:block; opacity: 0.2; filter: alpha(opacity=20);}
+.sube_inte {opacity: 0.8; filter: alpha(opacity=80);}
