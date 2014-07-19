@@ -1,6 +1,6 @@
 
 footer { width:100%; font-size:0.8em; padding-top:0.4em; padding-bottom:0.4em;
-		text-align:center; color:#939798; border-top:1px solid #DBE3E4;}
+		text-align:center; color:#939798; border-top:1px solid #DBE3E4; margin-top:1.5em;}
 
 footer a 		{ color:#666C6E; font-weight:lighter; text-decoration:none; }
 footer a:hover 	{ color:#333333; text-decoration:underline; }
@@ -22,7 +22,7 @@ width:90%; margin:auto;
 	border:1px solid #cccccc;
 	}
 
-table#listado td,th {text-align:left; padding:0.5em;}
+table#listado td,th {text-align:left; padding:0.5em;  }
 
 .orden {background-position:right; padding-right:32px; color:#999999; height:50px; background-repeat:no-repeat; text-decoration:none;
 	opacity: 0.4;
@@ -37,7 +37,24 @@ table#listado td,th {text-align:left; padding:0.5em;}
 .impar {background-color:#F8FDFD;}
 
 
-.pagination { width:90%; margin:auto; text-align:right; padding:0.3em; margin-top:0.5em; margin-bottom:0.5em;}
+.pagination { width:90%; margin:auto; text-align:right; padding:0.3em;  margin-top:0.5em;}
 
 .pagination  a {padding:0.3em; border:1px solid #cccccc; text-align:center; margin:0.2em; text-decoration:none; color:#999999; }
 .pagination  a:hover {text-decoration:none; color:#333333;}
+
+aside#buscador {float:right; margin-right:5em; margin-top:0.7em; font-size:0.8em; width:30%;  padding:0.4em;}
+
+.in_termino { width:80%;}
+div#campos_fo {clear:both; float:left; width:100%; padding:0.3em; text-align:center; }
+.cajas_radio {float:left; margin-right:0.7em; width:25%; font-size:1.1em; }
+.elradio { margin-right:0.3em; margin-top:0.4em; }
+
+.mini {font-size:0.9em; color:#999999;}
+
+#aviso_busqueda {float:left; width:100%; padding:0.5em;}
+#aviso_busqueda p {width:70%; margin:auto; color:#E98A0E; padding:0.4em;font-size:1.1em; background-color:yellow;}
+#aviso_busqueda a {color:#720415; font-size:0.9em; margin-left:2em;}
+#aviso_busqueda a:hover {color:#333333;}
+
+.link_ir_editar	{color:#51565A; font-weight:bold; text-decoration:none; background-color:#F8F8DF; padding:0.4em;}
+.link_ir_editar:hover {color:#000000; background-color:#ffff00;}

@@ -25,6 +25,12 @@
  private $previous = "previous";
 
  private $listado_p = "List of table records";
+
+ private $getsorindex = "Content Management System";
+
+ private $gestorindexp = "Home Content Manager.";
+
+ private $buscar = "Search";
  
  private $data = array (
   'En' => 
@@ -40,6 +46,9 @@
     'first' => 'first',
     'previous' => 'previous',
     'listado_p' => 'List of table records',
+    'getsorindex' => 'Content Management System',
+    'gestorindexp' => 'Home Content Manager.',
+    'buscar' => 'Search',
   ),
 ); 
 
@@ -198,6 +207,48 @@
  	 public function setListado_p($valor) { 
  
  	 	  $this->listado_p = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getGetsorindex() { 
+ 
+ 	 	 return $this->getsorindex;  
+  	 	 } 
+  
+ 
+ 	 public function setGetsorindex($valor) { 
+ 
+ 	 	  $this->getsorindex = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getGestorindexp() { 
+ 
+ 	 	 return $this->gestorindexp;  
+  	 	 } 
+  
+ 
+ 	 public function setGestorindexp($valor) { 
+ 
+ 	 	  $this->gestorindexp = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getBuscar() { 
+ 
+ 	 	 return $this->buscar;  
+  	 	 } 
+  
+ 
+ 	 public function setBuscar($valor) { 
+ 
+ 	 	  $this->buscar = $valor;  
  
  	 	 return $this;  
   	 	 } 

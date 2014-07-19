@@ -3,20 +3,21 @@
 {% block contenidos %}	
 	
 
-	
+
 	
 {% include '/backend/menu_gestor.html' %}
-
-{% include '/backend/buscador.html' %}
+{% include '/backend/buscador.html' %}	
 <section>
 	<article id='information'>
-	<h1>{{ trad.listado_de }}: {{ get.tabla|title  }}</h1>
+	<h1>{{ trad.res_bus }}: {{ termino|title  }}</h1>
 	<p>
-	{{ trad.listado_p }} {{ get.tabla|title }}
+	{{ trad.listado_p }} {{ tabla|title }}
 	</p>
 	</article>
 
-		
+		<div id='aviso_busqueda'>
+		<p>{{ trad.aviso_busqueda|raw }}. {{ trad.eliminar_filtro|raw }}</p>
+		</div>
 	<table id='listado'>
 	  <thead>
 		<tr>
@@ -30,7 +31,7 @@
 		{% set class_fil='' %}
 		{% endif %}
 		
-			<th><a href='{{ cons.HOME}}gestor/listado/{{ get.tabla }}/{{ campo }}/1/{{ orden_cambio }}' title='' class='orden {{ dir_orden }} {{ class_fil }}'>{{ campo }}</a></th>
+			<th>{{ campo }}</th>
 		{% endfor %}	
 			
 		</tr>
@@ -50,22 +51,19 @@
 			
 			{% if vuelta == 1 %}
 			<tr class="{{ linea }}">
-			
-			
+				
 			{% endif %}
 			
-			{% if item.campo=='id' %}
-			<td><a href='{{ cons.HOME }}gestor/editar/{{ get.tabla }}/{{ item.valor }}' class='link_ir_editar' title='{{ trad.title_ir_editar }}: {{ item.valor }}'>{{ item.valor }}</a></td>
+					{% if item.campo=='id' %}
+			<td><a href='{{ cons.HOME }}gestor/editar/{{ get.tabla }}/{{ item.valor }}' class='link_ir_editar' title='{{ title_ir_editar }}'>{{ item.valor|raw }}</a></td>
 			{% else %}
 			<td>{{ item.valor|raw }}</td>
 			{% endif %}
-			
-		
 		
 		{% if vuelta==col %}
 				{% set vuelta=1 %}
 				{% set n=n+1 %}
-				</tr> 
+			</tr> 
 			{% else %}
 				{% set vuelta=vuelta+1 %}
 				
@@ -80,6 +78,6 @@
 	
 	</table>	
 </section>
-{% include '/paginacion/paginacion.html' %}
+
 
 {% endblock %}

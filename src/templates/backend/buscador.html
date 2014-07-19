@@ -1,0 +1,21 @@
+<aside id='buscador'>
+<form action='{{ cons.HOME }}gestor/buscador/reultado' method='post'>
+
+<input type='hidden' value='{{ tabla }}' name='tabla'>
+<input type='text' name='termino' class='in_termino'>
+<input type='submit' value='{{ trad.buscar }}' >
+
+<div id="campos_fo">
+{% set che='checked' %}	
+{% set n=1 %}
+{% for campo in campos %}	
+{% if n>1 %} 
+{% set che='' %}
+{% endif %}
+<div class='cajas_radio'><input type="radio" name="campo_filtro_bus" value="{{ campo }}" class='elradio' {{ che }}>{{ campo }} </div>
+{% endfor %}
+</div>
+</form>
+
+
+</aside>

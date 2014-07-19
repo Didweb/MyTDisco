@@ -7,3 +7,5 @@ Campos:
     categorias: id,nombre,idsubcategorias 
     subcategorias: id,nombre
     dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre  
+
+

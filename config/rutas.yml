@@ -12,11 +12,25 @@ ruta_uno:
     url: pato/dos/{lang:locale}/{pagina:int}
     controller: Index::index2
     permiso: 1
+
+
+Gestor_editar:
+   url: gestor/editar/{tabla:string}/{id:int}
+   controller: Gestor::editar
+   permiso: 1 
+
+   
+Gestor_buscador:
+   url: gestor/buscador/reultado
+   controller: Gestor::buscador
+   permiso: 1   
+   
    
 Gestor_listado:
     url: gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}/{orden:string}
     controller: Gestor::listado
     permiso: 1
+
 
 
 Gestor_index:

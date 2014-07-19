@@ -1,6 +1,6 @@
 <nav id='principal'>
 {% set clase_atras_index='' %}	
-{% if get.tabla !='' %}	
+{% if get.tabla !='' or tabla !='' %}	
 {% set clase_atras_index='atras' %}	
 {% endif %}
 
@@ -15,7 +15,7 @@
 {% for tablas in menuTablas %}
 
 {% set clase_atras='atras' %}
-	{% if get.tabla == tablas %}
+	{% if get.tabla == tablas or tabla == tablas%}
 		{% set clase_atras='' %}
 	{% endif %}
 <div class='capsula {{ clase_atras }}'><a href='{{ cons.HOME}}gestor/listado/{{ tablas }}/id/1/{{ elorden }}' title='{{ trad.listado_de }} {{ tablas }}'>{{ tablas|title }}</a></div>

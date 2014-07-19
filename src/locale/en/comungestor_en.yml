@@ -12,3 +12,13 @@ En:
     previous: previous
 
     listado_p: List of table records
+
+    getsorindex: Content Management System
+    gestorindexp: Home Content Manager.
+    buscar: Search
+
+    res_bus: Search Result
+    aviso_busqueda: This listing is filtered by the search <b>%1</b>
+    eliminar_filtro: <a href='%1' title='return to the original list of %2'>Remove search filter</a>
+
+    title_ir_editar: Edit Record

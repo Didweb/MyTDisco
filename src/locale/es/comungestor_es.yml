@@ -12,3 +12,13 @@ Es:
     previous: anterior
     
     listado_p: Listado de registros de la tabla
+    
+    getsorindex: Gestor de contenidos
+    gestorindexp: Página principal del Gestor de Contenidos.
+    buscar: Buscar
+    
+    res_bus: Resultado Búsqueda
+    aviso_busqueda: Este listado esta filtrado por la búsqueda <b>%1</b>
+    eliminar_filtro: <a href='%1' title='volver al listado original de %2'>Eliminar filtro de búsqueda</a>
+    
+    title_ir_editar: Editar Registro
