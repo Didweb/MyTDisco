@@ -25,3 +25,15 @@ En:
     h1_editar: Edit registry
     dela: table
     modificar: Edit
+
+    title_idio: Edit this entry in another language
+    vovler_listado: Back to list     
+    vovler_listado2: List
+    nuevoreg: Create new account 
+
+    h1_crear: Create record in table
+    crearboton: Create     
+    eliminarreg: Delete Record
+    h1_eliminar: Delete
+    h2elimina: Registration process of elimination
+    pelimina: 	The record with id <b>%1</b> , is about to be removed <br> If you decide to delete can not be recovered <br> This will also eliminate its related data such as images, the register-etc in different languages​​. <br> <br> Want to delete this record?

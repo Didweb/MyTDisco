@@ -43,6 +43,20 @@
  private $h1_editar = "Edit registry";
 
  private $dela = "table";
+
+ private $modificar = "Edit";
+
+ private $title_idio = "Edit this entry in another language";
+
+ private $vovler_listado = "Back to list";
+
+ private $vovler_listado2 = "List";
+
+ private $nuevoreg = "Create new account";
+
+ private $h1_crear = "Create record in table";
+
+ private $crearboton = "Create";
  
  private $data = array (
   'En' => 
@@ -67,6 +81,13 @@
     'title_ir_editar' => 'Edit Record',
     'h1_editar' => 'Edit registry',
     'dela' => 'table',
+    'modificar' => 'Edit',
+    'title_idio' => 'Edit this entry in another language',
+    'vovler_listado' => 'Back to list',
+    'vovler_listado2' => 'List',
+    'nuevoreg' => 'Create new account',
+    'h1_crear' => 'Create record in table',
+    'crearboton' => 'Create',
   ),
 ); 
 
@@ -351,6 +372,104 @@
  	 public function setDela($valor) { 
  
  	 	  $this->dela = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getModificar() { 
+ 
+ 	 	 return $this->modificar;  
+  	 	 } 
+  
+ 
+ 	 public function setModificar($valor) { 
+ 
+ 	 	  $this->modificar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTitle_idio() { 
+ 
+ 	 	 return $this->title_idio;  
+  	 	 } 
+  
+ 
+ 	 public function setTitle_idio($valor) { 
+ 
+ 	 	  $this->title_idio = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getVovler_listado() { 
+ 
+ 	 	 return $this->vovler_listado;  
+  	 	 } 
+  
+ 
+ 	 public function setVovler_listado($valor) { 
+ 
+ 	 	  $this->vovler_listado = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getVovler_listado2() { 
+ 
+ 	 	 return $this->vovler_listado2;  
+  	 	 } 
+  
+ 
+ 	 public function setVovler_listado2($valor) { 
+ 
+ 	 	  $this->vovler_listado2 = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNuevoreg() { 
+ 
+ 	 	 return $this->nuevoreg;  
+  	 	 } 
+  
+ 
+ 	 public function setNuevoreg($valor) { 
+ 
+ 	 	  $this->nuevoreg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_crear() { 
+ 
+ 	 	 return $this->h1_crear;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_crear($valor) { 
+ 
+ 	 	  $this->h1_crear = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getCrearboton() { 
+ 
+ 	 	 return $this->crearboton;  
+  	 	 } 
+  
+ 
+ 	 public function setCrearboton($valor) { 
+ 
+ 	 	  $this->crearboton = $valor;  
  
  	 	 return $this;  
   	 	 } 

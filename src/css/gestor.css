@@ -1,5 +1,5 @@
 
-footer { width:100%; font-size:0.8em; padding-top:0.4em; padding-bottom:0.4em;
+footer {float:left; clear:both;  width:100%; font-size:0.8em; padding-top:0.4em; padding-bottom:0.4em;
 		text-align:center; color:#939798; border-top:1px solid #DBE3E4; margin-top:1.5em;}
 
 footer a 		{ color:#666C6E; font-weight:lighter; text-decoration:none; }
@@ -16,7 +16,7 @@ aside#menu_seguridad a {color:#999999; padding-left:0.8em; border-left:1px solid
 aside#menu_seguridad a:hover {color:#000000;}
 
 article#information h1 {color:#6F8D9E; font-size:1.5em; margin-left:0.8em;}
-article#information p {color:#6F8D9E; font-size:0.9em; margin-left:0.8em;}
+article#information p {float:left; color:#6F8D9E; font-size:0.9em; margin-left:0.8em; padding-top:0.1em;}
 table#listado {
 width:90%; margin:auto;
 	border:1px solid #cccccc;
@@ -58,3 +58,48 @@ div#campos_fo {clear:both; float:left; width:100%; padding:0.3em; text-align:cen
 
 .link_ir_editar	{color:#51565A; font-weight:bold; text-decoration:none; background-color:#F8F8DF; padding:0.4em;}
 .link_ir_editar:hover {color:#000000; background-color:#ffff00;}
+
+
+/* Editar */
+article#editar {flaot:left; }
+#menmu_idiomas_registros {clear:both; float:left; width:45%;  margin-left:2em;}
+#menmu_idiomas_registros .situa_idiomas {float:right;}
+form#form_registros {clear:both; float:left; width:45%; padding-left:2em; margin-top:1em;}
+.caja_for_reg {float:left; clear:both; width:100%; margin-bottom:0.8em; padding-bottom:0.7em; border-bottom:1px solid #EBEBEB;}
+
+form#form_registros label {float:left; width:20%; padding:0.4em; color:#999999;}
+.input_reg  {float:left; width:70%; padding:0.2em; color:#7D7D7D; border:1px solid #EBEBEB;
+				background-color:#FAFAE5;
+				}
+.bo_dos { background-color:#F3F5F8; padding:0.3em; color:#6B6D7A; text-decoration:none; border:1px solid #CACFD4;
+		-webkit-border-radius: 3px; margin-right:1em;
+		-moz-border-radius: 3px;
+		border-radius: 3px; }
+
+.bo_dos:hover {color:#000000; background-color:#F8FAE6;}
+
+.reg_sub {float:right;background-color:#0D7E17; border:1px solid #0A210B; color:#DAF4DB; font-size:1em; padding:0.3em; padding-left:0.5em; padding-right:0.5em;
+		-webkit-border-radius: 3px;  
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-box-shadow: 3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		-moz-box-shadow:    3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		box-shadow:         3px 3px 18px 0px rgba(50, 50, 50, 0.5);}
+		
+.reg_sub:hover {color:#F3F4DA; background-color:#08260B; border:1px solid #08B00E; }
+
+
+.eli_sub {float:left;background-color:#7E150D; border:1px solid #210A0A; color:#F4DBDA; font-size:1em; padding:0.3em; padding-left:0.5em; padding-right:0.5em;
+		-webkit-border-radius: 3px;  text-decoration:none;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-box-shadow: 3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		-moz-box-shadow:    3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		box-shadow:         3px 3px 18px 0px rgba(50, 50, 50, 0.5);}
+		
+.eli_sub:hover {color:#F4E9DA; background-color:#260908; border:1px solid #B01208; }
+
+.rojo	{color:#900612;}
+
+div#alerta {clear:both; padding:2em; width:53%; margin:auto; background-color:#FBEFA3; text-align:center;}
+div#alerta h2,p {color:#761C10;}

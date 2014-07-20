@@ -45,6 +45,22 @@
  private $dela = "de la taula";
 
  private $modificar = "Modificar";
+
+ private $title_idio = "Edita aquest registre en un altre idioma";
+
+ private $vovler_listado = "Tornar al llistat de";
+
+ private $vovler_listado2 = "Llistat";
+
+ private $nuevoreg = "Crear nou registre";
+
+ private $h1_crear = "Crear registre a la taula";
+
+ private $crearboton = "Crear";
+
+ private $eliminarreg = "Eliminar Registre";
+
+ private $h1_eliminar = "Eliminar";
  
  private $data = array (
   'Ca' => 
@@ -70,6 +86,14 @@
     'h1_editar' => 'Modifica el registre',
     'dela' => 'de la taula',
     'modificar' => 'Modificar',
+    'title_idio' => 'Edita aquest registre en un altre idioma',
+    'vovler_listado' => 'Tornar al llistat de',
+    'vovler_listado2' => 'Llistat',
+    'nuevoreg' => 'Crear nou registre',
+    'h1_crear' => 'Crear registre a la taula',
+    'crearboton' => 'Crear',
+    'eliminarreg' => 'Eliminar Registre',
+    'h1_eliminar' => 'Eliminar',
   ),
 ); 
 
@@ -368,6 +392,118 @@
  	 public function setModificar($valor) { 
  
  	 	  $this->modificar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTitle_idio() { 
+ 
+ 	 	 return $this->title_idio;  
+  	 	 } 
+  
+ 
+ 	 public function setTitle_idio($valor) { 
+ 
+ 	 	  $this->title_idio = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getVovler_listado() { 
+ 
+ 	 	 return $this->vovler_listado;  
+  	 	 } 
+  
+ 
+ 	 public function setVovler_listado($valor) { 
+ 
+ 	 	  $this->vovler_listado = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getVovler_listado2() { 
+ 
+ 	 	 return $this->vovler_listado2;  
+  	 	 } 
+  
+ 
+ 	 public function setVovler_listado2($valor) { 
+ 
+ 	 	  $this->vovler_listado2 = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNuevoreg() { 
+ 
+ 	 	 return $this->nuevoreg;  
+  	 	 } 
+  
+ 
+ 	 public function setNuevoreg($valor) { 
+ 
+ 	 	  $this->nuevoreg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_crear() { 
+ 
+ 	 	 return $this->h1_crear;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_crear($valor) { 
+ 
+ 	 	  $this->h1_crear = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getCrearboton() { 
+ 
+ 	 	 return $this->crearboton;  
+  	 	 } 
+  
+ 
+ 	 public function setCrearboton($valor) { 
+ 
+ 	 	  $this->crearboton = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getEliminarreg() { 
+ 
+ 	 	 return $this->eliminarreg;  
+  	 	 } 
+  
+ 
+ 	 public function setEliminarreg($valor) { 
+ 
+ 	 	  $this->eliminarreg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_eliminar() { 
+ 
+ 	 	 return $this->h1_eliminar;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_eliminar($valor) { 
+ 
+ 	 	  $this->h1_eliminar = $valor;  
  
  	 	 return $this;  
   	 	 } 

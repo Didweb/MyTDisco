@@ -45,6 +45,26 @@
  private $dela = "de la tabla";
 
  private $modificar = "Editar";
+
+ private $title_idio = "Editar este registro en otro idioma";
+
+ private $vovler_listado = "Volver al listado de";
+
+ private $vovler_listado2 = "Listado";
+
+ private $nuevoreg = "Crear nuevo registro";
+
+ private $h1_crear = "Crear registro en la tabla";
+
+ private $crearboton = "Crear";
+
+ private $eliminarreg = "Eliminar Registro";
+
+ private $h1_eliminar = "Eliminar";
+
+ private $h2elimina = "Proceso de eliminación de registro";
+
+ private $pelimina = "El registro con id <b>%1</b>, esta apunto de ser eliminado.<br>  En el caso de que decidas eliminarlo no se podrá recuperar.<br>   Esta acción también eliminara sus datos relacionados como por ejemplo, imágenes, el regsitro en los distintos idiomas etc.<br> <br> ¿Quieres eliminar este registro?";
  
  private $data = array (
   'Es' => 
@@ -70,6 +90,16 @@
     'h1_editar' => 'Editar registro',
     'dela' => 'de la tabla',
     'modificar' => 'Editar',
+    'title_idio' => 'Editar este registro en otro idioma',
+    'vovler_listado' => 'Volver al listado de',
+    'vovler_listado2' => 'Listado',
+    'nuevoreg' => 'Crear nuevo registro',
+    'h1_crear' => 'Crear registro en la tabla',
+    'crearboton' => 'Crear',
+    'eliminarreg' => 'Eliminar Registro',
+    'h1_eliminar' => 'Eliminar',
+    'h2elimina' => 'Proceso de eliminación de registro',
+    'pelimina' => 'El registro con id <b>%1</b>, esta apunto de ser eliminado.<br>  En el caso de que decidas eliminarlo no se podrá recuperar.<br>   Esta acción también eliminara sus datos relacionados como por ejemplo, imágenes, el regsitro en los distintos idiomas etc.<br> <br> ¿Quieres eliminar este registro?',
   ),
 ); 
 
@@ -368,6 +398,146 @@
  	 public function setModificar($valor) { 
  
  	 	  $this->modificar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTitle_idio() { 
+ 
+ 	 	 return $this->title_idio;  
+  	 	 } 
+  
+ 
+ 	 public function setTitle_idio($valor) { 
+ 
+ 	 	  $this->title_idio = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getVovler_listado() { 
+ 
+ 	 	 return $this->vovler_listado;  
+  	 	 } 
+  
+ 
+ 	 public function setVovler_listado($valor) { 
+ 
+ 	 	  $this->vovler_listado = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getVovler_listado2() { 
+ 
+ 	 	 return $this->vovler_listado2;  
+  	 	 } 
+  
+ 
+ 	 public function setVovler_listado2($valor) { 
+ 
+ 	 	  $this->vovler_listado2 = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNuevoreg() { 
+ 
+ 	 	 return $this->nuevoreg;  
+  	 	 } 
+  
+ 
+ 	 public function setNuevoreg($valor) { 
+ 
+ 	 	  $this->nuevoreg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_crear() { 
+ 
+ 	 	 return $this->h1_crear;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_crear($valor) { 
+ 
+ 	 	  $this->h1_crear = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getCrearboton() { 
+ 
+ 	 	 return $this->crearboton;  
+  	 	 } 
+  
+ 
+ 	 public function setCrearboton($valor) { 
+ 
+ 	 	  $this->crearboton = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getEliminarreg() { 
+ 
+ 	 	 return $this->eliminarreg;  
+  	 	 } 
+  
+ 
+ 	 public function setEliminarreg($valor) { 
+ 
+ 	 	  $this->eliminarreg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_eliminar() { 
+ 
+ 	 	 return $this->h1_eliminar;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_eliminar($valor) { 
+ 
+ 	 	  $this->h1_eliminar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH2elimina() { 
+ 
+ 	 	 return $this->h2elimina;  
+  	 	 } 
+  
+ 
+ 	 public function setH2elimina($valor) { 
+ 
+ 	 	  $this->h2elimina = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getPelimina() { 
+ 
+ 	 	 return $this->pelimina;  
+  	 	 } 
+  
+ 
+ 	 public function setPelimina($valor) { 
+ 
+ 	 	  $this->pelimina = $valor;  
  
  	 	 return $this;  
   	 	 } 

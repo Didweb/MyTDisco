@@ -1,0 +1,33 @@
+{% extends 'backend/backend.html' %}
+{% block contenidos %}	
+	
+	
+
+
+{% include '/backend/menu_gestor.html' %}
+<section>
+	<article id='information'>
+<h1><span class='rojo'>{{ trad.h1_eliminar }}: id <b>{{ get.id }}</b> {{ trad.dela }} <b>{{ get.tabla|title }}</b></span></h1>
+<p>
+<a href='{{ cons.HOME }}gestor/crear-nuevo/{{ get.tabla  }}' title='{{ trad.vovler_listado }} {{ get.tabla|title }}' class='bo_dos'>{{ trad.nuevoreg }}</a> <a href='{{ cons.HOME }}gestor/listado/{{ get.tabla }}/{{ session.campo_orden}}/{{ session.pagina }}/{{ session.orden}}' title='{{ trad.vovler_listado }} {{ get.tabla|title }}' class='bo_dos'>{{ trad.vovler_listado2 }} <b>{{ get.tabla|title }}</b></a>
+</p>
+</article>
+
+
+<article id='editar'>
+	{% include '/backend/menu_idiomas_registros.html' %}
+	
+	<div id='alerta'>
+	<h2>{{ trad.h2elimina }}</h2>
+	<p> {{ trad.pelimina|raw }}
+	<br>
+	<a href='{{ cons.HOME }}gestor/eliminar-accion/{{ get.tabla }}/{{ get.id }}' >Sí, quiero eliminarlo [Eliminar registro]</a> 
+	
+	<a href='{{ cons.HOME }}gestor/listado/{{ get.tabla }}/{{ session.campo_orden}}/{{ session.pagina }}/{{ session.orden}}'>No quiero eliminarlo [Volver al listado]</a>
+	</p>
+	</div>
+
+</article>
+
+</section>
+{% endblock %}

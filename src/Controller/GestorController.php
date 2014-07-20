@@ -55,16 +55,33 @@ class GestorController extends Controlador
 		
 	}
 	
+
+	
 	
 	public function listado()
 	{
 		$this->cargarConexion();
 		$tabla  = $this->parametros_get['tabla'];
-		$pagina = $this->parametros_get['pagina'];
-		$campo_orden = $this->parametros_get['campo_orden'];
-		$orden = $this->parametros_get['orden'];
-		$_SESSION['orden'] = $orden;
+		if(!isset($this->parametros_get['pagina'])){
+			$pagina = 1;
+			} else
+			{
+			$pagina = $this->parametros_get['pagina'];	
+			}
+		if(!isset($this->parametros_get['campo_orden'])) {
+				$campo_orden = 'id'; } 
+			else {
+			$campo_orden = $this->parametros_get['campo_orden'];	
+			}
 		
+		if(!isset($this->parametros_get['orden'])) {
+				$orden = 'ASC'; } 
+			else {
+			$orden = $this->parametros_get['orden'];	
+			}
+		
+		$_SESSION['orden'] = $orden;
+		$_SESSION['campo_orden'] = $campo_orden;
 	
 		// Campos a listar
 		$campos = $this->gestorConfig->getGestor();
@@ -324,7 +341,7 @@ class GestorController extends Controlador
 		
 		$registro = ORM::for_table($tabla)->find_one($id);
 		foreach ($_POST as $nom=>$val){
-			echo "<br> ->>".$_POST[$nom];
+			
 		if($_POST[$nom]!=''){
 		$registro->$nom = $_POST[$nom];}
 		}
@@ -332,6 +349,7 @@ class GestorController extends Controlador
 		$registro->save();
 		$this->editar();
 	}
+
 
 
 	public function editar()
@@ -363,6 +381,115 @@ class GestorController extends Controlador
 	}
 
 
+	public function eliminar()
+	{
+		$this->cargarConexion();
+		
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];
+			
+		$res = ORM::for_table($tabla)->find_one($id);
+		
+		$sniper = $this->cargaSniper('mapeatxt');
+		$ori = $this->txt_comun->getPelimina();
+        $ori = $sniper->clase->mapeatxt($ori,$id);
+        $this->txt_comun->setPelimina($ori);
+		
+		
+		$twig = $this->cargaTwig('src/templates');
+		echo $twig->render('/backend/eliminar.html', array(
+											'get'			=> $this->parametros_get,
+											'trad_acceso'	=> $this->txt_pass,
+											'trad'			=> $this->txt_comun,
+											'cons'		 => $this->constantes,
+											'idioma'	 => $this->packidiomas,
+											'menuTablas' => $this->menuTablas,
+											'res'	 => $res
+											));
+		
+		
+	}
+
+	
+	public function eliminaraccion()
+	{
+		$this->cargarConexion();
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];	
+		
+		$registro = ORM::for_table($tabla)->find_one($id);
+		$registro->delete();
+		
+		$idiomas = ORM::for_table('myt_locale')->where_equal(array('idtotal'=>$id,'tabla'=>$tabla))->delete_many();
+		
+		
+		$this->listado();
+		
+	}
+	
+
+	public function crearaccion()
+	{
+	
+		$this->cargarConexion();
+		$tabla  = $this->parametros_get['tabla'];
+		
+		$registro = ORM::for_table($tabla)->create();
+	
+		foreach ($_POST as $nom=>$val){
+			
+			if($_POST[$nom]!=''){
+			$registro->$nom = $_POST[$nom];}
+		}
+		$registro->save();
+		
+		
+		$res = ORM::for_table($tabla)->find_one($registro->id);
+	 	$campos_editar = $this->lectura_campos($tabla,$res);
+
+		
+		$this->idiomas_registros();
+		
+		$twig = $this->cargaTwig('src/templates');
+		echo $twig->render('/backend/crear_accion.html', array(
+											'get'			=> $this->parametros_get,
+											'trad_acceso'	=> $this->txt_pass,
+											'trad'			=> $this->txt_comun,
+											'cons'		 	=> $this->constantes,
+											'idioma'	 	=> $this->packidiomas,
+											'menuTablas' 	=> $this->menuTablas,
+											'res'	 		=> $campos_editar,
+											'id'			=> $registro->id,
+											'idiomas_reg' 	=> $this->idiomas_per,
+											'idiomaprincipal'=>$this->idioma_principal
+											));
+	
+		
+	}
+
+
+	public function crear()
+	{
+		$this->cargarConexion();
+		$tabla  = $this->parametros_get['tabla'];
+		
+		$this->idiomas_registros();
+		$campos_editar = $this->lectura_campo_crear($tabla);
+		
+		$twig = $this->cargaTwig('src/templates');
+		echo $twig->render('/backend/crear.html', array(
+											'get'			=> $this->parametros_get,
+											'trad_acceso'	=> $this->txt_pass,
+											'trad'			=> $this->txt_comun,
+											'cons'		 => $this->constantes,
+											'idioma'	 => $this->packidiomas,
+											'menuTablas' => $this->menuTablas,
+											'res'	 => $campos_editar,
+											'idiomaprincipal'=>$this->idioma_principal
+											));
+	}
+
+
 	
 	public function buscar_dependencias($lista_depe,$tabla,$nomcampo,$valor_campo,$con_lista = 0)
 	{
@@ -385,12 +512,16 @@ class GestorController extends Controlador
 						
 						elseif ($con_lista == 1) {
 							
+					if($valor_campo!=''){
 							if($nomcampo==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
 							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
 										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
 										->find_one($valor_campo);
 										
 							$valor_campo = $val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+							
+							
+							
 							
 							$lista_res =array();
 							$n=0;
@@ -406,12 +537,31 @@ class GestorController extends Controlador
 								} else {
 							$valor_campo =$valor_campo;
 							
+							}
+						}	else
+						{
+						$valor_campo ='';
+						
+						if($nomcampo==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
+						$lista_res =array();
+							$n=0;
+							$lista = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
+										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
+										->find_many();
+								
+								foreach ($lista as $lis){ 
+									$lista_res[$n] = array('id'=>$lis->$lista_depe[$nomdep]['campo_busca'],'nombre'=>$lis->$lista_depe[$nomdep]['campo_muetsra']);
+									$n++;
+									}
+								$lista = $lista_res;
 							}	
+							
+						}
 							
 						$res = array('valor_campo'=>$valor_campo,'lista'=>$lista);	
 							
 						}
-					}
+					} 
 				return $res;	
 		
 	}
@@ -463,6 +613,42 @@ class GestorController extends Controlador
 		return $campos_editar;
 	}
 	
+
+
+	public function lectura_campo_crear($tabla)
+	{
+		$campos = $this->gestorConfig->getGestor();
+		$campos = explode(',',$campos['Campos']['tab_'.$tabla]);
+		
+		$campos_editar=array();
+		$n=0;
+		
+		foreach($campos as $nom=>$val){
+			
+			$campos_detalle=explode('|',$campos[$nom]);
+			$valor = '';
+			$lista = '';
+			
+			if($campos_detalle[1]=='depe'){
+			// listamos campos dependientes
+			$lista_depe = $this->crearDependientes();
+			$valor1 = $this->buscar_dependencias($lista_depe,$tabla,$campos_detalle[0],'',1);
+			$valor = '';
+			$lista = $valor1['lista'];
+			}
+			
+			$campos_editar[$n]=array(
+							'nombre'	=> $campos_detalle[0],
+							'tipo'		=> $campos_detalle[1],
+							'formato'	=> $campos_detalle[2],
+							'valor'		=> $valor,
+							'lista'		=> $lista
+							);
+			$n++;
+			}
+		
+		return $campos_editar;
+	}
 
 	
 	public function lectura_campos_trad($tabla,$res)

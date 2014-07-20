@@ -52,6 +52,30 @@
     'controller' => 'Gestor::buscador',
     'permiso' => 1,
   ),
+  'Gestor_nuevo' => 
+  array (
+    'url' => 'gestor/crear-nuevo/{tabla:string}',
+    'controller' => 'Gestor::crear',
+    'permiso' => 1,
+  ),
+  'Gestor_nuevo_accion' => 
+  array (
+    'url' => 'gestor/crear-nuevo-accion/{tabla:string}',
+    'controller' => 'Gestor::crearaccion',
+    'permiso' => 1,
+  ),
+  'Gestor_eliminar' => 
+  array (
+    'url' => 'gestor/eliminar/{tabla:string}/{id:int}',
+    'controller' => 'Gestor::eliminar',
+    'permiso' => 1,
+  ),
+  'Gestor_eliminar2' => 
+  array (
+    'url' => 'gestor/eliminar-accion/{tabla:string}/{id:int}',
+    'controller' => 'Gestor::eliminaraccion',
+    'permiso' => 1,
+  ),
   'Gestor_listado' => 
   array (
     'url' => 'gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}/{orden:string}',

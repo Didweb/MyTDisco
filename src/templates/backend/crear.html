@@ -7,16 +7,16 @@
 {% include '/backend/menu_gestor.html' %}
 <section>
 	<article id='information'>
-<h1>{{ trad.h1_editar }}: <b>{{ get.id }}</b> {{ trad.dela }} <b>{{ get.tabla|title }}</b></h1>
+<h1>{{ trad.h1_crear }}: <b>{{ get.tabla|title }}</b></h1>
 <p>
-<a href='{{ cons.HOME }}gestor/crear-nuevo/{{ get.tabla  }}' title='{{ trad.vovler_listado }} {{ get.tabla|title }}' class='bo_dos'>{{ trad.nuevoreg }}</a> <a href='{{ cons.HOME }}gestor/listado/{{ get.tabla }}/{{ session.campo_orden}}/{{ session.pagina }}/{{ session.orden}}' title='{{ trad.vovler_listado }} {{ get.tabla|title }}' class='bo_dos'>{{ trad.vovler_listado2 }} <b>{{ get.tabla|title }}</b></a>
+ <a href='{{ cons.HOME }}gestor/listado/{{ get.tabla }}/{{ session.campo_orden}}/{{ session.pagina }}/{{ session.orden}}' title='{{ trad.vovler_listado }} {{ get.tabla|title }}' class='bo_dos'>{{ trad.vovler_listado2 }} <b>{{ get.tabla|title }}</b></a>
 </p>
 </article>
 
 
 <article id='editar'>
 	{% include '/backend/menu_idiomas_registros.html' %}
-	<form action='{{ cons.HOME }}gestor/editar-accion/{{ get.tabla }}/{{ get.id }}' method='post'  id='form_registros'>
+	<form action='{{ cons.HOME }}gestor/crear-nuevo-accion/{{ get.tabla }}' method='post'  id='form_registros'>
 {% for r in res %}
 
 {% if r.tipo=='depe' %}
@@ -50,10 +50,8 @@
 
 {% endfor %}
 
-
 	<div class='caja_for_reg'>
-		<a href='{{ cons.HOME }}gestor/eliminar/{{ get.tabla }}/{{ get.id }}' title='{{ trad.eliminarreg }}' class='eli_sub'>{{ trad.eliminarreg }}</a>
-		<input type='submit' value='{{ trad.modificar }}' class='reg_sub' >
+		<input type='submit' value='{{ trad.crearboton }}' class='reg_sub' >
 	</div>
 </form>
 
