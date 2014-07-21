@@ -61,6 +61,10 @@
  private $eliminarreg = "Eliminar Registre";
 
  private $h1_eliminar = "Eliminar";
+
+ private $h2elimina = "Procés d'eliminació de registre";
+
+ private $pelimina = "El registre amb id <b>%1</b>, aquesta a punt de ser eliminat. <br> En el cas que decideixis eliminar no es podrà recuperar. <br> Aquesta acció també eliminés les seves dades relacionades com ara... imatges, el registre en els diferents idiomes etc. qual Vols eliminar aquest registre?";
  
  private $data = array (
   'Ca' => 
@@ -94,6 +98,8 @@
     'crearboton' => 'Crear',
     'eliminarreg' => 'Eliminar Registre',
     'h1_eliminar' => 'Eliminar',
+    'h2elimina' => 'Procés d\'eliminació de registre',
+    'pelimina' => 'El registre amb id <b>%1</b>, aquesta a punt de ser eliminat. <br> En el cas que decideixis eliminar no es podrà recuperar. <br> Aquesta acció també eliminés les seves dades relacionades com ara... imatges, el registre en els diferents idiomes etc. qual Vols eliminar aquest registre?',
   ),
 ); 
 
@@ -504,6 +510,34 @@
  	 public function setH1_eliminar($valor) { 
  
  	 	  $this->h1_eliminar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH2elimina() { 
+ 
+ 	 	 return $this->h2elimina;  
+  	 	 } 
+  
+ 
+ 	 public function setH2elimina($valor) { 
+ 
+ 	 	  $this->h2elimina = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getPelimina() { 
+ 
+ 	 	 return $this->pelimina;  
+  	 	 } 
+  
+ 
+ 	 public function setPelimina($valor) { 
+ 
+ 	 	  $this->pelimina = $valor;  
  
  	 	 return $this;  
   	 	 } 

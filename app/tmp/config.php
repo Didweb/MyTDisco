@@ -24,7 +24,9 @@
 
  private $webcreador = "http://www.did-web.com";
 
- private $idiomas = "es,ca,en";
+ private $idiomas = "es,ca,en,fr";
+
+ private $idiomas_gestor = "es,ca,en";
 
  private $estilo = "img";
 
@@ -47,7 +49,8 @@
     'webcliente' => 'http://www.webcliente.com',
     'webcmyt' => 'https://github.com/Didweb/MyT',
     'webcreador' => 'http://www.did-web.com',
-    'idiomas' => 'es,ca,en',
+    'idiomas' => 'es,ca,en,fr',
+    'idiomas_gestor' => 'es,ca,en',
     'estilo' => 'img',
     'HOME_dev' => 'http://localhost/MyT/',
     'HOME' => 'http://www.google.com/',
@@ -210,6 +213,20 @@
  	 public function setIdiomas($valor) { 
  
  	 	  $this->idiomas = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIdiomas_gestor() { 
+ 
+ 	 	 return $this->idiomas_gestor;  
+  	 	 } 
+  
+ 
+ 	 public function setIdiomas_gestor($valor) { 
+ 
+ 	 	  $this->idiomas_gestor = $valor;  
  
  	 	 return $this;  
   	 	 } 

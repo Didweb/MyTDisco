@@ -57,6 +57,14 @@
  private $h1_crear = "Create record in table";
 
  private $crearboton = "Create";
+
+ private $eliminarreg = "Delete Record";
+
+ private $h1_eliminar = "Delete";
+
+ private $h2elimina = "Registration process of elimination";
+
+ private $pelimina = "The record with id <b>%1</b> , is about to be removed <br> If you decide to delete can not be recovered <br> This will also eliminate its related data such as images, the register-etc in different languages​​. <br> <br> Want to delete this record?";
  
  private $data = array (
   'En' => 
@@ -88,6 +96,10 @@
     'nuevoreg' => 'Create new account',
     'h1_crear' => 'Create record in table',
     'crearboton' => 'Create',
+    'eliminarreg' => 'Delete Record',
+    'h1_eliminar' => 'Delete',
+    'h2elimina' => 'Registration process of elimination',
+    'pelimina' => 'The record with id <b>%1</b> , is about to be removed <br> If you decide to delete can not be recovered <br> This will also eliminate its related data such as images, the register-etc in different languages​​. <br> <br> Want to delete this record?',
   ),
 ); 
 
@@ -470,6 +482,62 @@
  	 public function setCrearboton($valor) { 
  
  	 	  $this->crearboton = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getEliminarreg() { 
+ 
+ 	 	 return $this->eliminarreg;  
+  	 	 } 
+  
+ 
+ 	 public function setEliminarreg($valor) { 
+ 
+ 	 	  $this->eliminarreg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH1_eliminar() { 
+ 
+ 	 	 return $this->h1_eliminar;  
+  	 	 } 
+  
+ 
+ 	 public function setH1_eliminar($valor) { 
+ 
+ 	 	  $this->h1_eliminar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getH2elimina() { 
+ 
+ 	 	 return $this->h2elimina;  
+  	 	 } 
+  
+ 
+ 	 public function setH2elimina($valor) { 
+ 
+ 	 	  $this->h2elimina = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getPelimina() { 
+ 
+ 	 	 return $this->pelimina;  
+  	 	 } 
+  
+ 
+ 	 public function setPelimina($valor) { 
+ 
+ 	 	  $this->pelimina = $valor;  
  
  	 	 return $this;  
   	 	 } 

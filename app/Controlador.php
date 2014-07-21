@@ -43,7 +43,7 @@ class Controlador extends Request
 			$parametro_get_lang = '';	
 			}
 			
-		$idioma = $this->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas(),$constantes->getEstilo());
+		$idioma = $this->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas_Gestor(),$constantes->getEstilo());
 		$this->idioma = $idioma;
 		
 

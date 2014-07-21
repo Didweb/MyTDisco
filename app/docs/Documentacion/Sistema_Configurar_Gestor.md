@@ -14,7 +14,7 @@ Estos parámetros se encuentran en le archivo de configuración: `config/gestor.
 - 3: Los campos que son valores dependientes otras tablas, como por ejemplo una categoría.
 - 4: Los campos que saldrán en los formularios así como el tipo de dato.
 - 5: Los campos que precisan una traducción.
-
+- 6: Idiomas del gestor.
 
 Las configuraciones se crean en el  archivo `config/gestor.yml`.
 
@@ -165,6 +165,18 @@ Campos:
 
 
 ```
+
+
+
+
+## Configuración 6: Idiomas del gestor
+
+
+El gestor esta inicialmente con 3 idiomas : Español, Català e Inglès.
+
+Si se quiere añadir un idioma más se a de especificar en el archivo `config/Config.yml` y el parámetro `idiomas_gestor: es,ca,en` añadir otro idioma separado por comas `,`. 
+Entonces se habrán de crear los diccionarios en `src/locale`, primero la carpeta que corresponda y duplicar los diccionarios del gestor que son `comungestor_xx.yml` y `formpass_xx.yml`.
+
 
 
 [1]:  Inicio_Documentacion.md
