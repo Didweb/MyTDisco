@@ -32,6 +32,17 @@
 	</div>
 
 
+{% elseif r.tipo=='fechac'%}
+
+	<input type='hidden' value='{{ "now"|date("Y-m-d h:i:s") }}' name='{{ r.nombre }}'> 
+
+{% elseif r.tipo=='fecham'%}
+
+	<input type='hidden' value='{{ "now"|date("Y-m-d h:i:s") }}' name='{{ r.nombre }}'> 
+
+
+
+
 {% elseif r.tipo=='oculto'%}
 
 	<input type='hidden' value='{{ r.valor }}' name='{{ r.nombre }}'> 
