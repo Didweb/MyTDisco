@@ -32,6 +32,7 @@
 	</div>
 
 
+<<<<<<< HEAD
 {% elseif r.tipo=='fechac'%}
 
 	<input type='hidden' value='{{ "now"|date("Y-m-d h:i:s") }}' name='{{ r.nombre }}'> 
@@ -42,6 +43,21 @@
 
 
 
+=======
+{% elseif r.tipo=='area'%}
+
+	<div class='caja_for_reg'>
+		<label>{{ r.nombre }}</label>
+		<textarea name='{{ r.nombre }}' class='text_area'>{{ r.valor }}</textarea>
+	</div>	
+
+
+{% elseif r.tipo=='date'%}
+
+	<div class='caja_for_reg'>
+		<label>{{ r.nombre }}</label><input type='date' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
+	</div>
+>>>>>>> campos2
 
 {% elseif r.tipo=='oculto'%}
 

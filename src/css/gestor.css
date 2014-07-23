@@ -71,6 +71,10 @@ form#form_registros label {float:left; width:20%; padding:0.4em; color:#999999;}
 .input_reg  {float:left; width:70%; padding:0.2em; color:#7D7D7D; border:1px solid #EBEBEB;
 				background-color:#FAFAE5;
 				}
+
+.text_area	{float:left; width:70%;  color:#7D7D7D; border:1px solid #EBEBEB;
+				background-color:#FAFAE5;}				
+				
 .bo_dos { background-color:#F3F5F8; padding:0.3em; color:#6B6D7A; text-decoration:none; border:1px solid #CACFD4;
 		-webkit-border-radius: 3px; margin-right:1em;
 		-moz-border-radius: 3px;

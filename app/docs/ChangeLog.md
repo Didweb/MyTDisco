@@ -1,6 +1,27 @@
 ChangeLog MyT
 ============
 
+### 3.1.3
+23-7-2014 - Eduard Pinuaga
+
+- Tipos de campos para formularios: Textarea.
+- Eliminar archivo innecesario src/tempaltes/backend/pato-dos.html.
+- Campos de fecha con calendario.
+
+
+### 3.1.2
+23-7-2014 - Eduard Pinuaga
+
+- Campos fecha creación oculto y fecha modificación oculto.
+
+
+### 3.1.1
+23-7-2014 - Eduard Pinuaga
+
+- Activación en formularios campos de tipo select.
+
+
+
 ### 3.1.0
 23-7-2014 - Eduard Pinuaga
 

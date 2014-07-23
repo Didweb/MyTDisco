@@ -8,13 +8,17 @@ Campos:
     subcategorias: id,nombre
     dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre  
 
+<<<<<<< HEAD
     tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int,creacion|fechac|fecha,modificacion|fecham|fecha
+=======
+    tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha
+>>>>>>> campos2
     tab_categorias: id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int
     tab_subcategorias: id|oculto|int,nombre|nomral|string
     
-    trad_productos: nombre,des
-    trad_categorias: nombre
-    trad_subcategorias: nombre
+    trad_productos: nombre|normal|string,des|area|string
+    trad_categorias: nombre|normal|string
+    trad_subcategorias: nombre|normal|string
 
 Select:
     opciones: productos.opciones*1|Opcion 1, 2|Opcion 2,3|Opcion 3@prductos.activo*1|Sí,0|No
