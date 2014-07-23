@@ -73,6 +73,16 @@
  private $nombrearchivo = "Nom del fitxer";
 
  private $alt = "Text Alt.";
+
+ private $listadoimagenes = "Llistat d'imatges";
+
+ private $sinimagenes = "Aquest registre no disposa d'imatges.";
+
+ private $subiimg = "Pujar imatge";
+
+ private $actualizar = "Actualitzar";
+
+ private $txtalt = "Text Alt";
  
  private $data = array (
   'Ca' => 
@@ -112,6 +122,11 @@
     'imagen' => 'Imatge',
     'nombrearchivo' => 'Nom del fitxer',
     'alt' => 'Text Alt.',
+    'listadoimagenes' => 'Llistat d\'imatges',
+    'sinimagenes' => 'Aquest registre no disposa d\'imatges.',
+    'subiimg' => 'Pujar imatge',
+    'actualizar' => 'Actualitzar',
+    'txtalt' => 'Text Alt',
   ),
 ); 
 
@@ -606,6 +621,76 @@
  	 public function setAlt($valor) { 
  
  	 	  $this->alt = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getListadoimagenes() { 
+ 
+ 	 	 return $this->listadoimagenes;  
+  	 	 } 
+  
+ 
+ 	 public function setListadoimagenes($valor) { 
+ 
+ 	 	  $this->listadoimagenes = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSinimagenes() { 
+ 
+ 	 	 return $this->sinimagenes;  
+  	 	 } 
+  
+ 
+ 	 public function setSinimagenes($valor) { 
+ 
+ 	 	  $this->sinimagenes = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSubiimg() { 
+ 
+ 	 	 return $this->subiimg;  
+  	 	 } 
+  
+ 
+ 	 public function setSubiimg($valor) { 
+ 
+ 	 	  $this->subiimg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getActualizar() { 
+ 
+ 	 	 return $this->actualizar;  
+  	 	 } 
+  
+ 
+ 	 public function setActualizar($valor) { 
+ 
+ 	 	  $this->actualizar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTxtalt() { 
+ 
+ 	 	 return $this->txtalt;  
+  	 	 } 
+  
+ 
+ 	 public function setTxtalt($valor) { 
+ 
+ 	 	  $this->txtalt = $valor;  
  
  	 	 return $this;  
   	 	 } 
