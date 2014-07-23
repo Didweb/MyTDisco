@@ -23,6 +23,9 @@ Si un usuario accede a una página definida con un permiso de acceso superior a 
 
 Las claves se almacenan codificadas sh1.
 
+El password se forman por la palabra que se quiera poner más una cadena que se puede definir en `config/seguridad.yml` en el parámetro `comodin`. Se ha de tener en cuenta que cuando creemos de forma manual el sh1 se ha de poner el password+el comodín. 
+
+Para acceder al sistema el usuario solo deberá poner el password ya que el comodín se monta de forma interna para hacer la comprobación.
 
 
 
@@ -44,12 +47,12 @@ Seguridad:
 
 ```
 
-Donde en este caso `edu` y `pepito` son los usuaios. la cadena larga hasta el símbolo `:` es la codificación de la clave. Después del símbolo `:` se puede ver el tipo de acceso asignado para cada usuario.
+Donde en este caso `edu` y `pepito` son los usuarios. la cadena larga hasta el símbolo `:` es la codificación de la clave. Después del símbolo `:` se puede ver el tipo de acceso asignado para cada usuario.
 
 
 ### Especificando acceso a páginas restringidas
 
-Dentro del archivo de configuración de URLs `config/rutas.yml` podemos definir el tipo de acceso qeu va a tener esta URL, un ejemplo:
+Dentro del archivo de configuración de URLs `config/rutas.yml` podemos definir el tipo de acceso que va a tener esta URL, un ejemplo:
 
 ```
 
@@ -72,4 +75,3 @@ Las URLs  del tipo: `getsor/es/1`, `getsor/en/1`, `getsor/es/3`, etc. solo puede
 
 [1]: https://github.com/Didweb/MyTsegurata
 [2]:  Inicio_Documentacion.md
-
