@@ -32,6 +32,14 @@
 	</div>
 
 
+{% elseif r.tipo=='area'%}
+
+	<div class='caja_for_reg'>
+		<label>{{ r.nombre }}</label>
+		<textarea name='{{ r.nombre }}' class='text_area'>{{ r.valor }}</textarea>
+	</div>	
+
+
 {% elseif r.tipo=='oculto'%}
 
 	<input type='hidden' value='{{ r.valor }}' name='{{ r.nombre }}'> 

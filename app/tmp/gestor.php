@@ -16,17 +16,17 @@
 
  private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre";
 
- private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int";
+ private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int";
 
  private $tab_categorias = "id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int";
 
  private $tab_subcategorias = "id|oculto|int,nombre|nomral|string";
 
- private $trad_productos = "nombre,des";
+ private $trad_productos = "nombre|normal|string,des|area|string";
 
- private $trad_categorias = "nombre";
+ private $trad_categorias = "nombre|normal|string";
 
- private $trad_subcategorias = "nombre";
+ private $trad_subcategorias = "nombre|normal|string";
 
  private $opciones = "productos.opciones*1|Opcion 1, 2|Opcion 2,3|Opcion 3@prductos.activo*1|Sí,0|No";
 
@@ -50,12 +50,12 @@
     'categorias' => 'id,nombre,idsubcategorias',
     'subcategorias' => 'id,nombre',
     'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre',
-    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int',
+    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int',
     'tab_categorias' => 'id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int',
     'tab_subcategorias' => 'id|oculto|int,nombre|nomral|string',
-    'trad_productos' => 'nombre,des',
-    'trad_categorias' => 'nombre',
-    'trad_subcategorias' => 'nombre',
+    'trad_productos' => 'nombre|normal|string,des|area|string',
+    'trad_categorias' => 'nombre|normal|string',
+    'trad_subcategorias' => 'nombre|normal|string',
   ),
   'Select' => 
   array (

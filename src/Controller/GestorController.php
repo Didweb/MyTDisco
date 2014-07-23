@@ -793,13 +793,27 @@ class GestorController extends Controlador
 		
 		foreach($campos as $nom=>$val){
 			$resultado='';
+			
+			$campos2 = explode('|',$campos[$nom]);
+			
 			foreach ($res as $item ){
 				
-				if($campos[$nom]==$item->nombrecampo){
+				foreach ($campos2 as $nom2=>$val2){
+				$nombre		= $campos2[0];
+				$tipo 		= $campos2[1];
+				$formato 	= $campos2[2];	
+					
+				}
+				
+				if($nombre==$item->nombrecampo){
 					$resultado = $item->txt; }
 				}
+				
+				
 				$campos_trad[$n]=array(
-							'nombre'	=> $campos[$nom],
+							'nombre'	=> $nombre,
+							'tipo'		=> $tipo,
+							'formato'	=> $formato,
 							'valor'		=> $resultado);
 			$n++;
 		

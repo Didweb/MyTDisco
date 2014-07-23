@@ -110,15 +110,19 @@ NOMBRE_CAMPO|TIPO_DE_INPUT|TIPO_DE_DATO
 De momento existen las siguientes opciones:
 
 **TIPO_DE_INPUT**: 
-- oculto: esto creao un input de tipo `hidden`.
-- normal: crea uno d etipo normal o `text`.
-- depe: creara un `select` con los datos proporcionados en la configuración de `dependientes`
-- select: crea un `select` con valores fijos configurables
+- oculto: Crea un input de tipo `hidden`.
+- normal: Crea uno d etipo normal o `text`.
+- depe: Creara un `select` con los datos proporcionados en la configuración de `dependientes`
+- select: Crea un `select` con valores fijos configurables
+- area: Crea un textarea.
+- fechac: Crea un campo oculto de fecha al crearse un registro, para almacenar la fecha de creación.
+- fecham: Crea un campo oculto de fecha al modificarse el registro para almacenar la fecha de creación.
 
 
 **TIPO_DE_DATO**:
-- int: es un integer, numero entero.
-- string: para cadenas de texto, alfanuméricas.
+- int: Es un integer, numero entero.
+- string: Para cadenas de texto, alfanuméricas.
+- fecha: Para determinar que es una fecha
 
 Estas definiciones se irán ampliando según las necesidades.
 

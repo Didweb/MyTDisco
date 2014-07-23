@@ -1,6 +1,20 @@
 ChangeLog MyT
 ============
 
+### 3.1.2
+23-7-2014 - Eduard Pinuaga
+
+- Tipos de campos para formularios: Textarea
+
+
+
+### 3.1.1
+23-7-2014 - Eduard Pinuaga
+
+- Activacion de tipos de campso para formularios de tipo select, fecha creacion oculto y fecha modificacion oculto
+
+
+
 ### 3.1.0
 23-7-2014 - Eduard Pinuaga
 
