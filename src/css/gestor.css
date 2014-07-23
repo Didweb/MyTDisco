@@ -112,7 +112,7 @@ article#cajon_foto {float:right; margin-right:1.5em; width:48%; padding:0.7em; m
 		border-radius: 4px;}
 article#cajon_foto h2 {font-size:1.3em; color:#727D8C;}
 
-article#listados_foto  {clear:both; float:right; margin-right:1.5em; width:48%; padding:0.7em; margin-top:-40px; 		
+article#listados_foto  { float:right; margin-right:1.5em; width:48%; padding:0.7em; margin-top:20px; 		
 		border:1px solid #E8E8E8; 
 		-webkit-border-radius: 4px; 
 		-moz-border-radius: 4px;
