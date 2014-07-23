@@ -117,6 +117,7 @@ De momento existen las siguientes opciones:
 - area: Crea un textarea.
 - fechac: Crea un campo oculto de fecha al crearse un registro, para almacenar la fecha de creación.
 - fecham: Crea un campo oculto de fecha al modificarse el registro para almacenar la fecha de creación.
+- date: Crea un input ocn calendario de tipo fecha para poder poner fechas de forma cómoda y almacenar como date, (YYYY/MM/DD).
 
 
 **TIPO_DE_DATO**:
