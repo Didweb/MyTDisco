@@ -1,6 +1,19 @@
 ChangeLog MyT
 ============
 
+### 3.1.0
+23-7-2014 - Eduard Pinuaga
+
+- Se ha terminado el gestor y Framework MyT.
+- Inicio proceso de pruebas con proyecto paralelo.
+- Se pueden subir imágenes y redimensionarlas.
+- CRUD de imágenes completo y CRUD básico de Gestor funcionando.
+- Separación de idiomas aplicación y Gestor, el gestor tiene 3 idiomas por defecto.
+- Css de CRUD terminados.
+
+
+
+
 ### 3.0.8
 12-7-2014 - Eduard Pinuaga
 
