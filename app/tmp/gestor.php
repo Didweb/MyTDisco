@@ -16,11 +16,9 @@
 
  private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre";
 
-<<<<<<< HEAD
- private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int,creacion|fechac|fecha,modificacion|fecham|fecha";
-=======
+
  private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha";
->>>>>>> campos2
+
 
  private $tab_categorias = "id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int";
 
@@ -54,11 +52,7 @@
     'categorias' => 'id,nombre,idsubcategorias',
     'subcategorias' => 'id,nombre',
     'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre',
-<<<<<<< HEAD
-    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int,creacion|fechac|fecha,modificacion|fecham|fecha',
-=======
     'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha',
->>>>>>> campos2
     'tab_categorias' => 'id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int',
     'tab_subcategorias' => 'id|oculto|int,nombre|nomral|string',
     'trad_productos' => 'nombre|normal|string,des|area|string',
