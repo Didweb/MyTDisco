@@ -35,7 +35,27 @@
 {% elseif r.tipo=='oculto'%}
 
 	<input type='hidden' value='{{ r.valor }}' name='{{ r.nombre }}'> 
+
+{% elseif r.tipo=='select' %}
+<div class='caja_for_reg'>
 	
+	<label>{{ r.nombre }}</label>
+		<select name='{{ r.nombre }}' class='input_reg' >
+		
+			{% for rr in r.lista %} 
+		
+				{% if r.valor==rr.valor %}
+				<option value='{{ rr.valor }}'>{{ rr.nombre }}</option>
+				{% endif %}
+			
+			{% endfor %}
+			
+			{% for rr in r.lista %} 
+			<option value='{{ rr.valor }}'>{{ rr.nombre }}</option>
+		{% endfor %}
+		
+	</select>
+</div>	
 {% else %}
 
 	<div class='caja_for_reg'>

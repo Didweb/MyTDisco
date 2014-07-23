@@ -16,7 +16,7 @@
 
  private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre";
 
- private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string";
+ private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int";
 
  private $tab_categorias = "id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int";
 
@@ -27,6 +27,8 @@
  private $trad_categorias = "nombre";
 
  private $trad_subcategorias = "nombre";
+
+ private $opciones = "productos.opciones*1|Opcion 1, 2|Opcion 2,3|Opcion 3@prductos.activo*1|Sí,0|No";
 
  private $IMGpatron = "p,75,50,50,0|m,100,200,100,0|g,100,125,200,1";
 
@@ -48,12 +50,16 @@
     'categorias' => 'id,nombre,idsubcategorias',
     'subcategorias' => 'id,nombre',
     'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre',
-    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string',
+    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,opciones|select|string,activo|select|int',
     'tab_categorias' => 'id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int',
     'tab_subcategorias' => 'id|oculto|int,nombre|nomral|string',
     'trad_productos' => 'nombre,des',
     'trad_categorias' => 'nombre',
     'trad_subcategorias' => 'nombre',
+  ),
+  'Select' => 
+  array (
+    'opciones' => 'productos.opciones*1|Opcion 1, 2|Opcion 2,3|Opcion 3@prductos.activo*1|Sí,0|No',
   ),
   'IMG' => 
   array (
@@ -233,6 +239,20 @@
  	 public function setTrad_subcategorias($valor) { 
  
  	 	  $this->trad_subcategorias = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getOpciones() { 
+ 
+ 	 	 return $this->opciones;  
+  	 	 } 
+  
+ 
+ 	 public function setOpciones($valor) { 
+ 
+ 	 	  $this->opciones = $valor;  
  
  	 	 return $this;  
   	 	 } 

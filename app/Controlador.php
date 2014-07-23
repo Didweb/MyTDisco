@@ -55,6 +55,55 @@ class Controlador extends Request
 		
 	}
 
+	public function camposselect()
+	{
+		
+		$depe =  $this->gestorConfig->getGestor();
+		$depe = explode('@',$depe['Select']['opciones']);
+		
+		$res_depe=array();
+		$n=0;
+		$x=0;
+		foreach($depe as $nom=>$val){
+			$depe2 = explode('*',$depe[$nom]);
+			
+				foreach($depe2 as $nom2=>$val2){
+				$depe3 = explode('.',$depe2[0]);
+				$tabla = $depe3[0];
+				$campo = $depe3[1];
+				
+				$depe4 = explode(',',$depe2[1]);
+				$x=0;
+				$valores_select=array();
+				foreach ($depe4 as $nom3=>$val3){
+					
+					$depe5 = explode('|',$depe4[$nom3]);
+					foreach($depe5 as $nom4=>$val4){
+					
+					$valores_select[$x]=array(
+									'valor' => $depe5[0], 'nombre' => $depe5[1]
+									);
+					
+					
+					}$x++;
+					}
+				
+				}
+				
+		$res_depe[$n]=array(
+							'tabla'			=>$tabla ,
+							'campo'			=>$campo,
+							'valores_select'=>$valores_select
+							);
+					
+		$n++;
+					
+		}
+		
+		return $res_depe;
+		
+	}
+
 
 	public function cargaIMG()
 	{

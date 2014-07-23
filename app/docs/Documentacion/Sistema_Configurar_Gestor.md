@@ -113,6 +113,7 @@ De momento existen las siguientes opciones:
 - oculto: esto creao un input de tipo `hidden`.
 - normal: crea uno d etipo normal o `text`.
 - depe: creara un `select` con los datos proporcionados en la configuración de `dependientes`
+- select: crea un `select` con valores fijos configurables
 
 
 **TIPO_DE_DATO**:
@@ -122,7 +123,20 @@ De momento existen las siguientes opciones:
 Estas definiciones se irán ampliando según las necesidades.
 
 
+**Configurar TIPO_DE_INPUT select**
 
+Se especifica en el mismo archivo `config/gestor.yml` de la siguiente manera...
+
+```
+
+Select:
+    opciones: productos.opciones*1|Opcion 1, 2|Opcion 2,3|Opcion 3@prductos.activo*1|Sí,0|No
+    
+```
+
+En este ejemplo se especifican 2 campos separados por `@` ambos pertenecen a la tabla `productos` y uno se llama `opciones` y el otro `activo`, después del símbolo `*` se especifican los Valores y el nombre de las opciones separados por comas `,`.
+
+Todo esto se genera en el archivo `app/Controlador.php` , en el método `camposselect`.
 
 ## Configuración 5: Campos que precisan traducción
 
@@ -220,7 +234,7 @@ Para la redimensión de imágenes utilizo  [MyTSniper Resize][2] sigue este link
 Explicare por encima un poco los parámetros:
 
 - **IMGpatron**: Especifica las medidas se divide las medidas en `|` y dentro de cada medida por comas `,` se especifica: DIRECTORIO,CALIDAD,ANCHO,ALTO,CORTE .
-- **IMGdir**: Se especifica el directorio principal donde se almacenarán los directorios de tamaños y sus imágenes, en este caso sera `src/images/fotos` y el directorio `fotos` deberá tener los permisos de escritura par apoder escribir en él.
+- **IMGdir**: Se especifica el directorio principal donde se almacenarán los directorios de tamaños y sus imágenes, en este caso sera `src/images/fotos` y el directorio `fotos` deberá tener los permisos de escritura para poder escribir en él.
 - **IMGdirMuestra**: es el directorio que se utiliza para mostrar en el gestor de contenidos.
 - **IMGtablas**: Aquí separado por comas `,` se deberán especificar las tablas que llevarán imágenes en este caso solo la tabla `productos` tiene imágenes.
 

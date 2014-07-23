@@ -715,6 +715,14 @@ class GestorController extends Controlador
 			$lista = $valor1['lista'];
 			}
 			
+			if($campos_detalle[1]=='select'){
+				$resselect = $this->camposselect();
+				foreach($resselect as $nomr=>$valr){
+				if($resselect[$nomr]['campo']==$campos_detalle[0]){
+						$lista = $resselect[$nomr]['valores_select'];}
+				}
+			}
+			
 			$campos_editar[$n]=array(
 							'nombre'	=> $campos_detalle[0],
 							'tipo'		=> $campos_detalle[1],
@@ -724,7 +732,7 @@ class GestorController extends Controlador
 							);
 			$n++;
 			}
-		
+
 		return $campos_editar;
 	}
 	
@@ -751,6 +759,16 @@ class GestorController extends Controlador
 			$valor = '';
 			$lista = $valor1['lista'];
 			}
+			
+			
+			if($campos_detalle[1]=='select'){
+				$resselect = $this->camposselect();
+				foreach($resselect as $nomr=>$valr){
+					if($resselect[$nomr]['campo']==$campos_detalle[0]){
+						$lista = $resselect[$nomr]['valores_select'];}
+					}
+			}
+			
 			
 			$campos_editar[$n]=array(
 							'nombre'	=> $campos_detalle[0],
