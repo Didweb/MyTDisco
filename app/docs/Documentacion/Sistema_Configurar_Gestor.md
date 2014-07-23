@@ -15,6 +15,7 @@ Estos parámetros se encuentran en le archivo de configuración: `config/gestor.
 - 4: Los campos que saldrán en los formularios así como el tipo de dato.
 - 5: Los campos que precisan una traducción.
 - 6: Idiomas del gestor.
+- 7: Definir las tablas que precisán imágenes y los tamaños de las mismas
 
 Las configuraciones se crean en el  archivo `config/gestor.yml`.
 
@@ -69,7 +70,7 @@ El primero:
 productos.idcategorias:categorias|id|nombre
 
 ```
-... nos dice que en la **tabla** : `productos`, tenemos un **campo**: `idcategoria`, Separado por con `:` viene otras características, donde tenemos **la tabla padre** (  de donde dependen los datos): `categorias`, el **campo identificativo**: id y el **campo que debe msotrar**: `nombre`
+... nos dice que en la **tabla** : `productos`, tenemos un **campo**: `idcategoria`, Separado por con `:` viene otras características, donde tenemos **la tabla padre** (  de donde dependen los datos): `categorias`, el **campo identificativo**: id y el **campo que debe mostrar**: `nombre`
 
 
 
@@ -86,7 +87,7 @@ Dentro de `Campos` encontramos esto ...
 
 Donde se especifica los campos y el tipo,  que han de salir en los formularios, en este ejemplo:
 
-Tenemos `tab_productos` se ha de especificar el nombre d ela tabla con el prefijo `tab_`, Separado por comas `,` tenemos los campos y dentro diferentes especificaciones, por eejemplo en el primer tramo de `tab_productos` tenemos:
+Tenemos `tab_productos` se ha de especificar el nombre de la tabla con el prefijo `tab_`, Separado por comas `,` tenemos los campos y dentro diferentes especificaciones, por ejemplo en el primer tramo de `tab_productos` tenemos:
 
 ```
 
@@ -163,7 +164,13 @@ Campos:
     trad_categorias: nombre
     trad_subcategorias: nombre
 
-
+IMG:   
+    IMGpatron: p,75,50,50,0|m,100,200,100,0|g,100,125,200,1
+    IMGdir: src/images/fotos
+    IMGdirMuestra: src/images/fotos/m/m_
+    IMGtablas: productos
+    
+    
 ```
 
 
@@ -179,4 +186,48 @@ Entonces se habrán de crear los diccionarios en `src/locale`, primero la carpet
 
 
 
+## Configuración 7: Imágenes
+
+
+Se han de especificar que tablas necesitan vincular imágenes.
+
+Posibilidades de subir imágenes para cada tabla:
+
+- No existe límite en el número de imágenes por registro.
+- No existen límites en los formatos y cantidad de tamaños.
+- Cada formato o tamaño de imagen se almacena en un directorio.
+- Se puede determinar el nivel de compresión de cada imagen.
+- Se puede determinar si es preciso redimensionar y recortar la imagen o solamente redimensionar manteniendo el formato original.
+
+
+Para configurar estos parámetros se ha de anotar en el archivo: `config/getsor.yml` con este aspecto (la parte de configuración de imágenes):
+
+
+```
+
+
+IMG:   
+    IMGpatron: p,75,50,50,0|m,100,200,100,0|g,100,125,200,1
+    IMGdir: src/images/fotos
+    IMGdirMuestra: src/images/fotos/m/m_
+    IMGtablas: productos
+
+
+```
+
+Para la redimensión de imágenes utilizo  [MyTSniper Resize][2] sigue este link para ver en detalle la documentación.
+
+Explicare por encima un poco los parámetros:
+
+- **IMGpatron**: Especifica las medidas se divide las medidas en `|` y dentro de cada medida por comas `,` se especifica: DIRECTORIO,CALIDAD,ANCHO,ALTO,CORTE .
+- **IMGdir**: Se especifica el directorio principal donde se almacenarán los directorios de tamaños y sus imágenes, en este caso sera `src/images/fotos` y el directorio `fotos` deberá tener los permisos de escritura par apoder escribir en él.
+- **IMGdirMuestra**: es el directorio que se utiliza para mostrar en el gestor de contenidos.
+- **IMGtablas**: Aquí separado por comas `,` se deberán especificar las tablas que llevarán imágenes en este caso solo la tabla `productos` tiene imágenes.
+
+
+Para ver y entender como se almacenan y el proceso de almacenamiento consultar la documentación en [MyTSniper Resize][2]
+
+
+
 [1]:  Inicio_Documentacion.md
+[2]:  https://github.com/Didweb/MyTsniper/blob/master/docs/resize.md
