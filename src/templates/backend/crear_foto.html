@@ -1,0 +1,23 @@
+<h2>{{ trad.subirimg }}...</h2>
+<form action='{{ cons.HOME }}gestor/subir-foto/{{ get.tabla }}/{{ get.id }}' method='post' id='form_fotos' enctype="multipart/form-data">
+
+<div class='linea_for_fo'>
+<label>{{ trad.imagen }}</label> <input  type='file' name='imagen' class='fotos_input'>
+</div>
+
+
+<div class='linea_for_fo'>
+<label>{{ trad.nombrearchivo }}</label> <input  type='text' name='nombre' class='fotos_input'>
+</div>
+
+
+<div class='linea_for_fo'>
+<label>{{ trad.alt }}</label> <input  type='text' name='alt' class='fotos_input'>
+</div>
+
+<input type='hidden' value='{{ idtotal }}'>
+
+<div class='linea_for_fo'>
+<input type='submit' value='{{ trad.subiimg }}' class='reg_sub' title='{{ trad.subiimg }}'>
+</div>
+</form>

@@ -37,3 +37,14 @@ Ca:
     h1_eliminar: Eliminar
     h2elimina: Procés d'eliminació de registre
     pelimina: 	El registre amb id <b>%1</b>, aquesta a punt de ser eliminat. <br> En el cas que decideixis eliminar no es podrà recuperar. <br> Aquesta acció també eliminés les seves dades relacionades com ara... imatges, el registre en els diferents idiomes etc. qual Vols eliminar aquest registre?
+
+    subirimg: Pujar imatges
+    imagen: Imatge
+    nombrearchivo: Nom del fitxer
+    alt: Text Alt. 
+    listadoimagenes: Llistat d'imatges
+    sinimagenes: Aquest registre no disposa d'imatges.
+    subiimg: Pujar imatge
+
+    actualizar: Actualitzar
+    txtalt: Text Alt

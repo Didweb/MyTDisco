@@ -65,6 +65,14 @@
  private $h2elimina = "Procés d'eliminació de registre";
 
  private $pelimina = "El registre amb id <b>%1</b>, aquesta a punt de ser eliminat. <br> En el cas que decideixis eliminar no es podrà recuperar. <br> Aquesta acció també eliminés les seves dades relacionades com ara... imatges, el registre en els diferents idiomes etc. qual Vols eliminar aquest registre?";
+
+ private $subirimg = "Pujar imatges";
+
+ private $imagen = "Imatge";
+
+ private $nombrearchivo = "Nom del fitxer";
+
+ private $alt = "Text Alt.";
  
  private $data = array (
   'Ca' => 
@@ -100,6 +108,10 @@
     'h1_eliminar' => 'Eliminar',
     'h2elimina' => 'Procés d\'eliminació de registre',
     'pelimina' => 'El registre amb id <b>%1</b>, aquesta a punt de ser eliminat. <br> En el cas que decideixis eliminar no es podrà recuperar. <br> Aquesta acció també eliminés les seves dades relacionades com ara... imatges, el registre en els diferents idiomes etc. qual Vols eliminar aquest registre?',
+    'subirimg' => 'Pujar imatges',
+    'imagen' => 'Imatge',
+    'nombrearchivo' => 'Nom del fitxer',
+    'alt' => 'Text Alt.',
   ),
 ); 
 
@@ -538,6 +550,62 @@
  	 public function setPelimina($valor) { 
  
  	 	  $this->pelimina = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSubirimg() { 
+ 
+ 	 	 return $this->subirimg;  
+  	 	 } 
+  
+ 
+ 	 public function setSubirimg($valor) { 
+ 
+ 	 	  $this->subirimg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getImagen() { 
+ 
+ 	 	 return $this->imagen;  
+  	 	 } 
+  
+ 
+ 	 public function setImagen($valor) { 
+ 
+ 	 	  $this->imagen = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNombrearchivo() { 
+ 
+ 	 	 return $this->nombrearchivo;  
+  	 	 } 
+  
+ 
+ 	 public function setNombrearchivo($valor) { 
+ 
+ 	 	  $this->nombrearchivo = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getAlt() { 
+ 
+ 	 	 return $this->alt;  
+  	 	 } 
+  
+ 
+ 	 public function setAlt($valor) { 
+ 
+ 	 	  $this->alt = $valor;  
  
  	 	 return $this;  
   	 	 } 

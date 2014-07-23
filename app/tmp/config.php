@@ -34,6 +34,10 @@
 
  private $HOME = "http://www.google.com/";
 
+ private $DirRootDev = "/var/www/MyT/";
+
+ private $DirRoot = "/xx/xx/xx/";
+
  private $Seguridad = "1";
  
  private $data = array (
@@ -54,6 +58,8 @@
     'estilo' => 'img',
     'HOME_dev' => 'http://localhost/MyT/',
     'HOME' => 'http://www.google.com/',
+    'DirRootDev' => '/var/www/MyT/',
+    'DirRoot' => '/xx/xx/xx/',
     'Seguridad' => 1,
   ),
 ); 
@@ -269,6 +275,34 @@
  	 public function setHOME($valor) { 
  
  	 	  $this->HOME = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDirRootDev() { 
+ 
+ 	 	 return $this->DirRootDev;  
+  	 	 } 
+  
+ 
+ 	 public function setDirRootDev($valor) { 
+ 
+ 	 	  $this->DirRootDev = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDirRoot() { 
+ 
+ 	 	 return $this->DirRoot;  
+  	 	 } 
+  
+ 
+ 	 public function setDirRoot($valor) { 
+ 
+ 	 	  $this->DirRoot = $valor;  
  
  	 	 return $this;  
   	 	 } 

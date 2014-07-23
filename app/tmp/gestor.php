@@ -27,6 +27,14 @@
  private $trad_categorias = "nombre";
 
  private $trad_subcategorias = "nombre";
+
+ private $IMGpatron = "p,75,50,50,0|m,100,200,100,0|g,100,125,200,1";
+
+ private $IMGdir = "src/images/fotos";
+
+ private $IMGdirMuestra = "src/images/fotos/m/m_";
+
+ private $IMGtablas = "productos";
  
  private $data = array (
   'Gestor' => 
@@ -46,6 +54,13 @@
     'trad_productos' => 'nombre,des',
     'trad_categorias' => 'nombre',
     'trad_subcategorias' => 'nombre',
+  ),
+  'IMG' => 
+  array (
+    'IMGpatron' => 'p,75,50,50,0|m,100,200,100,0|g,100,125,200,1',
+    'IMGdir' => 'src/images/fotos',
+    'IMGdirMuestra' => 'src/images/fotos/m/m_',
+    'IMGtablas' => 'productos',
   ),
 ); 
 
@@ -218,6 +233,62 @@
  	 public function setTrad_subcategorias($valor) { 
  
  	 	  $this->trad_subcategorias = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIMGpatron() { 
+ 
+ 	 	 return $this->IMGpatron;  
+  	 	 } 
+  
+ 
+ 	 public function setIMGpatron($valor) { 
+ 
+ 	 	  $this->IMGpatron = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIMGdir() { 
+ 
+ 	 	 return $this->IMGdir;  
+  	 	 } 
+  
+ 
+ 	 public function setIMGdir($valor) { 
+ 
+ 	 	  $this->IMGdir = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIMGdirMuestra() { 
+ 
+ 	 	 return $this->IMGdirMuestra;  
+  	 	 } 
+  
+ 
+ 	 public function setIMGdirMuestra($valor) { 
+ 
+ 	 	  $this->IMGdirMuestra = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIMGtablas() { 
+ 
+ 	 	 return $this->IMGtablas;  
+  	 	 } 
+  
+ 
+ 	 public function setIMGtablas($valor) { 
+ 
+ 	 	  $this->IMGtablas = $valor;  
  
  	 	 return $this;  
   	 	 } 

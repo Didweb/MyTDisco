@@ -22,6 +22,24 @@
     'controller' => 'Index::index2',
     'permiso' => 1,
   ),
+  'Gestor_editar_txt_img' => 
+  array (
+    'url' => 'gestor/editar-txt-imagen/{tabla:string}/{idreg:int}',
+    'controller' => 'Gestor::editartxtimg',
+    'permiso' => 1,
+  ),
+  'Gestor_editar_txt_img_prin' => 
+  array (
+    'url' => 'gestor/editar-txt-imagen-prin/{tabla:string}/{idreg:int}',
+    'controller' => 'Gestor::editartxtimgprin',
+    'permiso' => 1,
+  ),
+  'Gestor_eliminar_img' => 
+  array (
+    'url' => 'gestor/eliminar-img/{tabla:string}/{idimagen:int}/{idreg:int}',
+    'controller' => 'Gestor::eliminarimg',
+    'permiso' => 1,
+  ),
   'Gestor_editar' => 
   array (
     'url' => 'gestor/editar/{tabla:string}/{id:int}',
@@ -80,6 +98,12 @@
   array (
     'url' => 'gestor/listado/{tabla:string}/{campo_orden:string}/{pagina:int}/{orden:string}',
     'controller' => 'Gestor::listado',
+    'permiso' => 1,
+  ),
+  'Gestor_subir_foto' => 
+  array (
+    'url' => 'gestor/subir-foto/{tabla:string}/{id:string}',
+    'controller' => 'Gestor::subirfoto',
     'permiso' => 1,
   ),
   'Gestor_index' => 

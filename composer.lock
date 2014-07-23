@@ -88,16 +88,16 @@
         },
         {
             "name": "didweb/myt-sniper",
-            "version": "1.2.4",
+            "version": "1.2.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTsniper.git",
-                "reference": "5215ebdefe15b1eb58059448abec56fb09be7987"
+                "reference": "da8409c914e6dbd59172acb9ed0064b496f71edc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/5215ebdefe15b1eb58059448abec56fb09be7987",
-                "reference": "5215ebdefe15b1eb58059448abec56fb09be7987",
+                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/da8409c914e6dbd59172acb9ed0064b496f71edc",
+                "reference": "da8409c914e6dbd59172acb9ed0064b496f71edc",
                 "shasum": ""
             },
             "require": {
@@ -479,16 +479,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.1.3",
+            "version": "4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "939cb801b3b2aa253aedd0b279f40bb8f35cec91"
+                "reference": "a71c4842c5fb836d8b200624583b859ec34e8a26"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/939cb801b3b2aa253aedd0b279f40bb8f35cec91",
-                "reference": "939cb801b3b2aa253aedd0b279f40bb8f35cec91",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/a71c4842c5fb836d8b200624583b859ec34e8a26",
+                "reference": "a71c4842c5fb836d8b200624583b859ec34e8a26",
                 "shasum": ""
             },
             "require": {
@@ -549,7 +549,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-06-11 14:15:47"
+            "time": "2014-07-18 07:15:58"
         },
         {
             "name": "phpunit/phpunit-mock-objects",

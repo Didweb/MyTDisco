@@ -15,3 +15,9 @@ Campos:
     trad_productos: nombre,des
     trad_categorias: nombre
     trad_subcategorias: nombre
+
+IMG:   
+    IMGpatron: p,75,50,50,0|m,100,200,100,0|g,100,125,200,1
+    IMGdir: src/images/fotos
+    IMGdirMuestra: src/images/fotos/m/m_
+    IMGtablas: productos

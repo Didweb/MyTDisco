@@ -18,4 +18,12 @@ Configuracion:
     HOME_dev: http://localhost/MyT/
     HOME: http://www.google.com/
     
+    DirRootDev: /var/www/MyT/
+    DirRoot: /xx/xx/xx/
+    
     Seguridad: 1
+    
+
+    
+    
+    

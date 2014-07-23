@@ -15,6 +15,7 @@ class GestorController extends Controlador
 	public $idiomas_per;
 	public $idioma_reg;
 	public $idioma_principal;
+	private $IMGTablas;
 	
 	public function __construct()
 	{
@@ -28,9 +29,11 @@ class GestorController extends Controlador
 		
 		//Config Gestor
 		$this->gestorConfig = $this->cargaGestorConfig();
-		$this->menuTablas = $this->crearMenu();
+		$this->menuTablas	= $this->crearMenu();
 		
-		
+		// IMG
+		$this->IMGTablas	= $this->configIMG();
+		$this->IMG 			= $this->cargaIMG();
 		
 		// Carga los parametros $_GET
 		$this->cargaGets();
@@ -352,7 +355,8 @@ class GestorController extends Controlador
 
 
 
-	public function editar()
+
+	public function subirfoto()
 	{
 		$this->cargarConexion();
 		
@@ -360,6 +364,109 @@ class GestorController extends Controlador
 		$tabla  = $this->parametros_get['tabla'];
 		
 		
+		// Subimos imagen 
+		$datos_config = $this->gestorConfig->getGestor();
+		$dir 		= $this->constantes->getDirRoot().$datos_config['IMG']['IMGdir'];
+		$patron 	= $datos_config['IMG']['IMGpatron'];
+		
+		$tmpname 		= $_FILES['imagen']['tmp_name'];
+		$nombre_enviado = $_FILES['imagen']['name'];
+		$save_name		= $_POST['nombre'];
+		$alt			= $_POST['alt'];
+	
+		$sniper = $this->cargaSniper('resize');
+		$sniper->clase->iniciamos($dir,$patron);
+		
+		// Crear Slug
+		$paginacion = $this->cargaSniper('slug');
+		$save_name = $paginacion->clase->limpiando($save_name);
+		
+		$nombre_img_bbdd = $sniper->clase->resizeImg($tmpname,$save_name,$nombre_enviado);
+		
+		if($nombre_img_bbdd != null ){
+			$this->IMG->almacenarIMG($id,$tabla,$nombre_img_bbdd,$alt,$this->constantes->getIdiomas()); }
+			
+	
+	
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$id."");
+		die();
+	
+	}
+
+
+	public function editartxtimg()
+	{
+		$this->cargarConexion();
+		
+		$id 	= $_POST['id'];
+		$alt	= $_POST['alt'];
+		
+		$tabla  = $this->parametros_get['tabla'];
+		$idreg 	= $this->parametros_get['idreg'];
+		
+		$this->IMG->actualizar($id,$alt);
+		
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$idreg."");
+		die();
+	}
+
+
+	public function eliminarimg()
+	{
+		$this->cargarConexion();
+		$tabla  	= $this->parametros_get['tabla'];
+		$idimagen 	= $this->parametros_get['idimagen'];
+		$idreg 		= $this->parametros_get['idreg'];
+		
+		
+		$datosIMG = $this->gestorConfig->getGestor();
+		$patron = $datosIMG['IMG']['IMGpatron'];
+		$dir = $datosIMG['IMG']['IMGdir'];
+		$root = $this->constantes->getDirRoot();
+		
+		$this->IMG->eliminarImagen($idimagen,$patron,$dir,$root);
+		
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$idreg."");
+		die();
+	}
+	
+
+	public function editartxtimgprin()
+	{
+		$this->cargarConexion();
+		
+		$id 	= $_POST['id'];
+		$alt	= $_POST['alt'];
+		
+		$tabla  = $this->parametros_get['tabla'];
+		$idreg 	= $this->parametros_get['idreg'];
+		
+		$this->IMG->actualizarprin($id,$alt);
+		
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$idreg."");
+		die();
+	}
+
+	public function editar()
+	{
+		$this->cargarConexion();
+		
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];
+		
+		// Necesita imagenes?
+		$rutaIMGVista = ''; 
+		$listado_fotos = null;
+		$need_photo = strpos($this->IMGTablas, $tabla);
+		
+		if($need_photo !== false ) {
+		$need_photo = 1;
+		$listado_fotos 		= $this->IMG->listado($id,$tabla);
+		$listado_fotos_txt 	= $this->IMG->listarIdiomasFotos();
+		
+		$rutaIMGVista = $this->gestorConfig->getGestor();
+		$rutaIMGVista = $rutaIMGVista['IMG']['IMGdirMuestra'];
+			} 
 		
 	 	$res = ORM::for_table($tabla)->find_one($id);
 	 	$campos_editar = $this->lectura_campos($tabla,$res);
@@ -368,15 +475,19 @@ class GestorController extends Controlador
 	 	
 		$twig = $this->cargaTwig('src/templates');
 		echo $twig->render('/backend/editar.html', array(
-											'get'			=> $this->parametros_get,
-											'trad_acceso'	=> $this->txt_pass,
-											'trad'			=> $this->txt_comun,
-											'cons'		 => $this->constantes,
-											'idioma'	 => $this->packidiomas,
-											'menuTablas' => $this->menuTablas,
-											'res'	 => $campos_editar,
-											'idiomas_reg' => $this->idiomas_per,
-											'idiomaprincipal'=>$this->idioma_principal
+											'get'				=> $this->parametros_get,
+											'trad_acceso'		=> $this->txt_pass,
+											'trad'				=> $this->txt_comun,
+											'cons'		 		=> $this->constantes,
+											'idioma'	 		=> $this->packidiomas,
+											'menuTablas' 		=> $this->menuTablas,
+											'res'	 			=> $campos_editar,
+											'idiomas_reg' 		=> $this->idiomas_per,
+											'idiomaprincipal'	=> $this->idioma_principal,
+											'need_photo'		=> $need_photo,
+											'listado_fotos'		=> $listado_fotos,
+											'listado_fotos_txt'	=> $listado_fotos_txt,
+											'rutaIMGVista'		=> $rutaIMGVista
 											));
 	}
 
@@ -449,24 +560,13 @@ class GestorController extends Controlador
 
 		
 		$this->idiomas_registros();
-		
-		$twig = $this->cargaTwig('src/templates');
-		echo $twig->render('/backend/crear_accion.html', array(
-											'get'			=> $this->parametros_get,
-											'trad_acceso'	=> $this->txt_pass,
-											'trad'			=> $this->txt_comun,
-											'cons'		 	=> $this->constantes,
-											'idioma'	 	=> $this->packidiomas,
-											'menuTablas' 	=> $this->menuTablas,
-											'res'	 		=> $campos_editar,
-											'id'			=> $registro->id,
-											'idiomas_reg' 	=> $this->idiomas_per,
-											'idiomaprincipal'=>$this->idioma_principal
-											));
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$registro->id."");
+		die();
 	
 		
 	}
 
+	
 
 	public function crear()
 	{
@@ -502,8 +602,12 @@ class GestorController extends Controlador
 								$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
 											->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
 											->find_one($valor_campo);
+									
+								if(isset($val_dep->$lista_depe[$nomdep]['campo_muetsra']))	{		
+										$valor_campo_in = $val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+										} else {$valor_campo_in = ''; }		
 											
-								$valor_campo = "<span class='mini'>id: $valor_campo   - </span> ".$val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+								$valor_campo = "<span class='mini'>id: $valor_campo   - </span> ".$valor_campo_in; 
 								} else {
 								$valor_campo = $valor_campo;	
 								}
@@ -517,8 +621,10 @@ class GestorController extends Controlador
 							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
 										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
 										->find_one($valor_campo);
-										
+							
+							if(isset($val_dep->$lista_depe[$nomdep]['campo_muetsra']))	{		
 							$valor_campo = $val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
+							} else {$valor_campo = '';}
 							
 							
 							
@@ -576,6 +682,15 @@ class GestorController extends Controlador
 		
 	}
 	
+
+	public function configIMG()
+	{
+		$tablas = $this->gestorConfig->getGestor();
+		$tablas = $tablas['IMG']['IMGtablas'];
+		
+		return $tablas;
+		
+	}
 	
 	
 	public function lectura_campos($tabla,$res)

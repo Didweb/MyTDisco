@@ -1,0 +1,58 @@
+<h2>{{ trad.listadoimagenes }}...</h2>
+
+{% if listado_fotos != null %}
+
+{% for items in listado_fotos %}
+
+<div class='grupo_foto'>
+<div class='capsula_imagen'>
+<img src='{{ cons.HOME }}{{ rutaIMGVista }}{{ items.nombrearchivo }}'>
+<a href='{{ cons.HOME }}gestor/eliminar-img/{{ get.tabla }}/{{ items.id  }}/{{ get.id }}' class='eli_sub' >Eliminar Imagen</a>
+</div>
+
+<form action='{{ cons.HOME }}gestor/editar-txt-imagen-prin/{{ get.tabla }}/{{ get.id }}' method='post' class='form_det_fo'>
+<div class='cap_obj'>
+	
+	{% if idiomas_reg|length > 1 %}
+		<div class='idioma_img clase_{{ idiomas_reg.0 }} ' id='luz_band'></div>
+	{% endif %}
+	
+	<label class='cap_obj_lable'>{{ trad.txtalt }}</label>
+	<input class='cap_obj_input' type='text'value='{{ items.alt }}' name='alt'>
+
+<input class='reg_sub2'type='submit' value='{{ trad.actualizar }}' >
+<input type='hidden' value='{{ items.id }}' name='id'>
+</div>
+</form>
+
+{% if idiomas_reg|length > 1 %}
+{% for idi in listado_fotos_txt %}
+
+
+{% if idi.locale !=  idiomaprincipal  and idi.idtotal == items.id %}
+
+
+<form action='{{ cons.HOME }}gestor/editar-txt-imagen/{{ get.tabla }}/{{ get.id }}' method='post' class='form_det_fo'>
+<div class='cap_obj'>
+	{% if idiomas_reg|length > 1 %}
+	<div class='idioma_img clase_{{ idi.locale }}' id='luz_band'></div>
+	{% endif %}
+	<label class='cap_obj_lable'>{{ trad.txtalt }}</label>
+	<input class='cap_obj_input' type='text' value='{{ idi.txt }}' name='alt'>
+	<input type='hidden' value='{{ idi.id }}' name='id'>
+<input class='reg_sub2'type='submit' value='{{ trad.actualizar }}' >
+</div>
+</form>
+
+
+{% endif %}
+{% endfor %}
+{% endif %}
+
+</div>
+{% endfor %}
+
+
+{% else %}
+<p>{{ trad.sinimagenes}}</p>
+{% endif %}

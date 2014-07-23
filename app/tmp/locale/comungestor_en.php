@@ -65,6 +65,8 @@
  private $h2elimina = "Registration process of elimination";
 
  private $pelimina = "The record with id <b>%1</b> , is about to be removed <br> If you decide to delete can not be recovered <br> This will also eliminate its related data such as images, the register-etc in different languages​​. <br> <br> Want to delete this record?";
+
+ private $subirimg = "Upload images";
  
  private $data = array (
   'En' => 
@@ -100,6 +102,7 @@
     'h1_eliminar' => 'Delete',
     'h2elimina' => 'Registration process of elimination',
     'pelimina' => 'The record with id <b>%1</b> , is about to be removed <br> If you decide to delete can not be recovered <br> This will also eliminate its related data such as images, the register-etc in different languages​​. <br> <br> Want to delete this record?',
+    'subirimg' => 'Upload images',
   ),
 ); 
 
@@ -538,6 +541,20 @@
  	 public function setPelimina($valor) { 
  
  	 	  $this->pelimina = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSubirimg() { 
+ 
+ 	 	 return $this->subirimg;  
+  	 	 } 
+  
+ 
+ 	 public function setSubirimg($valor) { 
+ 
+ 	 	  $this->subirimg = $valor;  
  
  	 	 return $this;  
   	 	 } 

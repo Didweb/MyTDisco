@@ -65,6 +65,24 @@
  private $h2elimina = "Proceso de eliminación de registro";
 
  private $pelimina = "El registro con id <b>%1</b>, esta apunto de ser eliminado.<br>  En el caso de que decidas eliminarlo no se podrá recuperar.<br>   Esta acción también eliminara sus datos relacionados como por ejemplo, imágenes, el regsitro en los distintos idiomas etc.<br> <br> ¿Quieres eliminar este registro?";
+
+ private $subirimg = "Subir imágenes";
+
+ private $imagen = "Imagen";
+
+ private $nombrearchivo = "Nombre del archivo";
+
+ private $alt = "Texto Alt.";
+
+ private $listadoimagenes = "Listado de imágenes";
+
+ private $sinimagenes = "Este registro no dispone de imágenes.";
+
+ private $subiimg = "Subir  imagen";
+
+ private $actualizar = "Actualizar";
+
+ private $txtalt = "Texto Alt";
  
  private $data = array (
   'Es' => 
@@ -100,6 +118,15 @@
     'h1_eliminar' => 'Eliminar',
     'h2elimina' => 'Proceso de eliminación de registro',
     'pelimina' => 'El registro con id <b>%1</b>, esta apunto de ser eliminado.<br>  En el caso de que decidas eliminarlo no se podrá recuperar.<br>   Esta acción también eliminara sus datos relacionados como por ejemplo, imágenes, el regsitro en los distintos idiomas etc.<br> <br> ¿Quieres eliminar este registro?',
+    'subirimg' => 'Subir imágenes',
+    'imagen' => 'Imagen',
+    'nombrearchivo' => 'Nombre del archivo',
+    'alt' => 'Texto Alt.',
+    'listadoimagenes' => 'Listado de imágenes',
+    'sinimagenes' => 'Este registro no dispone de imágenes.',
+    'subiimg' => 'Subir  imagen',
+    'actualizar' => 'Actualizar',
+    'txtalt' => 'Texto Alt',
   ),
 ); 
 
@@ -538,6 +565,132 @@
  	 public function setPelimina($valor) { 
  
  	 	  $this->pelimina = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSubirimg() { 
+ 
+ 	 	 return $this->subirimg;  
+  	 	 } 
+  
+ 
+ 	 public function setSubirimg($valor) { 
+ 
+ 	 	  $this->subirimg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getImagen() { 
+ 
+ 	 	 return $this->imagen;  
+  	 	 } 
+  
+ 
+ 	 public function setImagen($valor) { 
+ 
+ 	 	  $this->imagen = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNombrearchivo() { 
+ 
+ 	 	 return $this->nombrearchivo;  
+  	 	 } 
+  
+ 
+ 	 public function setNombrearchivo($valor) { 
+ 
+ 	 	  $this->nombrearchivo = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getAlt() { 
+ 
+ 	 	 return $this->alt;  
+  	 	 } 
+  
+ 
+ 	 public function setAlt($valor) { 
+ 
+ 	 	  $this->alt = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getListadoimagenes() { 
+ 
+ 	 	 return $this->listadoimagenes;  
+  	 	 } 
+  
+ 
+ 	 public function setListadoimagenes($valor) { 
+ 
+ 	 	  $this->listadoimagenes = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSinimagenes() { 
+ 
+ 	 	 return $this->sinimagenes;  
+  	 	 } 
+  
+ 
+ 	 public function setSinimagenes($valor) { 
+ 
+ 	 	  $this->sinimagenes = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSubiimg() { 
+ 
+ 	 	 return $this->subiimg;  
+  	 	 } 
+  
+ 
+ 	 public function setSubiimg($valor) { 
+ 
+ 	 	  $this->subiimg = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getActualizar() { 
+ 
+ 	 	 return $this->actualizar;  
+  	 	 } 
+  
+ 
+ 	 public function setActualizar($valor) { 
+ 
+ 	 	  $this->actualizar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTxtalt() { 
+ 
+ 	 	 return $this->txtalt;  
+  	 	 } 
+  
+ 
+ 	 public function setTxtalt($valor) { 
+ 
+ 	 	  $this->txtalt = $valor;  
  
  	 	 return $this;  
   	 	 } 

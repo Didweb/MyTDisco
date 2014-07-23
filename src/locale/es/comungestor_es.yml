@@ -38,3 +38,13 @@ Es:
     h2elimina: Proceso de eliminación de registro
     pelimina: El registro con id <b>%1</b>, esta apunto de ser eliminado.<br>  En el caso de que decidas eliminarlo no se podrá recuperar.<br>   Esta acción también eliminara sus datos relacionados como por ejemplo, imágenes, el regsitro en los distintos idiomas etc.<br> <br> ¿Quieres eliminar este registro?
 
+    subirimg: Subir imágenes
+    imagen: Imagen
+    nombrearchivo: Nombre del archivo
+    alt: Texto Alt.
+    listadoimagenes: Listado de imágenes
+    sinimagenes: Este registro no dispone de imágenes.
+    subiimg: Subir  imagen
+    
+    actualizar: Actualizar
+    txtalt: Texto Alt

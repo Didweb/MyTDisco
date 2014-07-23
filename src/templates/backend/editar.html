@@ -60,5 +60,16 @@
 
 </article>
 
+
+
+{% if need_photo == 1 %}
+<article id='cajon_foto'>
+{% include '/backend/crear_foto.html' %}
+</article>
+
+<article id='listados_foto'>
+{% include '/backend/listado_imagenes.html' %}
+</article>
+{% endif %}
 </section>
 {% endblock %}

@@ -33,6 +33,10 @@ class Controlador extends Request
 			$constantes->setHOME($constantes->getHOME_dev());
 			}
 		
+		// Preparamos ruta absoluta
+		if ( $_SERVER['HTTP_HOST'] == 'localhost' ){
+			$constantes->setDirRoot($constantes->getDirRootDev());
+			}
 		
 		
 		// Definimos el idioma del usuario.
@@ -48,6 +52,15 @@ class Controlador extends Request
 		
 
 
+		
+	}
+
+
+	public function cargaIMG()
+	{
+		require_once 'src/Controller/IMGcrud.php';
+		$img = new IMGcrud();
+		return $img;
 		
 	}
 
