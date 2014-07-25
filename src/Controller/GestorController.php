@@ -467,8 +467,8 @@ class GestorController extends Controlador
 		$tabla  = $this->parametros_get['tabla'];
 		
 		$campos_editar_anidados = null;
-		$campos_crear_anidados = null;
-		
+		$campos_crear_anidados 	= null;
+		$campo_padre			= null;
 		$tabla_anidada = '';
 		
 		$configGestor = $this->gestorConfig->getGestor();
