@@ -91,6 +91,10 @@
  private $notradp = "Este registro no contiene campos para traducir. <br><br><br> <a href='%1' class='reg_sub_tra'>Volver al Idioma principal de este registro</a>";
 
  private $insertar = "Insertar";
+
+ private $ins_nuevo_ani = "Insertar nuevo detalle";
+
+ private $detalle = "Detalle";
  
  private $data = array (
   'Es' => 
@@ -139,6 +143,8 @@
     'notrad' => 'Sin campos para traducir',
     'notradp' => 'Este registro no contiene campos para traducir. <br><br><br> <a href=\'%1\' class=\'reg_sub_tra\'>Volver al Idioma principal de este registro</a>',
     'insertar' => 'Insertar',
+    'ins_nuevo_ani' => 'Insertar nuevo detalle',
+    'detalle' => 'Detalle',
   ),
 ); 
 
@@ -759,6 +765,34 @@
  	 public function setInsertar($valor) { 
  
  	 	  $this->insertar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIns_nuevo_ani() { 
+ 
+ 	 	 return $this->ins_nuevo_ani;  
+  	 	 } 
+  
+ 
+ 	 public function setIns_nuevo_ani($valor) { 
+ 
+ 	 	  $this->ins_nuevo_ani = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDetalle() { 
+ 
+ 	 	 return $this->detalle;  
+  	 	 } 
+  
+ 
+ 	 public function setDetalle($valor) { 
+ 
+ 	 	  $this->detalle = $valor;  
  
  	 	 return $this;  
   	 	 } 

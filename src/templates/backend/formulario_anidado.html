@@ -1,46 +1,33 @@
-
-{% if res_anidado=='crear' %}
-	{% set camposcrear = res_anidados_crear %}
-
-{% else %}
-	{% set campos = res_anidado %}
-
-{% endif %}
-
-
-
-
 <aside class='capsula_ani'>
-<h2>Detalle ...</h2>
+<h2>{{ trad.ins_nuevo_ani }} ...</h2>
 
 <div class='cabeceras_ani'>
 	<div class='accion_ani'></div>
-{% for r in campos.0 %}
-
-{% if r.tipo!='oculto' and r.tipo !=fechac and r.tipo !=fecham %}
-<div class='nom_item_ani'>{{ r.nombre }}</div>
-{% endif %}
-{% endfor %}
-<div class='accion_ani'></div>
+		{% for r in campos.0 %}
+			{% if r.tipo!='oculto' and r.tipo !=fechac and r.tipo !=fecham %}
+			<div class='nom_item_ani'>{{ r.nombre }}</div>
+			{% endif %}
+		{% endfor %}
+	<div class='accion_ani'></div>
 </div>
 
 
 
 
-{% if camposcrear != null %}
 
 
 <form action='{{ cons.HOME }}gestor/insertar-anidado/{{ get.tabla }}/{{ get.id }}' method='post'  class='form_registros_ani'>
 <input type='hidden' name='tabla_anidada' value='{{ tabla_anidada }}'>
 	
-{% for r in camposcrear %}
+		<div class='accion_ani'> </div>
+	
+{% for r in res_anidados_crear %}
 
 
 
 {% if r.tipo=='depe' %}
 
 	<div class='caja_for_reg_ani'>
-<label>{{ r.nombre }}</label>
 	<select name='{{ r.nombre }}' class='input_reg' >
 		<option value=''>{{ r.valor }}</option>
 		{% for rr in r.lista %}
@@ -52,14 +39,13 @@
 {% elseif r.tipo=='area'%}
 
 	<div class='caja_for_reg_ani'>
-	<label>{{ rr.nombre }}</label>
 		<textarea name='{{ r.nombre }}' class='text_area'>{{ r.valor }}</textarea>
 	</div>	
 
 
 {% elseif r.tipo=='date'%}
 
-	<div class='caja_for_reg_ani'><label>{{ r.nombre }}</label>
+	<div class='caja_for_reg_ani'>
 		<input type='date' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
 	</div>
 
@@ -85,8 +71,6 @@
 {% elseif r.tipo=='select' %}
 
 	<div class='caja_for_reg_ani'>
-		
-		<label>{{ r.nombre }}</label>
 			<select name='{{ r.nombre }}' class='input_reg' >
 			
 				{% for rr in r.lista %} 
@@ -106,7 +90,7 @@
 	
 {% else %}
 
-	<div class='caja_for_reg_ani'><label>{{ r.nombre }}</label>
+	<div class='caja_for_reg_ani'>
 		<input type='text' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
 	</div>
 
@@ -119,12 +103,11 @@
 {% endfor %}
 
 	<div class='accion_ani'>
-		
 		<input type='submit' value='{{ trad.insertar }}' class='reg_sub_ani' >
 	</div>
 
 </form>
-{% endif %}
+
 
 
 
@@ -133,15 +116,24 @@
 
 
 {# EDITAR #}
+<h2>{{ trad.detalle }} ...</h2>
+<div class='cabeceras_ani'>
+	<div class='accion_ani'></div>
+{% for r in campos.0 %}
+
+{% if r.tipo!='oculto' and r.tipo !=fechac and r.tipo !=fecham %}
+<div class='nom_item_ani'>{{ r.nombre }}</div>
+{% endif %}
+{% endfor %}
+<div class='accion_ani'></div>
+</div>
 
 
 
 
-{% if campos!=null%}
 
 
-
-{% for item in campos %}
+{% for item in res_anidado %}
 
 <form action='{{ cons.HOME }}gestor/editar-anidado/{{ get.tabla }}/{{ get.id }}/{{ item.0.valor}}' method='post'  class='form_registros_ani'>
 	<input type='hidden' name='tabla_anidada' value='{{ tabla_anidada }}'>
@@ -242,6 +234,6 @@
 
 </form>
 {% endfor %}
-{% endif %}
+
 
 </aside>

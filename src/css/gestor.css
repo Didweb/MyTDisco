@@ -165,7 +165,7 @@ form#form_fotos label {float:left; width:20%; font-size:0.8em; padding:0.4em; co
 				border-radius: 3px;}
 .cabeceras_ani 		{ clear:both; float:left; width:100%; }
 .nom_item_ani 		{ float:left; margin:0.3em; min-width:15%; color:#658494;}
-.form_registros_ani	{ float:left; width:100%; border-bottom:1px solid #CDD5D8;} 
+.form_registros_ani	{ float:left; width:100%; border-bottom:1px solid #CDD5D8; margin-bottom:1.5em;} 
 .caja_for_reg_ani	{ float:left; min-width:15%; margin:0.3em;}
 .accion_ani {float:left; width:5%; margin:0.3em;}
 

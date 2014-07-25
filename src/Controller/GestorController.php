@@ -359,7 +359,8 @@ class GestorController extends Controlador
 		}
 		
 		$registro->save();
-		$this->editar();
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$id."");
+		die();
 	}
 
 
@@ -470,11 +471,11 @@ class GestorController extends Controlador
 		$campos_crear_anidados 	= null;
 		$campo_padre			= null;
 		$tabla_anidada = '';
-		
+		$n_anidados = null;
 		$configGestor = $this->gestorConfig->getGestor();
 		
 		// Comprobamos si tiene anidados
-		if(isset($configGestor['Anidados']['Ani_'.$tabla])){
+		if(isset($configGestor['Anidados']['Ani_'.$tabla])){ 
 			
 			$res_anidados = $this->anidados($configGestor['Anidados']['Ani_'.$tabla]);
 			
@@ -483,22 +484,16 @@ class GestorController extends Controlador
 			
 			$n_anidados = ORM::for_table($tabla_anidada)->where($campo_padre, $id)->count();
 			
-			if($n_anidados>0){
-			$res_anidado = ORM::for_table($tabla_anidada)
+			$res_anidado_lista = ORM::for_table($tabla_anidada)
 							->where($campo_padre, $id)
 							->find_many();
 			
-							
-					$campos_editar_anidados = $this->lectura_campos_varios($tabla_anidada,$res_anidado);
+			$campos_editar_anidados = $this->lectura_campos_varios($tabla_anidada,$res_anidado_lista);
 					
-					} else {
-				$this->idiomas_registros();
-				$campos_crear_anidados = $this->lectura_campo_crear($tabla_anidada);
-				
-				$campos_editar_anidados = 'crear';
-				
-				}
-			
+					
+			$this->idiomas_registros();
+			$campos_crear_anidados = $this->lectura_campo_crear($tabla_anidada);
+
 			}
 		
 		
@@ -541,7 +536,8 @@ class GestorController extends Controlador
 											'listado_fotos_txt'	=> $listado_fotos_txt,
 											'rutaIMGVista'		=> $rutaIMGVista,
 											'tabla_anidada'		=> $tabla_anidada ,
-											'campo_padre'		=> $campo_padre 
+											'campo_padre'		=> $campo_padre,
+											'n_anidados'		=> $n_anidados
 											));
 	}
 
