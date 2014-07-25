@@ -135,17 +135,24 @@
 
 {% for item in res_anidado %}
 
-<form action='{{ cons.HOME }}gestor/editar-anidado/{{ get.tabla }}/{{ get.id }}/{{ item.0.valor}}' method='post'  class='form_registros_ani'>
-	<input type='hidden' name='tabla_anidada' value='{{ tabla_anidada }}'>
-		<div class='accion_ani'>
-		<a href='{{ cons.HOME }}gestor/eliminar/{{ get.tabla }}/{{ get.id }}' title='{{ trad.eliminarreg }}' class='eli_sub_ani'>{{ trad.eliminarreg }}</a>
-		
-	</div>
-	
+
+
+	{% set bo=1 %}
+	{% set valorid= 'x' %}
 {% for r in item %}
 
+{% if bo==1 %}
+		{% if r.nombre=='id' %}
+		{% set valorid= r.valor %}
+		{% endif %}	
+<form action='{{ cons.HOME }}gestor/editar-anidado/{{ get.tabla }}/{{ get.id }}/{{ valorid }}' method='post'  class='form_registros_ani'>
+	<input type='hidden' name='tabla_anidada' value='{{ tabla_anidada }}'>
+		<div class='accion_ani'>
 
-
+		<a href='{{ cons.HOME }}gestor/eliminar-anidado/{{ get.tabla }}/{{ get.id }}/{{ valorid }}/{{ tabla_anidada }}' title='{{ trad.eliminarreg }}' class='eli_sub_ani'>{{ trad.eliminarreg }}</a>
+		</div>
+		{% set bo=bo+1 %}
+		{% endif %}
 {% if r.tipo=='depe' %}
 
 	<div class='caja_for_reg_ani'>

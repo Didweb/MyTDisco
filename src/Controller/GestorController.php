@@ -541,6 +541,23 @@ class GestorController extends Controlador
 											));
 	}
 
+	public function eliminaranidado()
+	{
+		$this->cargarConexion();
+		
+		$id  			= $this->parametros_get['id'];
+		$tabla  		= $this->parametros_get['tabla'];
+		$idanidado  	= $this->parametros_get['idanidado'];
+		$tablaanidado  = $this->parametros_get['tablaanidado'];
+		
+		$eli_anidado = ORM::for_table($tablaanidado)->find_one($idanidado);
+		$eli_anidado->delete();
+		
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$id."");
+		die();
+		
+	}
+
 
 	public function anidados($par_anidados)
 	{

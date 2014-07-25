@@ -28,6 +28,12 @@
     'controller' => 'Gestor::editaranidado',
     'permiso' => 5,
   ),
+  'Gestor_eliminar_anidados' => 
+  array (
+    'url' => 'gestor/eliminar-anidado/{tabla:string}/{id:string}/{idanidado:string}/{tablaanidado:string}',
+    'controller' => 'Gestor::eliminaranidado',
+    'permiso' => 5,
+  ),
   'Gestor_ineratra_anidados' => 
   array (
     'url' => 'gestor/insertar-anidado/{tabla:string}/{id:string}',
