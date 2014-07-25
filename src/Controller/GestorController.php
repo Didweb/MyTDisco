@@ -550,6 +550,8 @@ class GestorController extends Controlador
 		$idanidado  	= $this->parametros_get['idanidado'];
 		$tablaanidado  = $this->parametros_get['tablaanidado'];
 		
+
+		
 		$eli_anidado = ORM::for_table($tablaanidado)->find_one($idanidado);
 		$eli_anidado->delete();
 		
@@ -632,6 +634,9 @@ public function lectura_campos_varios($tabla,$res)
         $this->txt_comun->setPelimina($ori);
 		
 		
+		
+		
+
 		$twig = $this->cargaTwig('src/templates');
 		echo $twig->render('/backend/eliminar.html', array(
 											'get'			=> $this->parametros_get,
@@ -653,9 +658,69 @@ public function lectura_campos_varios($tabla,$res)
 		$id  	= $this->parametros_get['id'];
 		$tabla  = $this->parametros_get['tabla'];	
 		
+		// Comprobamos tablas anidadas para eliminar registros relacionados
+		$configGestor = $this->gestorConfig->getGestor();
+		if(isset($configGestor['Anidados']['Ani_'.$tabla])){
+				
+				$res_anidados = $this->anidados($configGestor['Anidados']['Ani_'.$tabla]);
+			
+				$tabla_anidada 	= $res_anidados['tablaanidada'];
+				$campo_padre  	= $res_anidados['idpadre'];
+				
+					$n_anidados = ORM::for_table($tabla_anidada)->where($campo_padre, $id)->count();
+					
+					if($n_anidados>1){
+						
+						$eli_anidado = ORM::for_table($tabla_anidada)
+									->where_equal($campo_padre, $id)
+									->delete_many();
+									
+						}	elseif($n_anidados==1)	{
+						
+						$eli_anidado = ORM::for_table($tabla_anidada)
+										->where($campo_padre, $id)
+										->find_one();
+						$eli_anidado->delete();
+						
+						}		
+					
+				}
+		
+		
+		
+		
+		
+		// Eliminamos imganes
+		$n_img = ORM::for_table('myt_imagen')
+							->where(
+							array(	'idtotal'	=> $id,
+									'tabla'		=> $tabla ))->count();
+		
+		if($n_img>=1){
+		
+			$imgs = ORM::for_table('myt_imagen')->where(
+								array(	'idtotal'	=> $id,
+										'tabla'		=> $tabla ))->find_many($id);
+			
+			foreach ($imgs as $nom=>$val){
+			$idimagen = $imgs[$nom]['id'];
+			$datosIMG = $this->gestorConfig->getGestor();
+			$patron = $datosIMG['IMG']['IMGpatron'];
+			$dir = $datosIMG['IMG']['IMGdir'];
+			$root = $this->constantes->getDirRoot();
+			
+			$this->IMG->eliminarImagen($idimagen,$patron,$dir,$root);
+			
+			$idiomas = ORM::for_table('myt_locale')->where_equal(array('idtotal'=>$idimagen,'tabla'=>'myt_imagen'))->delete_many();
+			}
+			
+		}	
+		
+		
 		$registro = ORM::for_table($tabla)->find_one($id);
 		$registro->delete();
 		
+		// Traducciones
 		$idiomas = ORM::for_table('myt_locale')->where_equal(array('idtotal'=>$id,'tabla'=>$tabla))->delete_many();
 		
 		
