@@ -303,9 +303,11 @@ class GestorController extends Controlador
 								'tabla'		=> $tabla,
 								'locale'	=> $idiomareg))
 				->find_many();
+				
 		$campos_tra = $this->lectura_campos_trad($tabla,$existe);
 		
-		if($campos_tra != null){
+		
+		
 		
 		$cuentaexiste=count($existe);
 		$_SESSION['idioma_reg']=$idiomareg;
@@ -324,7 +326,18 @@ class GestorController extends Controlador
 		}
 		
 		$this->idiomas_registros();
-		}
+		
+		$existe = ORM::for_table('myt_locale')
+				->where(array ('idtotal'	=> $id,
+								'tabla'		=> $tabla,
+								'locale'	=> $idiomareg))
+				->find_many();
+		$campos_tra = $this->lectura_campos_trad($tabla,$existe);
+		
+		
+	
+		
+		
 		$twig = $this->cargaTwig('src/templates');
 		echo $twig->render('/backend/editar_idioma.html', array(
 											'get'			=> $this->parametros_get,
@@ -1028,7 +1041,9 @@ public function lectura_campos_varios($tabla,$res)
 	
 	public function lectura_campos_trad($tabla,$res)
 	{ 
+		//nombre|normal|string,des|area|string
 		$campos = $this->gestorConfig->getGestor();
+		
 		if(isset($campos['Campos']['trad_'.$tabla])){
 		$campos = explode(',',$campos['Campos']['trad_'.$tabla]);
 		$campos_trad=array();
@@ -1044,18 +1059,30 @@ public function lectura_campos_varios($tabla,$res)
 			
 			$campos2 = explode('|',$campos[$nom]);
 			
+			if(count($res)>=1){
+			
 			foreach ($res as $item ){
 				
 				foreach ($campos2 as $nom2=>$val2){
 				$nombre		= $campos2[0];
 				$tipo 		= $campos2[1];
-				$formato 	= $campos2[2];	
-					
+				$formato 	= $campos2[2];
 				}
 				
-				if($nombre==$item->nombrecampo){
+				if($campos2[0] == $item->nombrecampo){
 					$resultado = $item->txt; }
 				}
+			} else {
+				
+				foreach ($campos2 as $nom2=>$val2){
+				$nombre		= $campos2[0];
+				$tipo 		= $campos2[1];
+				$formato 	= $campos2[2];
+				}
+				
+				
+				
+				}	
 				
 				
 				$campos_trad[$n]=array(
@@ -1067,6 +1094,7 @@ public function lectura_campos_varios($tabla,$res)
 		
 			}
 		
+
 		return $campos_trad;
 		} else
 		{ return $campos_trad=null;}	
