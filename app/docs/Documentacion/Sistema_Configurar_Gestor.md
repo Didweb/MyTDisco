@@ -15,7 +15,8 @@ Estos parámetros se encuentran en le archivo de configuración: `config/gestor.
 - 4: Los campos que saldrán en los formularios así como el tipo de dato.
 - 5: Los campos que precisan una traducción.
 - 6: Idiomas del gestor.
-- 7: Definir las tablas que precisán imágenes y los tamaños de las mismas
+- 7: Definir las tablas que precisan imágenes y los tamaños de las mismas.
+- 8: Formularios anidados.
 
 Las configuraciones se crean en el  archivo `config/gestor.yml`.
 
@@ -149,12 +150,14 @@ Tendría este aspecto:
 
 ```
 
-    trad_productos: nombre,des
-    trad_categorias: nombre
-    trad_subcategorias: nombre
+    trad_productos: nombre|nomral|string,des|area|string
+    trad_categorias: nombre|nomral|string
+    trad_subcategorias: nombre|nomral|string
 
 
 ```
+
+* Desde la version 3.1.4 se han de especificar tipo de campo y formato.
 
 Se definen con el prefijo `trad_` y a continuación el nombre de la tabla y serados por comas `,` se colocan los nombres de campos que precisan una traducción.
 
@@ -179,9 +182,9 @@ Campos:
     tab_categorias: id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int
     tab_subcategorias: id|oculto|int,nombre|nomral|string
     
-    trad_productos: nombre,des
-    trad_categorias: nombre
-    trad_subcategorias: nombre
+    trad_productos: nombre|nomral|string,des|area|string
+    trad_categorias: nombre|nomral|string
+    trad_subcategorias: nombre|nomral|string
 
 IMG:   
     IMGpatron: p,75,50,50,0|m,100,200,100,0|g,100,125,200,1
@@ -189,7 +192,9 @@ IMG:
     IMGdirMuestra: src/images/fotos/m/m_
     IMGtablas: productos
     
-    
+Anidados:
+    Ani_pedidos: pedidosdetalle,idpedido|idproducto,cantidad
+        
 ```
 
 
@@ -245,6 +250,27 @@ Explicare por encima un poco los parámetros:
 
 
 Para ver y entender como se almacenan y el proceso de almacenamiento consultar la documentación en [MyTSniper Resize][2]
+
+
+
+## Configuración 8: Formularios anidados
+
+Es posible insertar formularios relacionados y de forma anidada dentro de otro formulario, por ejemplo para los detalles del producto o para los temas de un disco, etc.
+
+Para configurarlo en el archivo `config/gestor.yml`, se especifica estos parámetros:
+
+```
+
+Anidados:
+    Ani_pedidos: pedidosdetalle,idpedido|idproducto,cantidad
+
+```
+Con el prefijo `Ani_` se define la tabla en ete caso se hace referencia a la tabla `pedidos`. 
+Luego se especifican NOMBRE_TABLA , CAMPO_RELACIONADO | CAMPO_A_MOSTRAR_1 , CAMPO_A_MOSTRAR_1 , etc...
+
+De esta forma dentro del formulario `pedidos` se insertara todos los registros de `pedidosdetalle` relacionados, además de un formulario para poder insertar nuevos registros de `pedidosdetalle` relacionados con `pedidos`.
+
+Actualmente no es posible aplicar traducciones a estos campos.
 
 
 

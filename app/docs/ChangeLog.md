@@ -1,11 +1,14 @@
 ChangeLog MyT
 ============
 
-### 
+### 3.1.4
 24-7-2014 - Eduard Pinuaga
 
 - Evitar error de $listado_fotos_txt variable no encontrada.
 - Gitignore ignorar, archivos temporales app/tmp e imágenes src/images
+- Error en idiomas cuando se añadieron parámetros en el config/gestor.yml
+- Formularios anidados insertar, eliminra.
+- Al eliminar registros elimina imágenes asociadas y formularios anidados, así como idiomas relacionados.
 
 
 
