@@ -4,7 +4,7 @@
  { 
 
  
- private $tablas = "productos,categorias,subcategorias";
+ private $tablas = "productos,categorias,subcategorias,pedidos";
 
  private $n_listados = "1";
 
@@ -14,11 +14,15 @@
 
  private $subcategorias = "id,nombre";
 
- private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre";
+ private $pedidos = "id,ref,creacion";
 
+ private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre";
+
+ private $tab_pedidosdetalle = "id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string";
+
+ private $tab_pedidos = "id|oculto|int,creacion|fechac|fecha,ref|normal|string";
 
  private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha";
-
 
  private $tab_categorias = "id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int";
 
@@ -39,11 +43,13 @@
  private $IMGdirMuestra = "src/images/fotos/m/m_";
 
  private $IMGtablas = "productos";
+
+ private $Ani_pedidos = "pedidosdetalle,idpedido|idproducto,cantidad";
  
  private $data = array (
   'Gestor' => 
   array (
-    'tablas' => 'productos,categorias,subcategorias',
+    'tablas' => 'productos,categorias,subcategorias,pedidos',
     'n_listados' => 1,
   ),
   'Campos' => 
@@ -51,7 +57,10 @@
     'productos' => 'id,nombre,idcategorias',
     'categorias' => 'id,nombre,idsubcategorias',
     'subcategorias' => 'id,nombre',
-    'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre',
+    'pedidos' => 'id,ref,creacion',
+    'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre',
+    'tab_pedidosdetalle' => 'id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string',
+    'tab_pedidos' => 'id|oculto|int,creacion|fechac|fecha,ref|normal|string',
     'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha',
     'tab_categorias' => 'id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int',
     'tab_subcategorias' => 'id|oculto|int,nombre|nomral|string',
@@ -69,6 +78,10 @@
     'IMGdir' => 'src/images/fotos',
     'IMGdirMuestra' => 'src/images/fotos/m/m_',
     'IMGtablas' => 'productos',
+  ),
+  'Anidados' => 
+  array (
+    'Ani_pedidos' => 'pedidosdetalle,idpedido|idproducto,cantidad',
   ),
 ); 
 
@@ -148,6 +161,20 @@
   	 	 } 
   
  
+ 	 public function getPedidos() { 
+ 
+ 	 	 return $this->pedidos;  
+  	 	 } 
+  
+ 
+ 	 public function setPedidos($valor) { 
+ 
+ 	 	  $this->pedidos = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
  	 public function getDependientes() { 
  
  	 	 return $this->dependientes;  
@@ -157,6 +184,34 @@
  	 public function setDependientes($valor) { 
  
  	 	  $this->dependientes = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTab_pedidosdetalle() { 
+ 
+ 	 	 return $this->tab_pedidosdetalle;  
+  	 	 } 
+  
+ 
+ 	 public function setTab_pedidosdetalle($valor) { 
+ 
+ 	 	  $this->tab_pedidosdetalle = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTab_pedidos() { 
+ 
+ 	 	 return $this->tab_pedidos;  
+  	 	 } 
+  
+ 
+ 	 public function setTab_pedidos($valor) { 
+ 
+ 	 	  $this->tab_pedidos = $valor;  
  
  	 	 return $this;  
   	 	 } 
@@ -311,6 +366,20 @@
  	 public function setIMGtablas($valor) { 
  
  	 	  $this->IMGtablas = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getAni_pedidos() { 
+ 
+ 	 	 return $this->Ani_pedidos;  
+  	 	 } 
+  
+ 
+ 	 public function setAni_pedidos($valor) { 
+ 
+ 	 	  $this->Ani_pedidos = $valor;  
  
  	 	 return $this;  
   	 	 } 

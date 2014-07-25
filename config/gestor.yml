@@ -1,14 +1,18 @@
 Gestor:
-    tablas: productos,categorias,subcategorias
+    tablas: productos,categorias,subcategorias,pedidos
     n_listados: 1
 
 Campos:
     productos: id,nombre,idcategorias
     categorias: id,nombre,idsubcategorias 
     subcategorias: id,nombre
-    dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre  
+    pedidos: id,ref,creacion
 
+    
+    dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre
 
+    tab_pedidosdetalle: id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string
+    tab_pedidos: id|oculto|int,creacion|fechac|fecha,ref|normal|string
     tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha
     tab_categorias: id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int
     tab_subcategorias: id|oculto|int,nombre|nomral|string
@@ -16,6 +20,7 @@ Campos:
     trad_productos: nombre|normal|string,des|area|string
     trad_categorias: nombre|normal|string
     trad_subcategorias: nombre|normal|string
+   
 
 Select:
     opciones: productos.opciones*1|Opcion 1, 2|Opcion 2,3|Opcion 3@prductos.activo*1|Sí,0|No
@@ -26,3 +31,7 @@ IMG:
     IMGdir: src/images/fotos
     IMGdirMuestra: src/images/fotos/m/m_
     IMGtablas: productos
+
+
+Anidados:
+    Ani_pedidos: pedidosdetalle,idpedido|idproducto,cantidad

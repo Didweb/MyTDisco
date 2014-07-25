@@ -106,6 +106,35 @@ class LecturasInterpretes
 	}
 
 
+
+
+	public function LectorAnidados($par_anidados)
+	{
+		// pedidosdetalle,idpedidos|idproducto,cantidad
+		$campos = array();
+		$n=0;
+		$separa = explode('|',$par_anidados);
+		$separa1	= explode(',',$separa[0]);
+		$separa2	= explode(',',$separa[1]);
+		foreach ($separa2 as $nom=>$val){
+			$campos[$n]=array($separa2[$nom]);
+			$n++;
+			}
+		
+		$res = array(
+					'tablaanidada' 	=> $separa1[0],
+					'idpadre'		=> $separa1[1],
+					'campos'		=> $campos
+					);
+		return $res;			
+	}
+
+
+
+
+
+
+
 	/*
 	 * Modificamos si es necesario la clase config donde almacenamos las constantes.
 	 * */

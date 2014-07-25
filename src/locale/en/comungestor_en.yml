@@ -49,3 +49,7 @@ En:
     actualizar: Update
     txtalt: Text Alt
     selecionaopcion: Select an option
+
+    notrad: No fields translate
+    notradp: This record contains fields for translation. <br><br><br> <a href='%1' class='reg_sub_tra'>Back to Main language of this record</a>
+    insertar: Insert

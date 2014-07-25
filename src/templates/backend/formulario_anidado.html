@@ -1,0 +1,247 @@
+
+{% if res_anidado=='crear' %}
+	{% set camposcrear = res_anidados_crear %}
+
+{% else %}
+	{% set campos = res_anidado %}
+
+{% endif %}
+
+
+
+
+<aside class='capsula_ani'>
+<h2>Detalle ...</h2>
+
+<div class='cabeceras_ani'>
+	<div class='accion_ani'></div>
+{% for r in campos.0 %}
+
+{% if r.tipo!='oculto' and r.tipo !=fechac and r.tipo !=fecham %}
+<div class='nom_item_ani'>{{ r.nombre }}</div>
+{% endif %}
+{% endfor %}
+<div class='accion_ani'></div>
+</div>
+
+
+
+
+{% if camposcrear != null %}
+
+
+<form action='{{ cons.HOME }}gestor/insertar-anidado/{{ get.tabla }}/{{ get.id }}' method='post'  class='form_registros_ani'>
+<input type='hidden' name='tabla_anidada' value='{{ tabla_anidada }}'>
+	
+{% for r in camposcrear %}
+
+
+
+{% if r.tipo=='depe' %}
+
+	<div class='caja_for_reg_ani'>
+<label>{{ r.nombre }}</label>
+	<select name='{{ r.nombre }}' class='input_reg' >
+		<option value=''>{{ r.valor }}</option>
+		{% for rr in r.lista %}
+			<option value='{{ rr.id }}'>{{ rr.nombre }}</option>
+		{% endfor %}
+	</select>
+	</div>
+
+{% elseif r.tipo=='area'%}
+
+	<div class='caja_for_reg_ani'>
+	<label>{{ rr.nombre }}</label>
+		<textarea name='{{ r.nombre }}' class='text_area'>{{ r.valor }}</textarea>
+	</div>	
+
+
+{% elseif r.tipo=='date'%}
+
+	<div class='caja_for_reg_ani'><label>{{ r.nombre }}</label>
+		<input type='date' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
+	</div>
+
+
+{% elseif r.tipo=='fechac'%}
+
+	<input type='hidden' value='{{ r.valor }}' name='{{ r.nombre }}'> 
+
+{% elseif r.tipo=='fecham'%} 
+
+	<input type='hidden' value='{{ "now"|date("Y-m-d  h:i:s") }}' name='{{ r.nombre }}'> 
+
+
+{% elseif r.tipo=='oculto'%}
+
+	{% if campo_padre == r.nombre %}
+	{% set elvalor=get.id %}
+	{% else %}
+	{% set elvalor=r.valor %}
+	{% endif %}
+	<input type='hidden' value='{{ elvalor }}' name='{{ r.nombre }}'> 
+
+{% elseif r.tipo=='select' %}
+
+	<div class='caja_for_reg_ani'>
+		
+		<label>{{ r.nombre }}</label>
+			<select name='{{ r.nombre }}' class='input_reg' >
+			
+				{% for rr in r.lista %} 
+			
+					{% if r.valor==rr.valor %}
+					<option value='{{ rr.valor }}'>{{ rr.nombre }}</option>
+					{% endif %}
+				
+				{% endfor %}
+				
+				{% for rr in r.lista %} 
+				<option value='{{ rr.valor }}'>{{ rr.nombre }}</option>
+			{% endfor %}
+			
+		</select>
+	</div>	
+	
+{% else %}
+
+	<div class='caja_for_reg_ani'><label>{{ r.nombre }}</label>
+		<input type='text' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
+	</div>
+
+{% endif %}
+
+
+
+
+
+{% endfor %}
+
+	<div class='accion_ani'>
+		
+		<input type='submit' value='{{ trad.insertar }}' class='reg_sub_ani' >
+	</div>
+
+</form>
+{% endif %}
+
+
+
+
+
+
+
+{# EDITAR #}
+
+
+
+
+{% if campos!=null%}
+
+
+
+{% for item in campos %}
+
+<form action='{{ cons.HOME }}gestor/editar-anidado/{{ get.tabla }}/{{ get.id }}/{{ item.0.valor}}' method='post'  class='form_registros_ani'>
+	<input type='hidden' name='tabla_anidada' value='{{ tabla_anidada }}'>
+		<div class='accion_ani'>
+		<a href='{{ cons.HOME }}gestor/eliminar/{{ get.tabla }}/{{ get.id }}' title='{{ trad.eliminarreg }}' class='eli_sub_ani'>{{ trad.eliminarreg }}</a>
+		
+	</div>
+	
+{% for r in item %}
+
+
+
+{% if r.tipo=='depe' %}
+
+	<div class='caja_for_reg_ani'>
+
+	<select name='{{ r.nombre }}' class='input_reg' >
+		<option value=''>{{ r.valor }}</option>
+		{% for rr in r.lista %}
+			<option value='{{ rr.id }}'>{{ rr.nombre }}</option>
+		{% endfor %}
+	</select>
+	</div>
+
+{% elseif r.tipo=='area'%}
+
+	<div class='caja_for_reg_ani'>
+	
+		<textarea name='{{ r.nombre }}' class='text_area'>{{ r.valor }}</textarea>
+	</div>	
+
+
+{% elseif r.tipo=='date'%}
+
+	<div class='caja_for_reg_ani'>
+		<input type='date' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
+	</div>
+
+
+{% elseif r.tipo=='fechac'%}
+
+	<input type='hidden' value='{{ r.valor }}' name='{{ r.nombre }}'> 
+
+{% elseif r.tipo=='fecham'%} 
+
+	<input type='hidden' value='{{ "now"|date("Y-m-d  h:i:s") }}' name='{{ r.nombre }}'> 
+
+
+{% elseif r.tipo=='oculto'%}
+
+	{% if campo_padre == r.nombre %}
+	{% set elvalor=get.id %}
+	{% else %}
+	{% set elvalor=r.valor %}
+	{% endif %}
+	<input type='hidden' value='{{ elvalor }}' name='{{ r.nombre }}'> 
+
+{% elseif r.tipo=='select' %}
+
+	<div class='caja_for_reg_ani'>
+		
+		
+			<select name='{{ r.nombre }}' class='input_reg' >
+			
+				{% for rr in r.lista %} 
+			
+					{% if r.valor==rr.valor %}
+					<option value='{{ rr.valor }}'>{{ rr.nombre }}</option>
+					{% endif %}
+				
+				{% endfor %}
+				
+				{% for rr in r.lista %} 
+				<option value='{{ rr.valor }}'>{{ rr.nombre }}</option>
+			{% endfor %}
+			
+		</select>
+	</div>	
+	
+{% else %}
+
+	<div class='caja_for_reg_ani'>
+		<input type='text' value='{{ r.valor }}' name='{{ r.nombre }}' class='input_reg' > 
+	</div>
+
+{% endif %}
+
+
+
+
+
+{% endfor %}
+
+	<div class='accion_ani'>
+		
+		<input type='submit' value='{{ trad.modificar }}' class='reg_sub_ani' >
+	</div>
+
+</form>
+{% endfor %}
+{% endif %}
+
+</aside>

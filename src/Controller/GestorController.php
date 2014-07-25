@@ -291,12 +291,21 @@ class GestorController extends Controlador
 		$idiomareg = $this->parametros_get['idiomareg'];
 		
 		
+		$sniper = $this->cargaSniper('mapeatxt');
+		$ori = $this->txt_comun->getNotradp();
+		$url = $this->constantes->getHOME().'gestor/editar/'.$tabla.'/'.$id;
+        $ori = $sniper->clase->mapeatxt($ori,$url);
+        $this->txt_comun->setNotradp($ori);
+		
+		
 		$existe = ORM::for_table('myt_locale')
 				->where(array ('idtotal'	=> $id,
 								'tabla'		=> $tabla,
 								'locale'	=> $idiomareg))
 				->find_many();
 		$campos_tra = $this->lectura_campos_trad($tabla,$existe);
+		
+		if($campos_tra != null){
 		
 		$cuentaexiste=count($existe);
 		$_SESSION['idioma_reg']=$idiomareg;
@@ -315,18 +324,18 @@ class GestorController extends Controlador
 		}
 		
 		$this->idiomas_registros();
-		
+		}
 		$twig = $this->cargaTwig('src/templates');
 		echo $twig->render('/backend/editar_idioma.html', array(
 											'get'			=> $this->parametros_get,
 											'trad_acceso'	=> $this->txt_pass,
 											'trad'			=> $this->txt_comun,
-											'cons'		 => $this->constantes,
-											'idioma'	 => $this->packidiomas,
+											'cons'		 	=> $this->constantes,
+											'idioma'	 	=> $this->packidiomas,
 											'idiomaprincipal' =>$this->idioma_principal,
-											'menuTablas' => $this->menuTablas,
-											'res'	 => $campos_tra,
-											'idiomas_reg' => $this->idiomas_per
+											'menuTablas' 	=> $this->menuTablas,
+											'res'	 		=> $campos_tra,
+											'idiomas_reg' 	=> $this->idiomas_per
 											));
 		
 
@@ -447,6 +456,9 @@ class GestorController extends Controlador
 		die();
 	}
 
+
+
+
 	public function editar()
 	{
 		$this->cargarConexion();
@@ -454,9 +466,47 @@ class GestorController extends Controlador
 		$id  	= $this->parametros_get['id'];
 		$tabla  = $this->parametros_get['tabla'];
 		
+		$campos_editar_anidados = null;
+		$campos_crear_anidados = null;
+		
+		$tabla_anidada = '';
+		
+		$configGestor = $this->gestorConfig->getGestor();
+		
+		// Comprobamos si tiene anidados
+		if(isset($configGestor['Anidados']['Ani_'.$tabla])){
+			
+			$res_anidados = $this->anidados($configGestor['Anidados']['Ani_'.$tabla]);
+			
+			$tabla_anidada 	= $res_anidados['tablaanidada'];
+			$campo_padre  	= $res_anidados['idpadre'];
+			
+			$n_anidados = ORM::for_table($tabla_anidada)->where($campo_padre, $id)->count();
+			
+			if($n_anidados>0){
+			$res_anidado = ORM::for_table($tabla_anidada)
+							->where($campo_padre, $id)
+							->find_many();
+			
+							
+					$campos_editar_anidados = $this->lectura_campos_varios($tabla_anidada,$res_anidado);
+					
+					} else {
+				$this->idiomas_registros();
+				$campos_crear_anidados = $this->lectura_campo_crear($tabla_anidada);
+				
+				$campos_editar_anidados = 'crear';
+				
+				}
+			
+			}
+		
+		
+		
 		// Necesita imagenes?
 		$rutaIMGVista = ''; 
 		$listado_fotos = null;
+		$listado_fotos_txt = null;
 		$need_photo = strpos($this->IMGTablas, $tabla);
 		
 		if($need_photo !== false ) {
@@ -464,8 +514,8 @@ class GestorController extends Controlador
 		$listado_fotos 		= $this->IMG->listado($id,$tabla);
 		$listado_fotos_txt 	= $this->IMG->listarIdiomasFotos();
 		
-		$rutaIMGVista = $this->gestorConfig->getGestor();
-		$rutaIMGVista = $rutaIMGVista['IMG']['IMGdirMuestra'];
+		
+		$rutaIMGVista = $configGestor['IMG']['IMGdirMuestra'];
 			} 
 		
 	 	$res = ORM::for_table($tabla)->find_one($id);
@@ -482,13 +532,75 @@ class GestorController extends Controlador
 											'idioma'	 		=> $this->packidiomas,
 											'menuTablas' 		=> $this->menuTablas,
 											'res'	 			=> $campos_editar,
+											'res_anidado'		=> $campos_editar_anidados,
+											'res_anidados_crear'=> $campos_crear_anidados,
 											'idiomas_reg' 		=> $this->idiomas_per,
 											'idiomaprincipal'	=> $this->idioma_principal,
 											'need_photo'		=> $need_photo,
 											'listado_fotos'		=> $listado_fotos,
 											'listado_fotos_txt'	=> $listado_fotos_txt,
-											'rutaIMGVista'		=> $rutaIMGVista
+											'rutaIMGVista'		=> $rutaIMGVista,
+											'tabla_anidada'		=> $tabla_anidada ,
+											'campo_padre'		=> $campo_padre 
 											));
+	}
+
+
+	public function anidados($par_anidados)
+	{
+		
+		$res = $this->LectorAnidados($par_anidados);
+		return $res;
+	}
+
+
+public function lectura_campos_varios($tabla,$res)
+	{
+		
+		$campos = $this->gestorConfig->getGestor();
+		$campos = explode(',',$campos['Campos']['tab_'.$tabla]);
+		
+		$campos_editar=array();
+		$n=0;
+		$x=0;
+		
+		foreach($res as $nom1=>$val1){
+		
+		foreach($campos as $nom=>$val){
+			
+			$campos_detalle=explode('|',$campos[$nom]);
+			$valor = $res[$nom1][$campos_detalle[0]];
+			$lista = '';
+			
+			if($campos_detalle[1]=='depe'){
+			// listamos campos dependientes
+			$lista_depe = $this->crearDependientes();
+			$valor1 = $this->buscar_dependencias($lista_depe,$tabla,$campos_detalle[0],$res[$nom1][$campos_detalle[0]],1);
+			$valor = $valor1['valor_campo'];
+			$lista = $valor1['lista'];
+			}
+			
+			if($campos_detalle[1]=='select'){
+				$resselect = $this->camposselect();
+				foreach($resselect as $nomr=>$valr){
+				if($resselect[$nomr]['campo']==$campos_detalle[0]){
+						$lista = $resselect[$nomr]['valores_select'];}
+				}
+			}
+			
+			$campos_editar[$x][$n]=array(
+							'nombre'	=> $campos_detalle[0],
+							'tipo'		=> $campos_detalle[1],
+							'formato'	=> $campos_detalle[2],
+							'valor'		=> $valor,
+							'lista'		=> $lista
+							);
+			$n++;
+			}
+		
+		$x++;}
+
+		return $campos_editar;
 	}
 
 
@@ -617,16 +729,16 @@ class GestorController extends Controlador
 						elseif ($con_lista == 1) {
 							
 					if($valor_campo!=''){
+						
 							if($nomcampo==$lista_depe[$nomdep]['campo'] && $tabla==$lista_depe[$nomdep]['tabla']){
 							$val_dep = ORM::for_table($lista_depe[$nomdep]['tabla_padre'])
 										->select_many($lista_depe[$nomdep]['campo_busca'],$lista_depe[$nomdep]['campo_muetsra'])
 										->find_one($valor_campo);
 							
+							
 							if(isset($val_dep->$lista_depe[$nomdep]['campo_muetsra']))	{		
 							$valor_campo = $val_dep->$lista_depe[$nomdep]['campo_muetsra']; 
 							} else {$valor_campo = '';}
-							
-							
 							
 							
 							$lista_res =array();
@@ -644,6 +756,8 @@ class GestorController extends Controlador
 							$valor_campo =$valor_campo;
 							
 							}
+						
+						
 						}	else
 						{
 						$valor_campo ='';
@@ -668,9 +782,14 @@ class GestorController extends Controlador
 							
 						}
 					} 
+					
 				return $res;	
 		
 	}
+	
+	
+	
+	
 	
 	
 	public function crearMenu()
@@ -737,6 +856,51 @@ class GestorController extends Controlador
 	}
 	
 
+	public function insertaranidado()
+	{
+		$this->cargarConexion();
+		$id  	= $this->parametros_get['id'];
+		$tabla  = $this->parametros_get['tabla'];	
+		
+		$tabla_anidada = $_POST['tabla_anidada'];
+		$nuevo_anidado = ORM::for_table($tabla_anidada)->create();
+		
+		$loscampos = $this->lectura_campo_crear($tabla_anidada);
+		
+		foreach($loscampos as $nom=>$val){
+			$nuevo_anidado->$loscampos[$nom]['nombre'] = $_POST[$loscampos[$nom]['nombre']];
+			}
+		
+
+		$nuevo_anidado->save();
+		
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$id."");
+		die();
+	}
+
+
+	public function editaranidado()
+	{
+		$this->cargarConexion();
+		$id  		= $this->parametros_get['id'];
+		$tabla  	= $this->parametros_get['tabla'];	
+		$idanidado  = $this->parametros_get['idanidado'];
+		
+		$tabla_anidada = $_POST['tabla_anidada'];
+		$loscampos = $this->lectura_campo_crear($tabla_anidada);
+		
+		$edita_anidada = ORM::for_table($tabla_anidada)->find_one($idanidado);
+
+		foreach($loscampos as $nom=>$val){
+			if($_POST[$loscampos[$nom]['nombre']]!=''){
+			$edita_anidada->$loscampos[$nom]['nombre'] = $_POST[$loscampos[$nom]['nombre']];}
+			}
+		$edita_anidada->save();
+		
+		header("Location: ".$this->constantes->getHOME()."gestor/editar/".$tabla."/".$id."");
+		die();
+	}
+
 
 	public function lectura_campo_crear($tabla)
 	{
@@ -787,9 +951,15 @@ class GestorController extends Controlador
 	public function lectura_campos_trad($tabla,$res)
 	{ 
 		$campos = $this->gestorConfig->getGestor();
+		if(isset($campos['Campos']['trad_'.$tabla])){
 		$campos = explode(',',$campos['Campos']['trad_'.$tabla]);
 		$campos_trad=array();
 		$n=0;
+		
+		$nombre='';
+		$tipo='';
+		$formato='';
+		$resultado='';
 		
 		foreach($campos as $nom=>$val){
 			$resultado='';
@@ -819,7 +989,9 @@ class GestorController extends Controlador
 		
 			}
 		
-		return $campos_trad;	
+		return $campos_trad;
+		} else
+		{ return $campos_trad=null;}	
 	}
 
 

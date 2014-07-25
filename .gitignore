@@ -2,3 +2,5 @@
 /vendor/
 /Test/
 /report/*
+/app/tmp/*
+/src/images/*

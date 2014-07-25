@@ -10,7 +10,7 @@
 
  private $OtraRuta = "pitosxxx";
 
- private $versiongestor = "2.0.0";
+ private $versiongestor = "3.1.3";
 
  private $creado = "Did-web.com";
 
@@ -46,7 +46,7 @@
     'TmpUrl' => 'app/tmp/rutas.php',
     'ConfigUrl' => 'config/rutas.yml',
     'OtraRuta' => 'pitosxxx',
-    'versiongestor' => '2.0.0',
+    'versiongestor' => '3.1.3',
     'creado' => 'Did-web.com',
     'licencia' => 'GPL3',
     'cliente' => 'WebCliente.com',

@@ -49,3 +49,7 @@ Ca:
     actualizar: Actualitzar
     txtalt: Text Alt
     selecionaopcion: Selecciona una opció
+
+    notrad: Sense camps per traduir
+    notradp: Aquest registre no conté camps per traduir. <br><br><br> <a href='%1' class='reg_sub_tra'>Tornar al Idioma principal d'aquest registre</a>
+    insertar: Insereix

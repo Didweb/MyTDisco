@@ -83,6 +83,8 @@
  private $actualizar = "Actualitzar";
 
  private $txtalt = "Text Alt";
+
+ private $selecionaopcion = "Selecciona una opció";
  
  private $data = array (
   'Ca' => 
@@ -127,6 +129,7 @@
     'subiimg' => 'Pujar imatge',
     'actualizar' => 'Actualitzar',
     'txtalt' => 'Text Alt',
+    'selecionaopcion' => 'Selecciona una opció',
   ),
 ); 
 
@@ -691,6 +694,20 @@
  	 public function setTxtalt($valor) { 
  
  	 	  $this->txtalt = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSelecionaopcion() { 
+ 
+ 	 	 return $this->selecionaopcion;  
+  	 	 } 
+  
+ 
+ 	 public function setSelecionaopcion($valor) { 
+ 
+ 	 	  $this->selecionaopcion = $valor;  
  
  	 	 return $this;  
   	 	 } 

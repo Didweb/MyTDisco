@@ -1,6 +1,14 @@
 ChangeLog MyT
 ============
 
+### 
+24-7-2014 - Eduard Pinuaga
+
+- Evitar error de $listado_fotos_txt variable no encontrada.
+- Gitignore ignorar, archivos temporales app/tmp e imágenes src/images
+
+
+
 ### 3.1.3
 23-7-2014 - Eduard Pinuaga
 

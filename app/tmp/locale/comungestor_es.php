@@ -85,6 +85,12 @@
  private $txtalt = "Texto Alt";
 
  private $selecionaopcion = "Selecciona una opción";
+
+ private $notrad = "Sin campos para traducir";
+
+ private $notradp = "Este registro no contiene campos para traducir. <br><br><br> <a href='%1' class='reg_sub_tra'>Volver al Idioma principal de este registro</a>";
+
+ private $insertar = "Insertar";
  
  private $data = array (
   'Es' => 
@@ -130,6 +136,9 @@
     'actualizar' => 'Actualizar',
     'txtalt' => 'Texto Alt',
     'selecionaopcion' => 'Selecciona una opción',
+    'notrad' => 'Sin campos para traducir',
+    'notradp' => 'Este registro no contiene campos para traducir. <br><br><br> <a href=\'%1\' class=\'reg_sub_tra\'>Volver al Idioma principal de este registro</a>',
+    'insertar' => 'Insertar',
   ),
 ); 
 
@@ -708,6 +717,48 @@
  	 public function setSelecionaopcion($valor) { 
  
  	 	  $this->selecionaopcion = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNotrad() { 
+ 
+ 	 	 return $this->notrad;  
+  	 	 } 
+  
+ 
+ 	 public function setNotrad($valor) { 
+ 
+ 	 	  $this->notrad = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNotradp() { 
+ 
+ 	 	 return $this->notradp;  
+  	 	 } 
+  
+ 
+ 	 public function setNotradp($valor) { 
+ 
+ 	 	  $this->notradp = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getInsertar() { 
+ 
+ 	 	 return $this->insertar;  
+  	 	 } 
+  
+ 
+ 	 public function setInsertar($valor) { 
+ 
+ 	 	  $this->insertar = $valor;  
  
  	 	 return $this;  
   	 	 } 

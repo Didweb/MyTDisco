@@ -15,9 +15,22 @@
 
 
 <article>
+	
+{% if res == null %}
+<div id='alerta'>
+<h2>{{ trad.notrad }}</h2>
+<p>
+{{ trad.notradp|raw }}	
+
+</p>
+</div>
+{% else %}	
 	{% include '/backend/menu_idiomas_registros.html' %}
 
 	<form action='{{ cons.HOME }}gestor/editar-idioma-accion/{{ get.tabla }}/{{ get.id }}/{{ get.idiomareg }}' method='post' id='form_registros'>
+		
+		
+		
 {% for r in res %}
 
 	{% if r.tipo=='depe' %}
@@ -58,7 +71,7 @@
 		<input type='submit' value='{{ trad.modificar }}'  class='reg_sub' >
 	</div>
 </form>
-
+{% endif %}
 
 </article>
 

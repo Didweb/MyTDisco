@@ -154,3 +154,52 @@ form#form_fotos label {float:left; width:20%; font-size:0.8em; padding:0.4em; co
 
 #luz_band {float:right; margin-top:0.2em; opacity: 0.8; filter: alpha(opacity=80);}
 
+
+
+
+
+.capsula_ani {float:left; width:95%; background-color:#ECEEF0; margin-left:2%; padding:1em;
+				border:1px solid #AFB3B7;
+				-webkit-border-radius: 3px; 
+				-moz-border-radius: 3px;
+				border-radius: 3px;}
+.cabeceras_ani 		{ clear:both; float:left; width:100%; }
+.nom_item_ani 		{ float:left; margin:0.3em; min-width:15%; color:#658494;}
+.form_registros_ani	{ float:left; width:100%; border-bottom:1px solid #CDD5D8;} 
+.caja_for_reg_ani	{ float:left; min-width:15%; margin:0.3em;}
+.accion_ani {float:left; width:5%; margin:0.3em;}
+
+
+.eli_sub_ani {float:left;background-color:#7E150D; text-align:center; border:1px solid #210A0A; color:#F4DBDA; font-size:0.6em; padding:0.3em; padding-left:0.5em; padding-right:0.5em;
+		-webkit-border-radius: 3px;  text-decoration:none;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-box-shadow: 3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		-moz-box-shadow:    3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		box-shadow:         3px 3px 18px 0px rgba(50, 50, 50, 0.5);}
+		
+.eli_sub_ani:hover {color:#F4E9DA; background-color:#260908; border:1px solid #B01208; }
+
+
+.reg_sub_ani {float:right;background-color:#0D7E17; border:1px solid #0A210B; color:#DAF4DB; font-size:1em; padding:0.3em; padding-left:0.5em; padding-right:0.5em;
+		-webkit-border-radius: 3px; text-decoration:none; 
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-box-shadow: 3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		-moz-box-shadow:    3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		box-shadow:         3px 3px 18px 0px rgba(50, 50, 50, 0.5);}
+		
+.reg_sub_ani:hover {color:#F3F4DA; background-color:#08260B; border:1px solid #08B00E; }
+
+.capsula_ani h2 {font-size:1.0em; color:#86A3B1;}
+
+
+.reg_sub_tra {clear:both; background-color:#0D7E17; border:1px solid #0A210B; color:#DAF4DB; font-size:1em; padding:0.3em; padding-left:0.5em; padding-right:0.5em;
+		-webkit-border-radius: 3px; text-decoration:none; margin-top:35px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		-webkit-box-shadow: 3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		-moz-box-shadow:    3px 3px 18px 0px rgba(50, 50, 50, 0.5);
+		box-shadow:         3px 3px 18px 0px rgba(50, 50, 50, 0.5);}
+		
+.reg_sub_tra:hover {color:#F3F4DA; background-color:#08260B; border:1px solid #08B00E; }

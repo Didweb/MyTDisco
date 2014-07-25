@@ -49,3 +49,7 @@ Es:
     actualizar: Actualizar
     txtalt: Texto Alt
     selecionaopcion: Selecciona una opción
+
+    notrad: Sin campos para traducir
+    notradp: Este registro no contiene campos para traducir. <br><br><br> <a href='%1' class='reg_sub_tra'>Volver al Idioma principal de este registro</a>
+    insertar: Insertar
