@@ -3,7 +3,7 @@ Gestor:
     n_listados: 1
 
 Campos:
-    productos: id,nombre,idcategorias
+    productos: id,nombre,slug,idcategorias
     categorias: id,nombre,idsubcategorias 
     subcategorias: id,nombre
     pedidos: id,ref,creacion
@@ -11,13 +11,15 @@ Campos:
     
     dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre
 
+    slugs: productos.slug:nombre
+    
     tab_pedidosdetalle: id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string
     tab_pedidos: id|oculto|int,creacion|fechac|fecha,ref|normal|string
-    tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha
+    tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha,slug|oculto|string
     tab_categorias: id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int
     tab_subcategorias: id|oculto|int,nombre|nomral|string
     
-    trad_productos: nombre|normal|string,des|area|string
+    trad_productos: nombre|normal|string,des|area|string,slug|slug|string
     trad_categorias: nombre|normal|string
     trad_subcategorias: nombre|normal|string
    

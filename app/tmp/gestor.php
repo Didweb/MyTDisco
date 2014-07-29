@@ -8,7 +8,7 @@
 
  private $n_listados = "1";
 
- private $productos = "id,nombre,idcategorias";
+ private $productos = "id,nombre,slug,idcategorias";
 
  private $categorias = "id,nombre,idsubcategorias";
 
@@ -18,17 +18,19 @@
 
  private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre";
 
+ private $slugs = "productos.slug:nombre";
+
  private $tab_pedidosdetalle = "id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string";
 
  private $tab_pedidos = "id|oculto|int,creacion|fechac|fecha,ref|normal|string";
 
- private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha";
+ private $tab_productos = "id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha,slug|oculto|string";
 
  private $tab_categorias = "id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int";
 
  private $tab_subcategorias = "id|oculto|int,nombre|nomral|string";
 
- private $trad_productos = "nombre|normal|string,des|area|string";
+ private $trad_productos = "nombre|normal|string,des|area|string,slug|slug|string";
 
  private $trad_categorias = "nombre|normal|string";
 
@@ -54,17 +56,18 @@
   ),
   'Campos' => 
   array (
-    'productos' => 'id,nombre,idcategorias',
+    'productos' => 'id,nombre,slug,idcategorias',
     'categorias' => 'id,nombre,idsubcategorias',
     'subcategorias' => 'id,nombre',
     'pedidos' => 'id,ref,creacion',
     'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre',
+    'slugs' => 'productos.slug:nombre',
     'tab_pedidosdetalle' => 'id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string',
     'tab_pedidos' => 'id|oculto|int,creacion|fechac|fecha,ref|normal|string',
-    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha',
+    'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha,slug|oculto|string',
     'tab_categorias' => 'id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int',
     'tab_subcategorias' => 'id|oculto|int,nombre|nomral|string',
-    'trad_productos' => 'nombre|normal|string,des|area|string',
+    'trad_productos' => 'nombre|normal|string,des|area|string,slug|slug|string',
     'trad_categorias' => 'nombre|normal|string',
     'trad_subcategorias' => 'nombre|normal|string',
   ),
@@ -184,6 +187,20 @@
  	 public function setDependientes($valor) { 
  
  	 	  $this->dependientes = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getSlugs() { 
+ 
+ 	 	 return $this->slugs;  
+  	 	 } 
+  
+ 
+ 	 public function setSlugs($valor) { 
+ 
+ 	 	  $this->slugs = $valor;  
  
  	 	 return $this;  
   	 	 } 
