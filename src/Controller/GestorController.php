@@ -92,7 +92,7 @@ class GestorController extends Controlador
 
 		// contamos registros
 		$totalregistros =  ORM::for_table($tabla)->count();	
-		$rpag = 4;
+		$rpag = 20;
 		
 		// preparamos paginador
 		$paginacion = $this->cargaSniper('paginador');
