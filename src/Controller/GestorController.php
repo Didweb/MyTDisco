@@ -779,47 +779,50 @@ public function lectura_campos_varios($tabla,$res)
 
 	public function lecturaSlugs($campo,$tabla,$registro)
 	{
-		$slugs_mapa = $this->gestorConfig->getGestor();
-		$slugs = $slugs_mapa['Campos']['slugs'];
 		
-		$array_slugs=array();
-		$n=0;
-		
-		$slugs = explode ('@', $slugs);
-		
-		foreach($slugs as $nom=>$val){
-			$slugs_tramo = explode(':',$slugs[$nom]);
-			
-			foreach ($slugs_tramo as $nom2=>$val2){
-				$slugs_tramo2=explode ('.',$slugs_tramo[0]);
-				
-				$array_slugs[$n] = array(
-							'tabla'		=> $slugs_tramo2[0],
-							'slug'		=> $slugs_tramo2[1],
-							'camporaiz'	=> $slugs_tramo[1],
-							);
-				$n++;			
-				
-				}
-			
-			}
 		
 		$nombrePadre = '';
 		if($campo=='slug'){
 			
-			foreach($array_slugs as $nom=>$val){
+			$slugs_mapa = $this->gestorConfig->getGestor();
+			$slugs = $slugs_mapa['Campos']['slugs'];
+		
+			$array_slugs=array();
+			$n=0;
 			
-				if($array_slugs[$nom]['slug']==$campo && $array_slugs[$nom]['tabla']==$tabla){
-					$nombrePadre = $array_slugs[$nom]['camporaiz'];
+			$slugs_t1 = explode ('@', $slugs);
+		
+			foreach($slugs_t1 as $nom=>$val){
+				$slugs_tramo = explode(':',$slugs_t1[$nom]);
+				
+				foreach ($slugs_tramo as $nom2=>$val2){
+					$slugs_tramo2=explode ('.',$slugs_tramo[0]);
+					
+					$array_slugs[$n] = array(
+								'tabla'		=> $slugs_tramo2[0],
+								'slug'		=> $slugs_tramo2[1],
+								'camporaiz'	=> $slugs_tramo[1],
+								);
+					$n++;			
 					
 					}
 				
-				$limpia 	= $this->cargaSniper('slug');
-				$sluglimpio = $limpia->clase->limpiando($_POST[$nombrePadre]);
-				$registro->slug = $sluglimpio;
 				}
-			}
 
+			
+			foreach($array_slugs as $nom=>$val){
+
+				if($array_slugs[$nom]['slug']==$campo && $array_slugs[$nom]['tabla']==$tabla){
+					$nombrePadre = $array_slugs[$nom]['camporaiz'];
+				
+					$limpia 	= $this->cargaSniper('slug');
+					$sluglimpio = $limpia->clase->limpiando($_POST[$nombrePadre]);
+					$registro->slug = $sluglimpio;
+					}
+
+				}
+
+			}
 		
 	}
 

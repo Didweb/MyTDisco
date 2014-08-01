@@ -36,7 +36,7 @@ class Bootstrap extends Request
 				$ConfigSeguridad 		= $peticion->setSeguridadConfig();
 				$parametrosSeguridad 	= $ConfigSeguridad->getSeguridadConfig();
 				
-				$parametrosSeg = $peticion->listasSeguridad($parametrosSeguridad);
+				$parametrosSeg = $peticion->listasSeguridad($parametrosSeguridad,$peticion->fuenteacceso);
 				
 				
 				$acceso = new mySegurata($parametrosSeg);

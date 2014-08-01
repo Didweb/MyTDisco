@@ -91,7 +91,7 @@ class Request extends Lecturas
 	}
 	
 	
-	public function listasSeguridad($parametros)
+	public function listasSeguridad($parametros,$fuenteacceso)
 	{
 		$para = array();
 		$lista = '';
@@ -101,6 +101,11 @@ class Request extends Lecturas
 					if($nom3=='comodin'){
 						$comodin = $parametros[$nom2]['comodin'];
 						}
+					
+					if($nom3=='datosfuente'){
+						$datosfuente = $parametros[$nom2]['datosfuente'];
+						}
+						
 					if($nom3=='usuarios'){
 						foreach($parametros[$nom2][$nom3] as $nom4=>$val4){
 							$se = explode(':',$val4);
@@ -121,7 +126,9 @@ class Request extends Lecturas
 				$para['session']	= $session; 
 				$para['cookie']		= $cookie; 
 				$para['opcionCookie']	= 0; 
-				$para['comodin']	= $comodin;
+				$para['comodin']		= $comodin;
+				$para['fuenteacceso']	= $fuenteacceso;
+				$para['datosfuente']	= $datosfuente;
 				
 		return $para;
 	}

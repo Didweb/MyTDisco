@@ -276,6 +276,7 @@ class LecturasInterpretes
 				    $this->controlador 		= $da[0];
 				    $this->metodo 			= $da[1];
 				    $this->permiso 			= $val['permiso'];
+				    $this->fuenteacceso 	= $val['fuenteacceso'];
 				    $this->parametros_get 	= $this->JackParametros($RequestUrl,$val['url']);
 
 
