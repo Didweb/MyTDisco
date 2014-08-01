@@ -1,6 +1,19 @@
 ChangeLog MyT
 ============
 
+
+### 3.1.6
+1-8-2014 - Eduard Pinuaga
+
+- Mejoras para qpoder acceder a fuentes de usuarios desde Base de datos. 
+
+
+### 3.1.5
+29-7-2014 - Eduard Pinuaga
+
+- Creación de campo oculto slug, en la zona de gestor. 
+
+
 ### 3.1.4
 24-7-2014 - Eduard Pinuaga
 
