@@ -91,13 +91,21 @@ class Request extends Lecturas
 	}
 	
 	
-	public function listasSeguridad($parametros,$fuenteacceso)
+	public function listasSeguridad($parametros,$fuenteacceso,$url)
 	{
 		$para = array();
 		$lista = '';
 		$listapw = '';
 		foreach($parametros as $nom2=>$val2){
 				foreach($parametros[$nom2] as $nom3=>$val3){
+					
+					if($url=='checking'){
+						$fuenteacceso = $_SESSION['fuenteacceso'];
+						} else {
+							$_SESSION['fuenteacceso'] = $fuenteacceso;
+							}
+					
+					
 					if($nom3=='comodin'){
 						$comodin = $parametros[$nom2]['comodin'];
 						}
