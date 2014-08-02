@@ -3,7 +3,7 @@ Configuracion:
     ConfigUrl: config/rutas.yml
     OtraRuta: pitosxxx
     
-    versiongestor: 3.1.6
+    versiongestor: 3.1.7
     creado: Did-web.com
     licencia: GPL3
     cliente: WebCliente.com

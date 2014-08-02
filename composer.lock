@@ -52,15 +52,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTsegurata.git",
-                "reference": "244edfc09e7303f436f1ec167d21c3a930cf7bcb"
+                "reference": "7d6368926760e47f29719265d9e0f56c75608927"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTsegurata/zipball/244edfc09e7303f436f1ec167d21c3a930cf7bcb",
-                "reference": "244edfc09e7303f436f1ec167d21c3a930cf7bcb",
+                "url": "https://api.github.com/repos/Didweb/MyTsegurata/zipball/7d6368926760e47f29719265d9e0f56c75608927",
+                "reference": "7d6368926760e47f29719265d9e0f56c75608927",
                 "shasum": ""
             },
             "require": {
+                "j4mie/idiorm": "1.5.*",
                 "phpunit/phpunit": "4.1.*"
             },
             "type": "myt-framework",
@@ -84,20 +85,20 @@
                 "control accesos",
                 "restringido"
             ],
-            "time": "2014-07-13 08:32:26"
+            "time": "2014-08-01 08:17:50"
         },
         {
             "name": "didweb/myt-sniper",
-            "version": "1.2.8",
+            "version": "1.2.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTsniper.git",
-                "reference": "59a988ad281b8e37584b92cbcf8563d8249756bc"
+                "reference": "34ef9fb67d5b3b95cff64ec9545dc5602eae72cb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/59a988ad281b8e37584b92cbcf8563d8249756bc",
-                "reference": "59a988ad281b8e37584b92cbcf8563d8249756bc",
+                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/34ef9fb67d5b3b95cff64ec9545dc5602eae72cb",
+                "reference": "34ef9fb67d5b3b95cff64ec9545dc5602eae72cb",
                 "shasum": ""
             },
             "require": {

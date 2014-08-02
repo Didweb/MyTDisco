@@ -17,6 +17,7 @@ Estos parámetros se encuentran en le archivo de configuración: `config/gestor.
 - 6: Idiomas del gestor.
 - 7: Definir las tablas que precisan imágenes y los tamaños de las mismas.
 - 8: Formularios anidados.
+- 9: Carga de servicios.
 
 Las configuraciones se crean en el  archivo `config/gestor.yml`.
 
@@ -272,6 +273,21 @@ De esta forma dentro del formulario `pedidos` se insertara todos los registros d
 
 Actualmente no es posible aplicar traducciones a estos campos.
 
+
+## Configuración 9: Carga de servicios
+
+Para cargar servicios estos se han de colocar en el directorio `src/Controller` también han de tener el nombre de archivo igual que el nombre de la clase.
+
+Para llamar un servicio dentro de cualquier controlador,  se hace  de la siguiente forma:
+
+```
+
+		$servicio = $this->cargaServicio('probando');
+		$servicio->saca('XXX');
+
+```
+
+En este ejemplo se llama a un archivo/Clase llamado `probando` y nos muestra un método llamado `saca`.
 
 
 [1]:  Inicio_Documentacion.md

@@ -175,6 +175,27 @@ class Controlador extends Request
 	}
 	
 	
+	function cargaServicio( $nombreClase ){
+		
+		
+		$ruta = $this->constantes->getDirRoot().'src/Controller/';
+		if(file_exists( $ruta.$nombreClase . '.php' )) {
+			require_once( $ruta.$nombreClase . '.php' );
+			$nomclase = $nombreClase;
+			$clase = new $nomclase();
+			
+			
+			return $clase;
+			
+			} else {
+						
+				echo "ERROR EN CARGA DE SERVICIO :". $ruta.$nombreClase . '.php';
+				return  null;
+		}
+	}
+	
+	
+	
 	public function cargaConstantes()
 	{
 		return $this->constantes;

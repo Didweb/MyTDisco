@@ -78,6 +78,11 @@ class IndexController extends Controlador
 	
 	public function indexpolka()
 	{
+		
+		// Probando servicios
+		$servicio = $this->cargaServicio('probando');
+		$servicio->saca('XXX');
+		
 		$otraruta = $this->constantes->getOtraRuta();
 		$losidiomas = explode(',',$this->constantes->getIdiomas());
 		

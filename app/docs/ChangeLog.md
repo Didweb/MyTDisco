@@ -1,6 +1,11 @@
 ChangeLog MyT
 ============
 
+### 3.1.7
+2-8-2014 - Eduard Pinuaga
+
+- Se crea el cargador de servicios, para poder utilizar servicios de forma más limpia.
+
 
 ### 3.1.6
 1-8-2014 - Eduard Pinuaga
