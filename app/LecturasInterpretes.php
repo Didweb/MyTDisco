@@ -17,8 +17,7 @@ class LecturasInterpretes
 
 	public function getParametros_get()
 	{
-		echo "ooooooooooooooooooo";
-		print_r($this->parametros_get);
+		
 	 return $this->parametros_get;	
 	}
 
