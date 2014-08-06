@@ -89,16 +89,16 @@
         },
         {
             "name": "didweb/myt-sniper",
-            "version": "1.2.10",
+            "version": "1.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Didweb/MyTsniper.git",
-                "reference": "34ef9fb67d5b3b95cff64ec9545dc5602eae72cb"
+                "reference": "c228fe7b32eecfc28c79d243db46aa6e32363db8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/34ef9fb67d5b3b95cff64ec9545dc5602eae72cb",
-                "reference": "34ef9fb67d5b3b95cff64ec9545dc5602eae72cb",
+                "url": "https://api.github.com/repos/Didweb/MyTsniper/zipball/c228fe7b32eecfc28c79d243db46aa6e32363db8",
+                "reference": "c228fe7b32eecfc28c79d243db46aa6e32363db8",
                 "shasum": ""
             },
             "require": {

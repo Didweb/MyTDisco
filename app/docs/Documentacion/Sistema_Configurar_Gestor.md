@@ -17,7 +17,9 @@ Estos parámetros se encuentran en le archivo de configuración: `config/gestor.
 - 6: Idiomas del gestor.
 - 7: Definir las tablas que precisan imágenes y los tamaños de las mismas.
 - 8: Formularios anidados.
-- 9: Carga de servicios.
+- 9 Campos Slug.
+- 10: Carga de servicios.
+
 
 Las configuraciones se crean en el  archivo `config/gestor.yml`.
 
@@ -179,7 +181,9 @@ Campos:
     subcategorias: id,nombre
     dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre  
 
-    tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string
+    slugs: productos.slug:nombre
+
+    tab_productos: id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|normal|string,slug|oculto|string
     tab_categorias: id|oculto|int,nombre|nomral|string,idsubcategorias|depe|int
     tab_subcategorias: id|oculto|int,nombre|nomral|string
     
@@ -274,7 +278,33 @@ De esta forma dentro del formulario `pedidos` se insertara todos los registros d
 Actualmente no es posible aplicar traducciones a estos campos.
 
 
-## Configuración 9: Carga de servicios
+
+## Configuración 9: Campos Slug
+
+Se pueden crear campos ocultos de tipo slug. El campo siempre sera oculto y podremos determinar que campo ara de fuente para combertir el slug.
+
+Para definir los campos se ara en el archivo `config/Gestor.yml` dentro del grupo de `Campos:` se pondrá algo similar a esto:
+
+```
+
+    slugs: productos.slug:nombre@OTRA_TABLA.slug:CAMPO_FUENTE@......@...
+
+```
+
+Dentro de `slugs`  pondremos todos los campos necesarios separados por `@` y en cada tramo definimos los siguientes parámetros para luego determinar el slug:
+
+en el ejemplo anterior el primer tramo será:
+
+**productos** : Es la tabla en la que se encuentra el slug.
+**slug** : Es el nombre del slug que siempre se llamara slug, pro lo tanto en cada tabla solo podrá haber un campo de tipo slug.
+**nombre** : Es el campo padre el que alimentara al slug, de donde cogerá los datos para transformar el slug.
+
+
+En la definición de los campos a mostrar en el formulario se ha de poner siempre el ultimo campo el campo `slug` de la siguiente forma `....,slug|oculto|string`
+
+
+
+## Configuración 10: Carga de servicios
 
 Para cargar servicios estos se han de colocar en el directorio `src/Controller` también han de tener el nombre de archivo igual que el nombre de la clase.
 
@@ -288,6 +318,7 @@ Para llamar un servicio dentro de cualquier controlador,  se hace  de la siguien
 ```
 
 En este ejemplo se llama a un archivo/Clase llamado `probando` y nos muestra un método llamado `saca`.
+
 
 
 [1]:  Inicio_Documentacion.md
