@@ -21,6 +21,8 @@ class Controlador extends Request
 	
 	public $constantes;
 	
+	public $tip;
+	
 	public function __construct()
 	{
 
@@ -50,7 +52,7 @@ class Controlador extends Request
 		$idioma = $this->getIdiomaLang($parametro_get_lang, $constantes->getIdiomas_Gestor(),$constantes->getEstilo());
 		$this->idioma = $idioma;
 		
-
+		$this->tip = $constantes->getTip();
 
 		
 	}
@@ -149,13 +151,13 @@ class Controlador extends Request
 		if($_SERVER['HTTP_HOST']=='localhost'){
 			$loader = new Twig_Loader_Filesystem($path);
 			$twig = new Twig_Environment($loader, array(
-				'cache' => __DIR__ . '/../../app/cache',
+				'cache' => __DIR__ . '/cache',
 				'debug' => true
 			));
 		} else {
 			$loader = new Twig_Loader_Filesystem($path);
 			$twig = new Twig_Environment($loader, array(
-				'cache' => __DIR__ . '/../../app/cache',
+				'cache' => __DIR__ . '/cache',
 				'debug' => false
 			));	
 		}

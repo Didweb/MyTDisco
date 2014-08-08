@@ -14,7 +14,8 @@
 		"didweb/myt-local": "2.1.*",
 		"didweb/myt-sniper": "1.*",
 		"didweb/myt-segurata": "dev-master",
-		"j4mie/idiorm": "1.5.*"
+		"j4mie/idiorm": "1.5.*",
+		"phpmailer/phpmailer": "5.2.*"
 	
 	},
 	"autoload": {

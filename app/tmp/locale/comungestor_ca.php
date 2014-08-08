@@ -85,6 +85,16 @@
  private $txtalt = "Text Alt";
 
  private $selecionaopcion = "Selecciona una opció";
+
+ private $notrad = "Sense camps per traduir";
+
+ private $notradp = "Aquest registre no conté camps per traduir. <br><br><br> <a href='%1' class='reg_sub_tra'>Tornar al Idioma principal d'aquest registre</a>";
+
+ private $insertar = "Insereix";
+
+ private $ins_nuevo_ani = "Insereix nou detall";
+
+ private $detalle = "Detall";
  
  private $data = array (
   'Ca' => 
@@ -130,6 +140,11 @@
     'actualizar' => 'Actualitzar',
     'txtalt' => 'Text Alt',
     'selecionaopcion' => 'Selecciona una opció',
+    'notrad' => 'Sense camps per traduir',
+    'notradp' => 'Aquest registre no conté camps per traduir. <br><br><br> <a href=\'%1\' class=\'reg_sub_tra\'>Tornar al Idioma principal d\'aquest registre</a>',
+    'insertar' => 'Insereix',
+    'ins_nuevo_ani' => 'Insereix nou detall',
+    'detalle' => 'Detall',
   ),
 ); 
 
@@ -708,6 +723,76 @@
  	 public function setSelecionaopcion($valor) { 
  
  	 	  $this->selecionaopcion = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNotrad() { 
+ 
+ 	 	 return $this->notrad;  
+  	 	 } 
+  
+ 
+ 	 public function setNotrad($valor) { 
+ 
+ 	 	  $this->notrad = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNotradp() { 
+ 
+ 	 	 return $this->notradp;  
+  	 	 } 
+  
+ 
+ 	 public function setNotradp($valor) { 
+ 
+ 	 	  $this->notradp = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getInsertar() { 
+ 
+ 	 	 return $this->insertar;  
+  	 	 } 
+  
+ 
+ 	 public function setInsertar($valor) { 
+ 
+ 	 	  $this->insertar = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getIns_nuevo_ani() { 
+ 
+ 	 	 return $this->ins_nuevo_ani;  
+  	 	 } 
+  
+ 
+ 	 public function setIns_nuevo_ani($valor) { 
+ 
+ 	 	  $this->ins_nuevo_ani = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getDetalle() { 
+ 
+ 	 	 return $this->detalle;  
+  	 	 } 
+  
+ 
+ 	 public function setDetalle($valor) { 
+ 
+ 	 	  $this->detalle = $valor;  
  
  	 	 return $this;  
   	 	 } 

@@ -2,7 +2,10 @@ Configuracion:
     TmpUrl: app/tmp/rutas.php
     ConfigUrl: config/rutas.yml
     OtraRuta: pitosxxx
-    
+
+
+    Tip: MyT
+
     versiongestor: 3.1.7
     creado: Did-web.com
     licencia: GPL3
