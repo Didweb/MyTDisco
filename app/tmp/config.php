@@ -10,7 +10,9 @@
 
  private $OtraRuta = "pitosxxx";
 
- private $versiongestor = "3.1.6";
+ private $Tip = "MyT";
+
+ private $versiongestor = "3.1.7";
 
  private $creado = "Did-web.com";
 
@@ -46,7 +48,8 @@
     'TmpUrl' => 'app/tmp/rutas.php',
     'ConfigUrl' => 'config/rutas.yml',
     'OtraRuta' => 'pitosxxx',
-    'versiongestor' => '3.1.6',
+    'Tip' => 'MyT',
+    'versiongestor' => '3.1.7',
     'creado' => 'Did-web.com',
     'licencia' => 'GPL3',
     'cliente' => 'WebCliente.com',
@@ -107,6 +110,20 @@
  	 public function setOtraRuta($valor) { 
  
  	 	  $this->OtraRuta = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getTip() { 
+ 
+ 	 	 return $this->Tip;  
+  	 	 } 
+  
+ 
+ 	 public function setTip($valor) { 
+ 
+ 	 	  $this->Tip = $valor;  
  
  	 	 return $this;  
   	 	 } 
