@@ -99,7 +99,12 @@ class GestorController extends Controlador
 		$paginacion->clase->inicio($totalregistros,$pagina,$rpag,$pagpaginador=3);
 		$res_paginacion = $paginacion->clase->getPagpaginador();
 		
-		$inicio = $paginacion->clase->getInicio()-1;
+		if($paginacion->clase->getInicio()<1) {
+			$inicio = $paginacion->clase->getInicio();
+			} else {
+			$inicio = $paginacion->clase->getInicio()-1;	
+			} 
+		
 		$final  = $paginacion->clase->getFinal();
 		
 		if($orden=='ASC'){
