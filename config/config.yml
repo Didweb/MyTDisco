@@ -6,7 +6,7 @@ Configuracion:
 
     Tip: MyT
 
-    versiongestor: 3.1.7
+    versiongestor: 3.1.9
     creado: Did-web.com
     licencia: GPL3
     cliente: WebCliente.com
@@ -25,7 +25,6 @@ Configuracion:
     DirRoot: /xx/xx/xx/
     
     Seguridad: 1
-    
 
     
     
