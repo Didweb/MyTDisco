@@ -12,7 +12,7 @@
 
  private $Tip = "MyT";
 
- private $versiongestor = "3.1.7";
+ private $versiongestor = "3.1.9";
 
  private $creado = "Did-web.com";
 
@@ -49,7 +49,7 @@
     'ConfigUrl' => 'config/rutas.yml',
     'OtraRuta' => 'pitosxxx',
     'Tip' => 'MyT',
-    'versiongestor' => '3.1.7',
+    'versiongestor' => '3.1.9',
     'creado' => 'Did-web.com',
     'licencia' => 'GPL3',
     'cliente' => 'WebCliente.com',

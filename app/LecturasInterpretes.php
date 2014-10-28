@@ -265,6 +265,7 @@ class LecturasInterpretes
 	
 			foreach ($data->$elGet() as $key => $val) {
 				
+			
 			$this->JackUrl($val['url']);
 			
 			$verifica = preg_match($this->nueva_url,$RequestUrl);
@@ -290,6 +291,7 @@ class LecturasInterpretes
 			$this->metodo = 'error404';
 			$this->redirect = 404;	
 		return null;
+		
 			
 		}
 
@@ -300,7 +302,35 @@ class LecturasInterpretes
 	{
 		
 		$nueva_url = '';
+		
 		$url1 = explode('/',$url);
+		if(preg_match('/^\//',$url)){
+			
+			$nueva_url='(.*\w[^\/])';
+			if(preg_match('/^{/',$url)){
+		
+			$url2 = $this->LimpioPara($url);
+			foreach($url2 as $nom2=>$val2){
+				
+				if($nom2==1)
+				{
+				if($url2[$nom2]=='string'){
+					$nueva_url .= '(.*\w[^\/])';
+					} elseif ($url2[$nom2]=='int') {
+					$nueva_url .= '(\d[^aA-zZ_-\/]*)';
+					} elseif ($url2[$nom2]=='locale') {
+					$nueva_url .= '(.*\w[^\/])';
+					}
+					
+				}
+				
+				}
+				
+			}
+			
+			
+		}else {
+			
 		foreach ($url1 as $nom=>$val)
 		{
 		
@@ -328,19 +358,22 @@ class LecturasInterpretes
 				$nueva_url .= $url1[$nom].'/';}
 		
 		}
-		
+	}
 		if(substr($nueva_url, -1)=='/') {
 			$nueva_url = substr($nueva_url, 0, -1); }
-		$this->nueva_url = "#^".$nueva_url."(/)?$#";
+		$this->nueva_url = "#^".$nueva_url."(/)?$#"; 
 		return $this;
+		
 	}
 
 
 
 	public function JackParametros($RequestUrl,$ModeloUrl)
 	{
+		
 		$des_RequestUrl = explode('/',$RequestUrl);
 		$des_ModeloUrl	= explode('/',$ModeloUrl);
+		
 		$parametros = array();
 		
 		foreach($des_RequestUrl as $nom=>$val){
@@ -356,7 +389,7 @@ class LecturasInterpretes
 					}	
 			}
 			
-		}
+		} 
 		$this->parametros_get = $parametros;
 		return $parametros;
 		

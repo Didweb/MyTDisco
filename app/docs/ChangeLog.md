@@ -1,6 +1,13 @@
 ChangeLog MyT
 ============
 
+### 3.1.9
+28-10-2014 - Eduard Pinuaga
+
+- Cambios añadidos en 3.1.8: Integracion de PHPMailer, Limpieza de Tics en LecturasInterpretes, Solución y modificaciónpara paginador.
+- Cambios realizados en 3.1.9: Posibilidad de poder añadir url sin "/" con el slug directamente. tipo: www.dominio.com/slug-que-quieras.
+- Actualización de documentación para explicar temas de la url con slug directo.
+
 ### 3.1.7
 2-8-2014 - Eduard Pinuaga
 

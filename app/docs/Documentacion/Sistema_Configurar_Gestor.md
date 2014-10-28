@@ -17,7 +17,7 @@ Estos parámetros se encuentran en le archivo de configuración: `config/gestor.
 - 6: Idiomas del gestor.
 - 7: Definir las tablas que precisan imágenes y los tamaños de las mismas.
 - 8: Formularios anidados.
-- 9 Campos Slug.
+- 9: Campos Slug.
 - 10: Carga de servicios.
 
 
