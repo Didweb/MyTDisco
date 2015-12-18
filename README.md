@@ -19,7 +19,7 @@ Las herramientas:
 
 
 
-# Estado del Proyecto. **En Proceso** Iniciando pruebas finales y documentación
+# Estado del Proyecto. En producción en varias webs.
 
 - Creación de Boostrap.php y sistema MVC.
 - Gestión de servicios para los controladores.
