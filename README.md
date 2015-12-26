@@ -1,30 +1,36 @@
-#  MyTDisco EN PROCESO DE CREACIÓN
+# Framework MyT
 
-Creado a partir del Freamwork MyT disponible en [https://github.com/Didweb/MyT][1]
+Creando mi propio Framework. Ya utilizado en diversos proyectos.
 
-## Funcionalidades de MyTDisco
+## Objetivo
 
-Es una aplicación para la creación y almacenamiento de datos discográficos.
+Tras hacer varias cosas con Symfony2 me decidí a crear mi propio Framework con el objetivo de aprender en profundidad el sistema de MVC y tener un mayor control de mis aplicaciones.
 
 
-## Como Instalar...
+## Herramientas
 
-Instalar con git.
+Las herramientas:
 
-En tu consola pones:
-
-git clone git@github.com:Didweb/MyT.git MyTDisco
-
-Donde MyTDisco sera la carpeta de destino pon la que tu prefieras.
-
-Luego actualizamos las dependencias con composer, poniendo:
-
-php composer.phar update
-
-Esto actulizara las dependencias.
+- Composer.
+- ORM idiorm
+- Lectura de Yaml.
+- Twig.
+- Sistema de traducciones.
 
 
 
+# Estado del Proyecto. **En Proceso** Iniciando pruebas finales y documentación
+
+- Creación de Boostrap.php y sistema MVC.
+- Gestión de servicios para los controladores.
+- Se ha creado sistema de idiomas. Dependencia especificada en composer.json `"didweb/myt-local": "2.1.*"`
+- Se ha creado el sistema de control de accesos. Dependencia especificada en composer.json `"didweb/myt-segurata": "dev-master"`.
+- He agrupado mis pequeñas funciones en un servidor de servicios que he llamado [MyTSniper][1] , en este link esta disponible junto a la documentación de cada "Sniper". 
+- Se inican las pruebas para comprobar su funcionalidad y posible salida de bugs.
+
+# Documentación
+
+- Documentación de MyT Framework : Dentro de `app/docs/Documentacion`
 
 
-[1]: https://github.com/Didweb/MyT
+[1]: https://github.com/Didweb/MyTsniper
