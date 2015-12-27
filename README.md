@@ -1,6 +1,6 @@
 # Framework MyT
 
-Freamwork para gestor de contenidos en PHP y MySQl. 
+Framework para gestor de contenidos en PHP y MySQl. 
 
 
 ## Objetivo
