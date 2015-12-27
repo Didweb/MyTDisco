@@ -12,7 +12,7 @@ Esta documentación informa del funcionamiento y configuración del MyT Framewor
 
 # Base de datos
 
-Existe un fichero con 2 tablas en /app/docs/Docuemntacion/base.sql el cual contine 2 tablas *myt_imagen* y *myt_locale* las caules son necesarias para controlar el sistema d eimágenes y el locale para las aplicaciones multiidiomas.
+Existe un fichero con 2 tablas en /app/docs/Docuemntacion/base.sql el cual contine 2 tablas *myt_imagen* y *myt_locale* las cuales son necesarias para controlar el sistema de imágenes y el locale para las aplicaciones multi idiomas.
 
 Este archivo se ha de cargar en la base de datos.
 
