@@ -8,8 +8,6 @@
 
  private $ConfigUrl = "config/rutas.yml";
 
- private $OtraRuta = "pitosxxx";
-
  private $Tip = "MyT";
 
  private $versiongestor = "3.1.9";
@@ -26,17 +24,23 @@
 
  private $webcreador = "http://www.did-web.com";
 
- private $idiomas = "es,ca,en,fr";
+ private $idiomas = "es";
 
- private $idiomas_gestor = "es,ca,en";
+ private $idiomas_gestor = "es";
 
  private $estilo = "img";
 
- private $HOME_dev = "http://localhost/MyT/";
+ private $HOME_dev = "http://localhost/MyTDisco/";
 
  private $HOME = "http://www.google.com/";
 
- private $DirRootDev = "/var/www/MyT/";
+ private $NAMEDB = "MyTDisco";
+
+ private $USUARIODB = "root";
+
+ private $PASSWORDDB = "rasmysql";
+
+ private $DirRootDev = "/var/www/MyTDisco/";
 
  private $DirRoot = "/xx/xx/xx/";
 
@@ -47,7 +51,6 @@
   array (
     'TmpUrl' => 'app/tmp/rutas.php',
     'ConfigUrl' => 'config/rutas.yml',
-    'OtraRuta' => 'pitosxxx',
     'Tip' => 'MyT',
     'versiongestor' => '3.1.9',
     'creado' => 'Did-web.com',
@@ -56,12 +59,15 @@
     'webcliente' => 'http://www.webcliente.com',
     'webcmyt' => 'https://github.com/Didweb/MyT',
     'webcreador' => 'http://www.did-web.com',
-    'idiomas' => 'es,ca,en,fr',
-    'idiomas_gestor' => 'es,ca,en',
+    'idiomas' => 'es',
+    'idiomas_gestor' => 'es',
     'estilo' => 'img',
-    'HOME_dev' => 'http://localhost/MyT/',
+    'HOME_dev' => 'http://localhost/MyTDisco/',
     'HOME' => 'http://www.google.com/',
-    'DirRootDev' => '/var/www/MyT/',
+    'NAMEDB' => 'MyTDisco',
+    'USUARIODB' => 'root',
+    'PASSWORDDB' => 'rasmysql',
+    'DirRootDev' => '/var/www/MyTDisco/',
     'DirRoot' => '/xx/xx/xx/',
     'Seguridad' => 1,
   ),
@@ -96,20 +102,6 @@
  	 public function setConfigUrl($valor) { 
  
  	 	  $this->ConfigUrl = $valor;  
- 
- 	 	 return $this;  
-  	 	 } 
-  
- 
- 	 public function getOtraRuta() { 
- 
- 	 	 return $this->OtraRuta;  
-  	 	 } 
-  
- 
- 	 public function setOtraRuta($valor) { 
- 
- 	 	  $this->OtraRuta = $valor;  
  
  	 	 return $this;  
   	 	 } 
@@ -292,6 +284,48 @@
  	 public function setHOME($valor) { 
  
  	 	  $this->HOME = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getNAMEDB() { 
+ 
+ 	 	 return $this->NAMEDB;  
+  	 	 } 
+  
+ 
+ 	 public function setNAMEDB($valor) { 
+ 
+ 	 	  $this->NAMEDB = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getUSUARIODB() { 
+ 
+ 	 	 return $this->USUARIODB;  
+  	 	 } 
+  
+ 
+ 	 public function setUSUARIODB($valor) { 
+ 
+ 	 	  $this->USUARIODB = $valor;  
+ 
+ 	 	 return $this;  
+  	 	 } 
+  
+ 
+ 	 public function getPASSWORDDB() { 
+ 
+ 	 	 return $this->PASSWORDDB;  
+  	 	 } 
+  
+ 
+ 	 public function setPASSWORDDB($valor) { 
+ 
+ 	 	  $this->PASSWORDDB = $valor;  
  
  	 	 return $this;  
   	 	 } 

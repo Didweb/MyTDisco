@@ -16,6 +16,21 @@ Existe un fichero con 2 tablas en /app/docs/Docuemntacion/base.sql el cual conti
 
 Este archivo se ha de cargar en la base de datos.
 
+
+# Puesta en marcha
+
+Se han de dar permisos de escritura al directorio /app/tmp
+Y crear el directorio app/cache y darle permisos de escritura
+
+# Configurar conexión a Base de datos
+
+En el archivo /config/config.yml se encuentran 3 Constantes donde configuraremos la conexión:
+
+   * NAMEDB: Donde efinimos el nombre de la Base de datos
+   * USUARIODB: El usuario de la base de datos
+   * PASSWORDDB: Y el password de acceso a la base de datos
+
+
 [1]: Sistema_Locale.md
 [2]: Sistema_seguridad.md
 [3]: Sistema_Configurar_Gestor.md

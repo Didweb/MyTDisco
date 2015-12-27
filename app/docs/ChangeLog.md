@@ -1,6 +1,15 @@
 ChangeLog MyT
 ============
 
+### 3.1.10
+27-12-2015 - Eduard Pinuaga
+
+- Pongo constantes para la conexión a la Base de Datos.
+- Actualización de la documentación.
+- Se ha incluido un archivo con las tablas para las imágenes y el locale de las aplicaciones que son comunes para todas.
+- Actualización de composer.
+
+
 ### 3.1.9
 28-10-2014 - Eduard Pinuaga
 

@@ -1,17 +1,15 @@
 Gestor:
-    tablas: productos,categorias,subcategorias,pedidos
+    tablas: artista,puesto
     n_listados: 1
 
 Campos:
-    productos: id,nombre,slug,idcategorias
-    categorias: id,nombre,idsubcategorias 
-    subcategorias: id,nombre
-    pedidos: id,ref,creacion
+    artista: id,nombreArtistaArtistico
+    puesto: id,nombrePuesto
 
     
     dependientes: productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre
 
-    slugs: productos.slug:nombre
+    slugs: artista.slug:nombreArtistaArtistico
     
     tab_pedidosdetalle: id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string
     tab_pedidos: id|oculto|int,creacion|fechac|fecha,ref|normal|string
@@ -32,7 +30,7 @@ IMG:
     IMGpatron: p,75,50,50,0|m,100,200,100,0|g,100,125,200,1
     IMGdir: src/images/fotos
     IMGdirMuestra: src/images/fotos/m/m_
-    IMGtablas: productos
+    IMGtablas: artistas
 
 
 Anidados:

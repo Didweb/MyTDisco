@@ -1,12 +1,11 @@
 Configuracion:
     TmpUrl: app/tmp/rutas.php
     ConfigUrl: config/rutas.yml
-    OtraRuta: pitosxxx
 
 
     Tip: MyT
 
-    versiongestor: 3.1.9
+    versiongestor: 3.1.10
     creado: Did-web.com
     licencia: GPL3
     cliente: WebCliente.com
@@ -14,14 +13,18 @@ Configuracion:
     webcmyt: https://github.com/Didweb/MyT
     webcreador: http://www.did-web.com
     
-    idiomas: es,ca,en,fr
-    idiomas_gestor: es,ca,en
+    idiomas: es
+    idiomas_gestor: es
     estilo: img
     
-    HOME_dev: http://localhost/MyT/
+    HOME_dev: http://localhost/MyTDisco/
     HOME: http://www.google.com/
     
-    DirRootDev: /var/www/MyT/
+    NAMEDB: MyTDisco
+    USUARIODB: root
+    PASSWORDDB: rasmysql
+    
+    DirRootDev: /var/www/MyTDisco/
     DirRoot: /xx/xx/xx/
     
     Seguridad: 1

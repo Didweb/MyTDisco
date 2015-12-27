@@ -4,21 +4,17 @@
  { 
 
  
- private $tablas = "productos,categorias,subcategorias,pedidos";
+ private $tablas = "artista,puesto";
 
  private $n_listados = "1";
 
- private $productos = "id,nombre,slug,idcategorias";
+ private $artista = "id,nombreArtistaArtistico";
 
- private $categorias = "id,nombre,idsubcategorias";
-
- private $subcategorias = "id,nombre";
-
- private $pedidos = "id,ref,creacion";
+ private $puesto = "id,nombrePuesto";
 
  private $dependientes = "productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre";
 
- private $slugs = "productos.slug:nombre";
+ private $slugs = "artista.slug:nombreArtistaArtistico";
 
  private $tab_pedidosdetalle = "id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string";
 
@@ -44,24 +40,22 @@
 
  private $IMGdirMuestra = "src/images/fotos/m/m_";
 
- private $IMGtablas = "productos";
+ private $IMGtablas = "artistas";
 
  private $Ani_pedidos = "pedidosdetalle,idpedido|idproducto,cantidad";
  
  private $data = array (
   'Gestor' => 
   array (
-    'tablas' => 'productos,categorias,subcategorias,pedidos',
+    'tablas' => 'artista,puesto',
     'n_listados' => 1,
   ),
   'Campos' => 
   array (
-    'productos' => 'id,nombre,slug,idcategorias',
-    'categorias' => 'id,nombre,idsubcategorias',
-    'subcategorias' => 'id,nombre',
-    'pedidos' => 'id,ref,creacion',
+    'artista' => 'id,nombreArtistaArtistico',
+    'puesto' => 'id,nombrePuesto',
     'dependientes' => 'productos.idcategorias:categorias|id|nombre@categorias.idsubcategorias:subcategorias|id|nombre@pedidosdetalle.idproducto:productos|id|nombre',
-    'slugs' => 'productos.slug:nombre',
+    'slugs' => 'artista.slug:nombreArtistaArtistico',
     'tab_pedidosdetalle' => 'id|oculto|int,idpedido|oculto|int,idproducto|depe|int,cantidad|normal|string',
     'tab_pedidos' => 'id|oculto|int,creacion|fechac|fecha,ref|normal|string',
     'tab_productos' => 'id|oculto|int,nombre|nomral|string,idcategorias|depe|int,des|area|string,opciones|select|string,activo|select|int,fecha|date|fecha,slug|oculto|string',
@@ -80,7 +74,7 @@
     'IMGpatron' => 'p,75,50,50,0|m,100,200,100,0|g,100,125,200,1',
     'IMGdir' => 'src/images/fotos',
     'IMGdirMuestra' => 'src/images/fotos/m/m_',
-    'IMGtablas' => 'productos',
+    'IMGtablas' => 'artistas',
   ),
   'Anidados' => 
   array (
@@ -122,57 +116,29 @@
   	 	 } 
   
  
- 	 public function getProductos() { 
+ 	 public function getArtista() { 
  
- 	 	 return $this->productos;  
+ 	 	 return $this->artista;  
   	 	 } 
   
  
- 	 public function setProductos($valor) { 
+ 	 public function setArtista($valor) { 
  
- 	 	  $this->productos = $valor;  
+ 	 	  $this->artista = $valor;  
  
  	 	 return $this;  
   	 	 } 
   
  
- 	 public function getCategorias() { 
+ 	 public function getPuesto() { 
  
- 	 	 return $this->categorias;  
+ 	 	 return $this->puesto;  
   	 	 } 
   
  
- 	 public function setCategorias($valor) { 
+ 	 public function setPuesto($valor) { 
  
- 	 	  $this->categorias = $valor;  
- 
- 	 	 return $this;  
-  	 	 } 
-  
- 
- 	 public function getSubcategorias() { 
- 
- 	 	 return $this->subcategorias;  
-  	 	 } 
-  
- 
- 	 public function setSubcategorias($valor) { 
- 
- 	 	  $this->subcategorias = $valor;  
- 
- 	 	 return $this;  
-  	 	 } 
-  
- 
- 	 public function getPedidos() { 
- 
- 	 	 return $this->pedidos;  
-  	 	 } 
-  
- 
- 	 public function setPedidos($valor) { 
- 
- 	 	  $this->pedidos = $valor;  
+ 	 	  $this->puesto = $valor;  
  
  	 	 return $this;  
   	 	 } 

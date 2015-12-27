@@ -16,7 +16,7 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    RewriteBase /MyTDisco/
+    RewriteBase /MyT/
     RewriteCond %{REQUEST_URI} !^/orox$ 
     RewriteRule ^orox$  http://localhost/MyT/ [R=301,L]
 
