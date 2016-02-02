@@ -6,10 +6,10 @@ Aplicación para el almacenamiento de datos discográficos. Creado a partir del 
 
 ## Qué necesitas tener...
 
-Es una aplicación web sobre uns ervidor creado con PHP y MySQL.
+Es una aplicación web sobre un servidor creado con PHP y MySQL.
 
 
-## Cómo isntalar...
+## Cómo instalar...
 
 Poner en la consola:
 
